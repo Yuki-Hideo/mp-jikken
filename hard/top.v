@@ -16,7 +16,7 @@ module fpga_top (
 	output 	reg	[3:0]	led,
 	output		[7:0]	lcd,
 	output  reg     [7:0]   ioa,
-	//output reg    [7:0]   iob
+	// output reg    [7:0]   iob,
 	output  reg     [3:0]   iob_lo,
 	input           [3:0]   iob_hi
 );
@@ -43,9 +43,10 @@ assign	cs0	= dataadr <  32'hff00;
 assign	cs1	= dataadr == 32'hff04;
 assign	cs2	= dataadr == 32'hff08;
 assign	cs3 = dataadr == 32'hff0c;
+assign	cs5 = dataadr == 32'hff14;
 spi spi (clk_62p5mhz, reset, cs3 && memwrite, writedata[9:0], lcd);
 
-assign  readdata        = cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 : 0;
+assign  readdata        = cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 : cs5 ? readdata5 : 0;
 
 /* Memory module (@125MHz) */
 mem mem (clk_125mhz, reset, cs0 & memwrite, pc[15:2], dataadr[15:2], instr, 
