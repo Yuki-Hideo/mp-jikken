@@ -49,11 +49,11 @@ assign	cs0	= dataadr <  32'hff00;
 assign	cs1	= dataadr == 32'hff04;
 assign	cs2	= dataadr == 32'hff08;
 assign cs3 = dataadr == 32'hff0c;
-assign cs4 = dataadr == 32'hff10;
 assign cs5 = dataadr == 32'hff14;
+assign cs4 = dataadr == 32'hff10;
 assign cs7 = dataadr == 32'hff18;
 
-assign	readdata	= cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 : cs7 ? readdata7 : 0;
+assign	readdata	= cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 :  cs7 ? readdata7 : 0;
 
 /* Memory module (@125MHz) */
 mem mem (clk_125mhz, reset, cs0 & memwrite, pc[15:2], dataadr[15:2], instr, 
