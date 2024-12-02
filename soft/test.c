@@ -13,6 +13,9 @@ void lcd_init();
 void lcd_putc(int y, int x, int c);
 void lcd_sync_vbuf();
 void lcd_clear_vbuf();
+void shot_set();
+int get_shot_position1(int y);
+
 
 #define INIT    0
 #define OPENING 1
@@ -25,27 +28,26 @@ int score1 = 0;
 int score2 = 0;
 int playerCoordinate1 = 0;
 int playerCoordinate2 = 0;
-char field[10][10] = {  {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}  }
-
-char player1Field[10] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
-char player2Field[10] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
-int ballCount1 = 0;
-int ballCount2 = 0;
+unsigned char field[10][10] = { {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'},
+                                {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'} };
+char player1Field[10] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
+char player2Field[10] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
+int shotCount1 = 0;
+int shotCount2 = 0;
 
 
 
 /* interrupt_handler() is called every 100msec */
 void interrupt_handler() {
-        // static int cnt;
+        static int cnt;
         // if (state == INIT) {
         // } else if (state == OPENING) {
         //         cnt = 0;
@@ -60,21 +62,89 @@ void interrupt_handler() {
         // }
         // lcd_sync_vbuf();
 }
-int kypd_scan() {
-        volatile int *iob_ptr = (int *)0xff14;
+
+void shot_set(int y, int inputNumber) {
+        if (inputNumber <= 15) {
+                if(shotCount1 < 3) {
+                        field[y][0] = inputNumber;
+                        shotCount1++;
+                }
+        } else if (inputNumber >= 17) {
+                if(shotCount2 < 3) {
+                        field[y][9] = inputNumber; // kypd_scand()内であらかじめ１６足しておく。
+                        shotCount2++;
+                }
+        }
+}
+
+
+int get_shot_position1(int y) {
+        for(int i = 0; i < 8; i++) {
+                if(field[y][i] >= 1 && field[y][i] <= 15) {
+                        return i;
+                }
+        }
+        
+        return 0;
+}
+
+int get_shot_position2(int y) {
+        for(int i = 0; i < 9; i++) {
+                if(field[y][i] >= 17) {
+                        return i;
+                }
+        }
+        
+        return 0;
+}
+
+void shot_move1(int y, unsigned char shotNumber) {
+        if(field[y][get_shot_position1(y) + 1] == 0) {
+                field[y][get_shot_position1(y) + 1] = field[y][get_shot_position1(y)];
+                field[y][get_shot_position1(y)] = 0;
+        } //　ちがかったら衝突、後で書く 
+}
+
+void shot_move2(int y, unsigned char shotNumber) {
+        if(field[y][get_shot_position1(y) - 1] == 0) {
+                field[y][get_shot_position1(y) - 1] = field[y][get_shot_position1(y)];
+                field[y][get_shot_position1(y)] = 0;
+        } //　ちがかったら衝突、後で書く 
+}
+
+void player1_move() {
+        playerCoordinate1++;
+        playerCoordinate1 %= 10;
+        return;
+}
+
+void player2_move() {
+        playerCoordinate2++;
+        playerCoordinate2 %= 10;
+        return;
+}
+
+void score1_add(int shotNumber) {
+        score1 += shotNumber % 3;
+        return;
+}
+
+void score2_add(int shotNumber) {
+        score2 += shotNumber % 3;
+        return;
+}
+
+int kypd_scand() {
+        volatile int *iob_ptr = (int *)0xff18;
         *iob_ptr = 0x07;                /* 0111 */
         for (int i = 0; i < 1; i++);    /* Wait */
         if ((*iob_ptr & 0x80) == 0) {
-                led_blink();
                 return 0x1;
         }
         if ((*iob_ptr & 0x40) == 0) {
-                led_set(0xff08);
-                led_blink();
                 return 0x4;
         }
         if ((*iob_ptr & 0x20) == 0) {
-                led_set(0xff08);
                 return 0x7;
         }
         if ((*iob_ptr & 0x10) == 0) {
@@ -124,41 +194,154 @@ int kypd_scan() {
         }
         return 0;
 }
+int kypd_scana() {
+        volatile int *iob_ptr = (int *)0xff10;
+        *iob_ptr = 0x07;                /* 0111 */
+        for (int i = 0; i < 1; i++);    /* Wait */
+        if ((*iob_ptr & 0x80) == 0) {
+                return 0x1;
+        }
+        if ((*iob_ptr & 0x40) == 0) {
+                return 0x4;
+        }
+        if ((*iob_ptr & 0x20) == 0) {
+                return 0x7;
+        }
+        if ((*iob_ptr & 0x10) == 0) {
+                return 0x0;
+        }
+        *iob_ptr = 0x0b;                /* 1011 */
+        for (int i = 0; i < 1; i++);    /* Wait */
+        if ((*iob_ptr & 0x80) == 0) {
+                return 0x2;
+        }
+        if ((*iob_ptr & 0x40) == 0) {
+                return 0x5;
+        }
+        if ((*iob_ptr & 0x20) == 0) {
+                return 0x8;
+        }
+        if ((*iob_ptr & 0x10) == 0) {
+                return 0xf;
+        }
+        *iob_ptr = 0x0d;                /* 1101 */
+        for (int i = 0; i < 1; i++);    /* Wait */
+        if ((*iob_ptr & 0x80) == 0) {
+                return 0x3;
+        }
+        if ((*iob_ptr & 0x40) == 0) {
+                return 0x6;
+        }
+        if ((*iob_ptr & 0x20) == 0) {
+                return 0x9;
+        }
+        if ((*iob_ptr & 0x10) == 0) {
+                return 0xe;
+        }
+        *iob_ptr = 0x0e;                /* 1110 */
+        for (int i = 0; i < 1; i++);    /* Wait */
+        if ((*iob_ptr & 0x80) == 0) {
+                return 0xa;
+        }
+        if ((*iob_ptr & 0x40) == 0) {
+                return 0xb;
+        }
+        if ((*iob_ptr & 0x20) == 0) {
+                return 0xc;
+        }
+        if ((*iob_ptr & 0x10) == 0) {
+                return 0xd;
+        }
+        return 0;
+}
+
+// void main() {
+//         volatile int *led_ptr = (int *)0xff08;
+//         while (1) {
+// 	        *led_ptr = kypd_scan();
+//                 // led_set(*led_ptr);
+//         }
+// }
 void main() {
-        volatile int *led_ptr = (int *)0xff08;
         while (1) {
-	        *led_ptr = kypd_scan();
-                // led_set(*led_ptr);
+                if (state == INIT) {
+                        lcd_init();
+                        state = OPENING;
+                } else if (state == OPENING) {
+                        state = PLAY;
+                } else if (state == PLAY) {
+                        play();
+                        state = ENDING;
+                } else if (state == ENDING) {
+                        state = OPENING;
+                }
         }
 }
-// void main() {
-//         while (1) {
-//                 if (state == INIT) {
-//                         lcd_init();
-//                         state = OPENING;
-//                 } else if (state == OPENING) {
-//                         state = PLAY;
-//                 } else if (state == PLAY) {
-//                         play();
-//                         state = ENDING;
-//                 } else if (state == ENDING) {
-//                         state = OPENING;
-//                 }
-//         }
-// }
-// void play() {
-//         while (1) {
-//                 /* Button0 is pushed when the ball is in the left edge */
-//                 if (pos == 0 && btn_check_0()) {
-//                         led_blink();    /* Blink LEDs when hit */
-//                 /* Button3 is pushed when the ball is in the right edge */
-//                 } else if (pos == 11 && btn_check_3()) {
-//                         led_blink();    /* Blink LEDs when hit */
-//                 } else if (btn_check_1()) {
-//                         break;          /* Stop the game */
-//                 }
-//         }
-// }
+void play() {
+        while (1) {
+                // /* Button0 is pushed when the ball is in the left edge */
+                // if (pos == 0 && btn_check_0()) {
+                //         led_blink();    /* Blink LEDs when hit */
+                // /* Button3 is pushed when the ball is in the right edge */
+                // } else if (pos == 11 && btn_check_3()) {
+                //         led_blink();    /* Blink LEDs when hit */
+                // } else if (btn_check_1()) {
+                //         break;          /* Stop the game */
+                // }
+
+                if(kypd_scana() == 0) {
+                        player1_move();
+                } else if(kypd_scana() == 0x1) {
+                        shot_set(playerCoordinate1, 1);
+                } else if(kypd_scana() == 0x2) {
+                        shot_set(playerCoordinate1, 2);
+                } else if(kypd_scana() == 0x3) {
+                        shot_set(playerCoordinate1, 3);
+                } else if(kypd_scana() == 0x4) {
+                        shot_set(playerCoordinate1, 4);
+                } else if(kypd_scana() == 0x5) {
+                        shot_set(playerCoordinate1, 5);
+                } else if(kypd_scana() == 0x6) {
+                        shot_set(playerCoordinate1, 6);
+                } else if(kypd_scana() == 0x7) {
+                        shot_set(playerCoordinate1, 7);
+                } else if(kypd_scana() == 0x8) {
+                        shot_set(playerCoordinate1, 8);
+                } else if(kypd_scana() == 0x9) {
+                        shot_set(playerCoordinate1, 9);
+                } else if(kypd_scana() == 0xa) {
+                        shot_set(playerCoordinate1, 10);
+                } else if(kypd_scana() == 0xb) {
+                        shot_set(playerCoordinate1, 11);
+                } else if(kypd_scana() == 0xc) {
+                        shot_set(playerCoordinate1, 12);
+                } else if(kypd_scana() == 0xd) {
+                        shot_set(playerCoordinate1, 13);
+                } else if(kypd_scana() == 0xe) {
+                        shot_set(playerCoordinate1, 14);
+                } else if(kypd_scana() == 0xf) {
+                        shot_set(playerCoordinate1, 15);
+                }
+
+
+               if(kypd_scand() == 0) { player2_move(); } 
+                else if(kypd_scand() == 0x1) { shot_set(playerCoordinate2, 17); } 
+                else if(kypd_scand() == 0x2) { shot_set(playerCoordinate2, 18); } 
+                else if(kypd_scand() == 0x3) { shot_set(playerCoordinate2, 19); } 
+                else if(kypd_scand() == 0x4) { shot_set(playerCoordinate2, 20); } 
+                else if(kypd_scand() == 0x5) { shot_set(playerCoordinate2, 21); } 
+                else if(kypd_scand() == 0x6) { shot_set(playerCoordinate2, 22); } 
+                else if(kypd_scand() == 0x7) { shot_set(playerCoordinate2, 23); } 
+                else if(kypd_scand() == 0x8) { shot_set(playerCoordinate2, 24); } 
+                else if(kypd_scand() == 0x9) { shot_set(playerCoordinate2, 25); } 
+                else if(kypd_scand() == 0xa) { shot_set(playerCoordinate2, 26); } 
+                else if(kypd_scand() == 0xb) { shot_set(playerCoordinate2, 27); } 
+                else if(kypd_scand() == 0xc) { shot_set(playerCoordinate2, 28); } 
+                else if(kypd_scand() == 0xd) { shot_set(playerCoordinate2, 29); } 
+                else if(kypd_scand() == 0xe) { shot_set(playerCoordinate2, 30); } 
+                else if(kypd_scand() == 0xf) { shot_set(playerCoordinate2, 31); } 
+        }
+}
 void show_ball(int pos) {
         lcd_clear_vbuf();
         lcd_putc(3, pos, '*');
