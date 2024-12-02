@@ -293,6 +293,7 @@ void play() {
                         player1_move();
                 } else if(kypd_scana() == 0x1) {
                         shot_set(playerCoordinate1, 1);
+                        led_set(0xff08);
                 } else if(kypd_scana() == 0x2) {
                         shot_set(playerCoordinate1, 2);
                 } else if(kypd_scana() == 0x3) {
