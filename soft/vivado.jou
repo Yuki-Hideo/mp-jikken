@@ -1,0 +1,36 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Nov 18 11:23:55 2024
+# Process ID: 8671
+# Current directory: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft
+# Command line: vivado
+# Log file: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/vivado.log
+# Journal file: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/vivado.jou
+# Running On: y14c038.educ.cc.keio.ac.jp, OS: Linux, CPU Frequency: 2100.000 MHz, CPU Physical cores: 16, Host memory: 33126 MB
+#-----------------------------------------------------------
+start_gui
+create_project test1 /home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1 -part xc7z010clg400-1
+add_files -norecurse /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/program.dat
+add_files -norecurse {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/parts.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/top.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/mips.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/multdiv.v}
+add_files -fileset constrs_1 -norecurse /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/fpga.xdc
+update_compile_order -fileset sources_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/impl_1/fpga_top.bit} [get_hw_devices xc7z010_1]
+current_hw_device [get_hw_devices xc7z010_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1]
+set_property PROGRAM.FILE {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/impl_1/fpga_top.bit} [get_hw_devices xc7z010_1]
+program_hw_devices [get_hw_devices xc7z010_1]
+refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1

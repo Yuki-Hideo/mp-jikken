@@ -1,0 +1,2685 @@
+
+program.bin:     ファイル形式 elf32-bigmips
+
+
+セクション .text の逆アセンブル:
+
+00000000 <__start__>:
+   0:	3c1d0000 	lui	sp,0x0
+   4:	37bdff00 	ori	sp,sp,0xff00
+   8:	241c0000 	li	gp,0
+   c:	3c1a0200 	lui	k0,0x200
+  10:	375a0101 	ori	k0,k0,0x101
+  14:	409a6000 	mtc0	k0,c0_sr
+  18:	00000000 	nop
+  1c:	00000000 	nop
+
+00000020 <__reset__>:
+  20:	27bdfff0 	addiu	sp,sp,-16
+  24:	afbe000c 	sw	s8,12(sp)
+  28:	03a0f025 	move	s8,sp
+  2c:	3c020000 	lui	v0,0x0
+  30:	244228e8 	addiu	v0,v0,10472
+  34:	afc20000 	sw	v0,0(s8)
+  38:	3c020000 	lui	v0,0x0
+  3c:	244210dc 	addiu	v0,v0,4316
+  40:	1000000c 	b	74 <__reset__+0x54>
+  44:	afc20004 	sw	v0,4(s8)
+  48:	8fc30000 	lw	v1,0(s8)
+  4c:	00000000 	nop
+  50:	24620004 	addiu	v0,v1,4
+  54:	afc20000 	sw	v0,0(s8)
+  58:	8fc20004 	lw	v0,4(s8)
+  5c:	00000000 	nop
+  60:	24440004 	addiu	a0,v0,4
+  64:	afc40004 	sw	a0,4(s8)
+  68:	8c630000 	lw	v1,0(v1)
+  6c:	00000000 	nop
+  70:	ac430000 	sw	v1,0(v0)
+  74:	8fc30004 	lw	v1,4(s8)
+  78:	3c020000 	lui	v0,0x0
+  7c:	244210dc 	addiu	v0,v0,4316
+  80:	0062102b 	sltu	v0,v1,v0
+  84:	1440fff0 	bnez	v0,48 <__reset__+0x28>
+  88:	00000000 	nop
+  8c:	3c020000 	lui	v0,0x0
+  90:	244210dc 	addiu	v0,v0,4316
+  94:	10000008 	b	b8 <__reset__+0x98>
+  98:	afc20004 	sw	v0,4(s8)
+  9c:	8fc20004 	lw	v0,4(s8)
+  a0:	00000000 	nop
+  a4:	ac400000 	sw	zero,0(v0)
+  a8:	8fc20004 	lw	v0,4(s8)
+  ac:	00000000 	nop
+  b0:	24420004 	addiu	v0,v0,4
+  b4:	afc20004 	sw	v0,4(s8)
+  b8:	8fc30004 	lw	v1,4(s8)
+  bc:	3c020000 	lui	v0,0x0
+  c0:	244210e8 	addiu	v0,v0,4328
+  c4:	0062102b 	sltu	v0,v1,v0
+  c8:	1440fff4 	bnez	v0,9c <__reset__+0x7c>
+  cc:	00000000 	nop
+  d0:	0800010d 	j	434 <main>
+  d4:	00000000 	nop
+  d8:	00000000 	nop
+  dc:	03c0e825 	move	sp,s8
+  e0:	8fbe000c 	lw	s8,12(sp)
+  e4:	03e00008 	jr	ra
+  e8:	27bd0010 	addiu	sp,sp,16
+  ec:	00000000 	nop
+  f0:	00000000 	nop
+  f4:	00000000 	nop
+  f8:	00000000 	nop
+  fc:	00000000 	nop
+
+00000100 <__vector__>:
+ 100:	03a0d025 	move	k0,sp
+ 104:	3c1d0000 	lui	sp,0x0
+ 108:	37bdc000 	ori	sp,sp,0xc000
+ 10c:	27bdff80 	addiu	sp,sp,-128
+ 110:	afba007c 	sw	k0,124(sp)
+ 114:	afa10078 	sw	at,120(sp)
+ 118:	afa20074 	sw	v0,116(sp)
+ 11c:	afa30070 	sw	v1,112(sp)
+ 120:	afa4006c 	sw	a0,108(sp)
+ 124:	afa50068 	sw	a1,104(sp)
+ 128:	afa60064 	sw	a2,100(sp)
+ 12c:	afa70060 	sw	a3,96(sp)
+ 130:	afa8005c 	sw	t0,92(sp)
+ 134:	afa90058 	sw	t1,88(sp)
+ 138:	afaa0054 	sw	t2,84(sp)
+ 13c:	afab0050 	sw	t3,80(sp)
+ 140:	afac004c 	sw	t4,76(sp)
+ 144:	afad0048 	sw	t5,72(sp)
+ 148:	afae0044 	sw	t6,68(sp)
+ 14c:	afaf0040 	sw	t7,64(sp)
+ 150:	afb0003c 	sw	s0,60(sp)
+ 154:	afb10038 	sw	s1,56(sp)
+ 158:	afb20034 	sw	s2,52(sp)
+ 15c:	afb30030 	sw	s3,48(sp)
+ 160:	afb4002c 	sw	s4,44(sp)
+ 164:	afb50028 	sw	s5,40(sp)
+ 168:	afb60024 	sw	s6,36(sp)
+ 16c:	afb70020 	sw	s7,32(sp)
+ 170:	afb8001c 	sw	t8,28(sp)
+ 174:	afb90018 	sw	t9,24(sp)
+ 178:	afbc0014 	sw	gp,20(sp)
+ 17c:	afbe0010 	sw	s8,16(sp)
+ 180:	afbf000c 	sw	ra,12(sp)
+ 184:	0c0000ad 	jal	2b4 <interrupt_handler>
+ 188:	00000000 	nop
+ 18c:	8fbf000c 	lw	ra,12(sp)
+ 190:	8fbe0010 	lw	s8,16(sp)
+ 194:	8fbc0014 	lw	gp,20(sp)
+ 198:	8fb90018 	lw	t9,24(sp)
+ 19c:	8fb8001c 	lw	t8,28(sp)
+ 1a0:	8fb70020 	lw	s7,32(sp)
+ 1a4:	8fb60024 	lw	s6,36(sp)
+ 1a8:	8fb50028 	lw	s5,40(sp)
+ 1ac:	8fb4002c 	lw	s4,44(sp)
+ 1b0:	8fb30030 	lw	s3,48(sp)
+ 1b4:	8fb20034 	lw	s2,52(sp)
+ 1b8:	8fb10038 	lw	s1,56(sp)
+ 1bc:	8fb0003c 	lw	s0,60(sp)
+ 1c0:	8faf0040 	lw	t7,64(sp)
+ 1c4:	8fae0044 	lw	t6,68(sp)
+ 1c8:	8fad0048 	lw	t5,72(sp)
+ 1cc:	8fac004c 	lw	t4,76(sp)
+ 1d0:	8fab0050 	lw	t3,80(sp)
+ 1d4:	8faa0054 	lw	t2,84(sp)
+ 1d8:	8fa90058 	lw	t1,88(sp)
+ 1dc:	8fa8005c 	lw	t0,92(sp)
+ 1e0:	8fa70060 	lw	a3,96(sp)
+ 1e4:	8fa60064 	lw	a2,100(sp)
+ 1e8:	8fa50068 	lw	a1,104(sp)
+ 1ec:	8fa4006c 	lw	a0,108(sp)
+ 1f0:	8fa30070 	lw	v1,112(sp)
+ 1f4:	8fa20074 	lw	v0,116(sp)
+ 1f8:	8fa10078 	lw	at,120(sp)
+ 1fc:	8fba007c 	lw	k0,124(sp)
+ 200:	00000000 	nop
+ 204:	0340e825 	move	sp,k0
+ 208:	401b7000 	mfc0	k1,c0_epc
+ 20c:	00000000 	nop
+ 210:	42000010 	c0	0x10
+ 214:	03600008 	jr	k1
+ 218:	00000000 	nop
+ 21c:	00000000 	nop
+
+00000220 <memcpy>:
+ 220:	27bdfff0 	addiu	sp,sp,-16
+ 224:	afbe000c 	sw	s8,12(sp)
+ 228:	03a0f025 	move	s8,sp
+ 22c:	afc40010 	sw	a0,16(s8)
+ 230:	afc50014 	sw	a1,20(s8)
+ 234:	afc60018 	sw	a2,24(s8)
+ 238:	8fc20010 	lw	v0,16(s8)
+ 23c:	00000000 	nop
+ 240:	afc20000 	sw	v0,0(s8)
+ 244:	8fc20014 	lw	v0,20(s8)
+ 248:	00000000 	nop
+ 24c:	afc20004 	sw	v0,4(s8)
+ 250:	1000000c 	b	284 <memcpy+0x64>
+ 254:	00000000 	nop
+ 258:	8fc30004 	lw	v1,4(s8)
+ 25c:	00000000 	nop
+ 260:	24620001 	addiu	v0,v1,1
+ 264:	afc20004 	sw	v0,4(s8)
+ 268:	8fc20000 	lw	v0,0(s8)
+ 26c:	00000000 	nop
+ 270:	24440001 	addiu	a0,v0,1
+ 274:	afc40000 	sw	a0,0(s8)
+ 278:	80630000 	lb	v1,0(v1)
+ 27c:	00000000 	nop
+ 280:	a0430000 	sb	v1,0(v0)
+ 284:	8fc20018 	lw	v0,24(s8)
+ 288:	00000000 	nop
+ 28c:	2443ffff 	addiu	v1,v0,-1
+ 290:	afc30018 	sw	v1,24(s8)
+ 294:	1440fff0 	bnez	v0,258 <memcpy+0x38>
+ 298:	00000000 	nop
+ 29c:	8fc20010 	lw	v0,16(s8)
+ 2a0:	03c0e825 	move	sp,s8
+ 2a4:	8fbe000c 	lw	s8,12(sp)
+ 2a8:	27bd0010 	addiu	sp,sp,16
+ 2ac:	03e00008 	jr	ra
+ 2b0:	00000000 	nop
+
+000002b4 <interrupt_handler>:
+ 2b4:	27bdffe8 	addiu	sp,sp,-24
+ 2b8:	afbf0014 	sw	ra,20(sp)
+ 2bc:	afbe0010 	sw	s8,16(sp)
+ 2c0:	03a0f025 	move	s8,sp
+ 2c4:	3c020000 	lui	v0,0x0
+ 2c8:	8c4210dc 	lw	v0,4316(v0)
+ 2cc:	00000000 	nop
+ 2d0:	10400033 	beqz	v0,3a0 <interrupt_handler+0xec>
+ 2d4:	00000000 	nop
+ 2d8:	3c020000 	lui	v0,0x0
+ 2dc:	8c4310dc 	lw	v1,4316(v0)
+ 2e0:	24020001 	li	v0,1
+ 2e4:	14620005 	bne	v1,v0,2fc <interrupt_handler+0x48>
+ 2e8:	00000000 	nop
+ 2ec:	3c020000 	lui	v0,0x0
+ 2f0:	ac4010e4 	sw	zero,4324(v0)
+ 2f4:	1000002a 	b	3a0 <interrupt_handler+0xec>
+ 2f8:	00000000 	nop
+ 2fc:	3c020000 	lui	v0,0x0
+ 300:	8c4310dc 	lw	v1,4316(v0)
+ 304:	24020002 	li	v0,2
+ 308:	14620025 	bne	v1,v0,3a0 <interrupt_handler+0xec>
+ 30c:	00000000 	nop
+ 310:	3c020000 	lui	v0,0x0
+ 314:	8c4210e4 	lw	v0,4324(v0)
+ 318:	00000000 	nop
+ 31c:	2842000c 	slti	v0,v0,12
+ 320:	14400007 	bnez	v0,340 <interrupt_handler+0x8c>
+ 324:	00000000 	nop
+ 328:	3c020000 	lui	v0,0x0
+ 32c:	8c4210e4 	lw	v0,4324(v0)
+ 330:	24030017 	li	v1,23
+ 334:	00621023 	subu	v0,v1,v0
+ 338:	10000003 	b	348 <interrupt_handler+0x94>
+ 33c:	00000000 	nop
+ 340:	3c020000 	lui	v0,0x0
+ 344:	8c4210e4 	lw	v0,4324(v0)
+ 348:	3c030000 	lui	v1,0x0
+ 34c:	ac6210e0 	sw	v0,4320(v1)
+ 350:	3c020000 	lui	v0,0x0
+ 354:	8c4210e0 	lw	v0,4320(v0)
+ 358:	00000000 	nop
+ 35c:	00402025 	move	a0,v0
+ 360:	0c000147 	jal	51c <show_ball>
+ 364:	00000000 	nop
+ 368:	3c020000 	lui	v0,0x0
+ 36c:	8c4210e4 	lw	v0,4324(v0)
+ 370:	00000000 	nop
+ 374:	24430001 	addiu	v1,v0,1
+ 378:	3c020000 	lui	v0,0x0
+ 37c:	ac4310e4 	sw	v1,4324(v0)
+ 380:	3c020000 	lui	v0,0x0
+ 384:	8c4210e4 	lw	v0,4324(v0)
+ 388:	00000000 	nop
+ 38c:	28420018 	slti	v0,v0,24
+ 390:	14400003 	bnez	v0,3a0 <interrupt_handler+0xec>
+ 394:	00000000 	nop
+ 398:	3c020000 	lui	v0,0x0
+ 39c:	ac4010e4 	sw	zero,4324(v0)
+ 3a0:	0c0002c5 	jal	b14 <lcd_sync_vbuf>
+ 3a4:	00000000 	nop
+ 3a8:	00000000 	nop
+ 3ac:	03c0e825 	move	sp,s8
+ 3b0:	8fbf0014 	lw	ra,20(sp)
+ 3b4:	8fbe0010 	lw	s8,16(sp)
+ 3b8:	27bd0018 	addiu	sp,sp,24
+ 3bc:	03e00008 	jr	ra
+ 3c0:	00000000 	nop
+
+000003c4 <kypd_scan>:
+ 3c4:	27bdfff0 	addiu	sp,sp,-16
+ 3c8:	afbe000c 	sw	s8,12(sp)
+ 3cc:	03a0f025 	move	s8,sp
+ 3d0:	3402ff14 	li	v0,0xff14
+ 3d4:	afc20004 	sw	v0,4(s8)
+ 3d8:	8fc20004 	lw	v0,4(s8)
+ 3dc:	24030007 	li	v1,7
+ 3e0:	ac430000 	sw	v1,0(v0)
+ 3e4:	afc00000 	sw	zero,0(s8)
+ 3e8:	10000005 	b	400 <kypd_scan+0x3c>
+ 3ec:	00000000 	nop
+ 3f0:	8fc20000 	lw	v0,0(s8)
+ 3f4:	00000000 	nop
+ 3f8:	24420001 	addiu	v0,v0,1
+ 3fc:	afc20000 	sw	v0,0(s8)
+ 400:	8fc20000 	lw	v0,0(s8)
+ 404:	00000000 	nop
+ 408:	1840fff9 	blez	v0,3f0 <kypd_scan+0x2c>
+ 40c:	00000000 	nop
+ 410:	8fc20004 	lw	v0,4(s8)
+ 414:	00000000 	nop
+ 418:	8c420000 	lw	v0,0(v0)
+ 41c:	24020001 	li	v0,1
+ 420:	03c0e825 	move	sp,s8
+ 424:	8fbe000c 	lw	s8,12(sp)
+ 428:	27bd0010 	addiu	sp,sp,16
+ 42c:	03e00008 	jr	ra
+ 430:	00000000 	nop
+
+00000434 <main>:
+ 434:	27bdffe0 	addiu	sp,sp,-32
+ 438:	afbf001c 	sw	ra,28(sp)
+ 43c:	afbe0018 	sw	s8,24(sp)
+ 440:	03a0f025 	move	s8,sp
+ 444:	3402ff08 	li	v0,0xff08
+ 448:	afc20010 	sw	v0,16(s8)
+ 44c:	0c0000f1 	jal	3c4 <kypd_scan>
+ 450:	00000000 	nop
+ 454:	00401825 	move	v1,v0
+ 458:	8fc20010 	lw	v0,16(s8)
+ 45c:	00000000 	nop
+ 460:	ac430000 	sw	v1,0(v0)
+ 464:	1000fff9 	b	44c <main+0x18>
+ 468:	00000000 	nop
+
+0000046c <play>:
+ 46c:	27bdffe8 	addiu	sp,sp,-24
+ 470:	afbf0014 	sw	ra,20(sp)
+ 474:	afbe0010 	sw	s8,16(sp)
+ 478:	03a0f025 	move	s8,sp
+ 47c:	3c020000 	lui	v0,0x0
+ 480:	8c4210e0 	lw	v0,4320(v0)
+ 484:	00000000 	nop
+ 488:	14400009 	bnez	v0,4b0 <play+0x44>
+ 48c:	00000000 	nop
+ 490:	0c00015a 	jal	568 <btn_check_0>
+ 494:	00000000 	nop
+ 498:	10400005 	beqz	v0,4b0 <play+0x44>
+ 49c:	00000000 	nop
+ 4a0:	0c00019d 	jal	674 <led_blink>
+ 4a4:	00000000 	nop
+ 4a8:	10000012 	b	4f4 <play+0x88>
+ 4ac:	00000000 	nop
+ 4b0:	3c020000 	lui	v0,0x0
+ 4b4:	8c4310e0 	lw	v1,4320(v0)
+ 4b8:	2402000b 	li	v0,11
+ 4bc:	14620009 	bne	v1,v0,4e4 <play+0x78>
+ 4c0:	00000000 	nop
+ 4c4:	0c00017c 	jal	5f0 <btn_check_3>
+ 4c8:	00000000 	nop
+ 4cc:	10400005 	beqz	v0,4e4 <play+0x78>
+ 4d0:	00000000 	nop
+ 4d4:	0c00019d 	jal	674 <led_blink>
+ 4d8:	00000000 	nop
+ 4dc:	10000005 	b	4f4 <play+0x88>
+ 4e0:	00000000 	nop
+ 4e4:	0c00016b 	jal	5ac <btn_check_1>
+ 4e8:	00000000 	nop
+ 4ec:	14400003 	bnez	v0,4fc <play+0x90>
+ 4f0:	00000000 	nop
+ 4f4:	1000ffe1 	b	47c <play+0x10>
+ 4f8:	00000000 	nop
+ 4fc:	00000000 	nop
+ 500:	00000000 	nop
+ 504:	03c0e825 	move	sp,s8
+ 508:	8fbf0014 	lw	ra,20(sp)
+ 50c:	8fbe0010 	lw	s8,16(sp)
+ 510:	27bd0018 	addiu	sp,sp,24
+ 514:	03e00008 	jr	ra
+ 518:	00000000 	nop
+
+0000051c <show_ball>:
+ 51c:	27bdffe8 	addiu	sp,sp,-24
+ 520:	afbf0014 	sw	ra,20(sp)
+ 524:	afbe0010 	sw	s8,16(sp)
+ 528:	03a0f025 	move	s8,sp
+ 52c:	afc40018 	sw	a0,24(s8)
+ 530:	0c000297 	jal	a5c <lcd_clear_vbuf>
+ 534:	00000000 	nop
+ 538:	2406002a 	li	a2,42
+ 53c:	8fc50018 	lw	a1,24(s8)
+ 540:	24040003 	li	a0,3
+ 544:	0c0002f9 	jal	be4 <lcd_putc>
+ 548:	00000000 	nop
+ 54c:	00000000 	nop
+ 550:	03c0e825 	move	sp,s8
+ 554:	8fbf0014 	lw	ra,20(sp)
+ 558:	8fbe0010 	lw	s8,16(sp)
+ 55c:	27bd0018 	addiu	sp,sp,24
+ 560:	03e00008 	jr	ra
+ 564:	00000000 	nop
+
+00000568 <btn_check_0>:
+ 568:	27bdfff0 	addiu	sp,sp,-16
+ 56c:	afbe000c 	sw	s8,12(sp)
+ 570:	03a0f025 	move	s8,sp
+ 574:	3402ff04 	li	v0,0xff04
+ 578:	afc20000 	sw	v0,0(s8)
+ 57c:	8fc20000 	lw	v0,0(s8)
+ 580:	00000000 	nop
+ 584:	8c420000 	lw	v0,0(v0)
+ 588:	00000000 	nop
+ 58c:	30420010 	andi	v0,v0,0x10
+ 590:	0002102b 	sltu	v0,zero,v0
+ 594:	304200ff 	andi	v0,v0,0xff
+ 598:	03c0e825 	move	sp,s8
+ 59c:	8fbe000c 	lw	s8,12(sp)
+ 5a0:	27bd0010 	addiu	sp,sp,16
+ 5a4:	03e00008 	jr	ra
+ 5a8:	00000000 	nop
+
+000005ac <btn_check_1>:
+ 5ac:	27bdfff0 	addiu	sp,sp,-16
+ 5b0:	afbe000c 	sw	s8,12(sp)
+ 5b4:	03a0f025 	move	s8,sp
+ 5b8:	3402ff04 	li	v0,0xff04
+ 5bc:	afc20000 	sw	v0,0(s8)
+ 5c0:	8fc20000 	lw	v0,0(s8)
+ 5c4:	00000000 	nop
+ 5c8:	8c420000 	lw	v0,0(v0)
+ 5cc:	00000000 	nop
+ 5d0:	30420020 	andi	v0,v0,0x20
+ 5d4:	0002102b 	sltu	v0,zero,v0
+ 5d8:	304200ff 	andi	v0,v0,0xff
+ 5dc:	03c0e825 	move	sp,s8
+ 5e0:	8fbe000c 	lw	s8,12(sp)
+ 5e4:	27bd0010 	addiu	sp,sp,16
+ 5e8:	03e00008 	jr	ra
+ 5ec:	00000000 	nop
+
+000005f0 <btn_check_3>:
+ 5f0:	27bdfff0 	addiu	sp,sp,-16
+ 5f4:	afbe000c 	sw	s8,12(sp)
+ 5f8:	03a0f025 	move	s8,sp
+ 5fc:	3402ff04 	li	v0,0xff04
+ 600:	afc20000 	sw	v0,0(s8)
+ 604:	8fc20000 	lw	v0,0(s8)
+ 608:	00000000 	nop
+ 60c:	8c420000 	lw	v0,0(v0)
+ 610:	00000000 	nop
+ 614:	30420080 	andi	v0,v0,0x80
+ 618:	0002102b 	sltu	v0,zero,v0
+ 61c:	304200ff 	andi	v0,v0,0xff
+ 620:	03c0e825 	move	sp,s8
+ 624:	8fbe000c 	lw	s8,12(sp)
+ 628:	27bd0010 	addiu	sp,sp,16
+ 62c:	03e00008 	jr	ra
+ 630:	00000000 	nop
+
+00000634 <led_set>:
+ 634:	27bdfff0 	addiu	sp,sp,-16
+ 638:	afbe000c 	sw	s8,12(sp)
+ 63c:	03a0f025 	move	s8,sp
+ 640:	afc40010 	sw	a0,16(s8)
+ 644:	3402ff08 	li	v0,0xff08
+ 648:	afc20000 	sw	v0,0(s8)
+ 64c:	8fc20000 	lw	v0,0(s8)
+ 650:	8fc30010 	lw	v1,16(s8)
+ 654:	00000000 	nop
+ 658:	ac430000 	sw	v1,0(v0)
+ 65c:	00000000 	nop
+ 660:	03c0e825 	move	sp,s8
+ 664:	8fbe000c 	lw	s8,12(sp)
+ 668:	27bd0010 	addiu	sp,sp,16
+ 66c:	03e00008 	jr	ra
+ 670:	00000000 	nop
+
+00000674 <led_blink>:
+ 674:	27bdffd8 	addiu	sp,sp,-40
+ 678:	afbf0024 	sw	ra,36(sp)
+ 67c:	afbe0020 	sw	s8,32(sp)
+ 680:	03a0f025 	move	s8,sp
+ 684:	2404000f 	li	a0,15
+ 688:	0c00018d 	jal	634 <led_set>
+ 68c:	00000000 	nop
+ 690:	afc00010 	sw	zero,16(s8)
+ 694:	10000005 	b	6ac <led_blink+0x38>
+ 698:	00000000 	nop
+ 69c:	8fc20010 	lw	v0,16(s8)
+ 6a0:	00000000 	nop
+ 6a4:	24420001 	addiu	v0,v0,1
+ 6a8:	afc20010 	sw	v0,16(s8)
+ 6ac:	8fc30010 	lw	v1,16(s8)
+ 6b0:	3c020004 	lui	v0,0x4
+ 6b4:	344293e0 	ori	v0,v0,0x93e0
+ 6b8:	0062102a 	slt	v0,v1,v0
+ 6bc:	1440fff7 	bnez	v0,69c <led_blink+0x28>
+ 6c0:	00000000 	nop
+ 6c4:	00002025 	move	a0,zero
+ 6c8:	0c00018d 	jal	634 <led_set>
+ 6cc:	00000000 	nop
+ 6d0:	afc00014 	sw	zero,20(s8)
+ 6d4:	10000005 	b	6ec <led_blink+0x78>
+ 6d8:	00000000 	nop
+ 6dc:	8fc20014 	lw	v0,20(s8)
+ 6e0:	00000000 	nop
+ 6e4:	24420001 	addiu	v0,v0,1
+ 6e8:	afc20014 	sw	v0,20(s8)
+ 6ec:	8fc30014 	lw	v1,20(s8)
+ 6f0:	3c020004 	lui	v0,0x4
+ 6f4:	344293e0 	ori	v0,v0,0x93e0
+ 6f8:	0062102a 	slt	v0,v1,v0
+ 6fc:	1440fff7 	bnez	v0,6dc <led_blink+0x68>
+ 700:	00000000 	nop
+ 704:	2404000f 	li	a0,15
+ 708:	0c00018d 	jal	634 <led_set>
+ 70c:	00000000 	nop
+ 710:	afc00018 	sw	zero,24(s8)
+ 714:	10000005 	b	72c <led_blink+0xb8>
+ 718:	00000000 	nop
+ 71c:	8fc20018 	lw	v0,24(s8)
+ 720:	00000000 	nop
+ 724:	24420001 	addiu	v0,v0,1
+ 728:	afc20018 	sw	v0,24(s8)
+ 72c:	8fc30018 	lw	v1,24(s8)
+ 730:	3c020004 	lui	v0,0x4
+ 734:	344293e0 	ori	v0,v0,0x93e0
+ 738:	0062102a 	slt	v0,v1,v0
+ 73c:	1440fff7 	bnez	v0,71c <led_blink+0xa8>
+ 740:	00000000 	nop
+ 744:	00002025 	move	a0,zero
+ 748:	0c00018d 	jal	634 <led_set>
+ 74c:	00000000 	nop
+ 750:	00000000 	nop
+ 754:	03c0e825 	move	sp,s8
+ 758:	8fbf0024 	lw	ra,36(sp)
+ 75c:	8fbe0020 	lw	s8,32(sp)
+ 760:	27bd0028 	addiu	sp,sp,40
+ 764:	03e00008 	jr	ra
+ 768:	00000000 	nop
+
+0000076c <lcd_wait>:
+ 76c:	27bdfff0 	addiu	sp,sp,-16
+ 770:	afbe000c 	sw	s8,12(sp)
+ 774:	03a0f025 	move	s8,sp
+ 778:	afc40010 	sw	a0,16(s8)
+ 77c:	afc00000 	sw	zero,0(s8)
+ 780:	10000005 	b	798 <lcd_wait+0x2c>
+ 784:	00000000 	nop
+ 788:	8fc20000 	lw	v0,0(s8)
+ 78c:	00000000 	nop
+ 790:	24420001 	addiu	v0,v0,1
+ 794:	afc20000 	sw	v0,0(s8)
+ 798:	8fc30000 	lw	v1,0(s8)
+ 79c:	8fc20010 	lw	v0,16(s8)
+ 7a0:	00000000 	nop
+ 7a4:	0062102a 	slt	v0,v1,v0
+ 7a8:	1440fff7 	bnez	v0,788 <lcd_wait+0x1c>
+ 7ac:	00000000 	nop
+ 7b0:	00000000 	nop
+ 7b4:	03c0e825 	move	sp,s8
+ 7b8:	8fbe000c 	lw	s8,12(sp)
+ 7bc:	27bd0010 	addiu	sp,sp,16
+ 7c0:	03e00008 	jr	ra
+ 7c4:	00000000 	nop
+
+000007c8 <lcd_cmd>:
+ 7c8:	27bdffe0 	addiu	sp,sp,-32
+ 7cc:	afbf001c 	sw	ra,28(sp)
+ 7d0:	afbe0018 	sw	s8,24(sp)
+ 7d4:	03a0f025 	move	s8,sp
+ 7d8:	00801025 	move	v0,a0
+ 7dc:	a3c20020 	sb	v0,32(s8)
+ 7e0:	3402ff0c 	li	v0,0xff0c
+ 7e4:	afc20010 	sw	v0,16(s8)
+ 7e8:	93c30020 	lbu	v1,32(s8)
+ 7ec:	8fc20010 	lw	v0,16(s8)
+ 7f0:	00000000 	nop
+ 7f4:	ac430000 	sw	v1,0(v0)
+ 7f8:	240403e8 	li	a0,1000
+ 7fc:	0c0001db 	jal	76c <lcd_wait>
+ 800:	00000000 	nop
+ 804:	00000000 	nop
+ 808:	03c0e825 	move	sp,s8
+ 80c:	8fbf001c 	lw	ra,28(sp)
+ 810:	8fbe0018 	lw	s8,24(sp)
+ 814:	27bd0020 	addiu	sp,sp,32
+ 818:	03e00008 	jr	ra
+ 81c:	00000000 	nop
+
+00000820 <lcd_data>:
+ 820:	27bdffe0 	addiu	sp,sp,-32
+ 824:	afbf001c 	sw	ra,28(sp)
+ 828:	afbe0018 	sw	s8,24(sp)
+ 82c:	03a0f025 	move	s8,sp
+ 830:	00801025 	move	v0,a0
+ 834:	a3c20020 	sb	v0,32(s8)
+ 838:	3402ff0c 	li	v0,0xff0c
+ 83c:	afc20010 	sw	v0,16(s8)
+ 840:	93c20020 	lbu	v0,32(s8)
+ 844:	00000000 	nop
+ 848:	34430100 	ori	v1,v0,0x100
+ 84c:	8fc20010 	lw	v0,16(s8)
+ 850:	00000000 	nop
+ 854:	ac430000 	sw	v1,0(v0)
+ 858:	240400c8 	li	a0,200
+ 85c:	0c0001db 	jal	76c <lcd_wait>
+ 860:	00000000 	nop
+ 864:	00000000 	nop
+ 868:	03c0e825 	move	sp,s8
+ 86c:	8fbf001c 	lw	ra,28(sp)
+ 870:	8fbe0018 	lw	s8,24(sp)
+ 874:	27bd0020 	addiu	sp,sp,32
+ 878:	03e00008 	jr	ra
+ 87c:	00000000 	nop
+
+00000880 <lcd_pwr_on>:
+ 880:	27bdffe0 	addiu	sp,sp,-32
+ 884:	afbf001c 	sw	ra,28(sp)
+ 888:	afbe0018 	sw	s8,24(sp)
+ 88c:	03a0f025 	move	s8,sp
+ 890:	3402ff0c 	li	v0,0xff0c
+ 894:	afc20010 	sw	v0,16(s8)
+ 898:	8fc20010 	lw	v0,16(s8)
+ 89c:	24030200 	li	v1,512
+ 8a0:	ac430000 	sw	v1,0(v0)
+ 8a4:	3c02000a 	lui	v0,0xa
+ 8a8:	3444ae60 	ori	a0,v0,0xae60
+ 8ac:	0c0001db 	jal	76c <lcd_wait>
+ 8b0:	00000000 	nop
+ 8b4:	00000000 	nop
+ 8b8:	03c0e825 	move	sp,s8
+ 8bc:	8fbf001c 	lw	ra,28(sp)
+ 8c0:	8fbe0018 	lw	s8,24(sp)
+ 8c4:	27bd0020 	addiu	sp,sp,32
+ 8c8:	03e00008 	jr	ra
+ 8cc:	00000000 	nop
+
+000008d0 <lcd_init>:
+ 8d0:	27bdffe8 	addiu	sp,sp,-24
+ 8d4:	afbf0014 	sw	ra,20(sp)
+ 8d8:	afbe0010 	sw	s8,16(sp)
+ 8dc:	03a0f025 	move	s8,sp
+ 8e0:	0c000220 	jal	880 <lcd_pwr_on>
+ 8e4:	00000000 	nop
+ 8e8:	240400a0 	li	a0,160
+ 8ec:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 8f0:	00000000 	nop
+ 8f4:	24040020 	li	a0,32
+ 8f8:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 8fc:	00000000 	nop
+ 900:	24040015 	li	a0,21
+ 904:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 908:	00000000 	nop
+ 90c:	00002025 	move	a0,zero
+ 910:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 914:	00000000 	nop
+ 918:	2404005f 	li	a0,95
+ 91c:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 920:	00000000 	nop
+ 924:	24040075 	li	a0,117
+ 928:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 92c:	00000000 	nop
+ 930:	00002025 	move	a0,zero
+ 934:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 938:	00000000 	nop
+ 93c:	2404003f 	li	a0,63
+ 940:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 944:	00000000 	nop
+ 948:	240400af 	li	a0,175
+ 94c:	0c0001f2 	jal	7c8 <lcd_cmd>
+ 950:	00000000 	nop
+ 954:	00000000 	nop
+ 958:	03c0e825 	move	sp,s8
+ 95c:	8fbf0014 	lw	ra,20(sp)
+ 960:	8fbe0010 	lw	s8,16(sp)
+ 964:	27bd0018 	addiu	sp,sp,24
+ 968:	03e00008 	jr	ra
+ 96c:	00000000 	nop
+
+00000970 <lcd_set_vbuf_pixel>:
+ 970:	27bdfff8 	addiu	sp,sp,-8
+ 974:	afbe0004 	sw	s8,4(sp)
+ 978:	03a0f025 	move	s8,sp
+ 97c:	afc40008 	sw	a0,8(s8)
+ 980:	afc5000c 	sw	a1,12(s8)
+ 984:	afc60010 	sw	a2,16(s8)
+ 988:	afc70014 	sw	a3,20(s8)
+ 98c:	8fc20010 	lw	v0,16(s8)
+ 990:	00000000 	nop
+ 994:	00021143 	sra	v0,v0,0x5
+ 998:	afc20010 	sw	v0,16(s8)
+ 99c:	8fc20014 	lw	v0,20(s8)
+ 9a0:	00000000 	nop
+ 9a4:	00021143 	sra	v0,v0,0x5
+ 9a8:	afc20014 	sw	v0,20(s8)
+ 9ac:	8fc20018 	lw	v0,24(s8)
+ 9b0:	00000000 	nop
+ 9b4:	00021183 	sra	v0,v0,0x6
+ 9b8:	afc20018 	sw	v0,24(s8)
+ 9bc:	8fc20010 	lw	v0,16(s8)
+ 9c0:	00000000 	nop
+ 9c4:	00021140 	sll	v0,v0,0x5
+ 9c8:	00021e00 	sll	v1,v0,0x18
+ 9cc:	00031e03 	sra	v1,v1,0x18
+ 9d0:	8fc20014 	lw	v0,20(s8)
+ 9d4:	00000000 	nop
+ 9d8:	00021080 	sll	v0,v0,0x2
+ 9dc:	00021600 	sll	v0,v0,0x18
+ 9e0:	00021603 	sra	v0,v0,0x18
+ 9e4:	00621025 	or	v0,v1,v0
+ 9e8:	00021e00 	sll	v1,v0,0x18
+ 9ec:	00031e03 	sra	v1,v1,0x18
+ 9f0:	8fc20018 	lw	v0,24(s8)
+ 9f4:	00000000 	nop
+ 9f8:	00021600 	sll	v0,v0,0x18
+ 9fc:	00021603 	sra	v0,v0,0x18
+ a00:	00621025 	or	v0,v1,v0
+ a04:	00021600 	sll	v0,v0,0x18
+ a08:	00021603 	sra	v0,v0,0x18
+ a0c:	304400ff 	andi	a0,v0,0xff
+ a10:	3c050000 	lui	a1,0x0
+ a14:	8fc30008 	lw	v1,8(s8)
+ a18:	00000000 	nop
+ a1c:	00601025 	move	v0,v1
+ a20:	00021040 	sll	v0,v0,0x1
+ a24:	00431021 	addu	v0,v0,v1
+ a28:	00021140 	sll	v0,v0,0x5
+ a2c:	24a310e8 	addiu	v1,a1,4328
+ a30:	00431821 	addu	v1,v0,v1
+ a34:	8fc2000c 	lw	v0,12(s8)
+ a38:	00000000 	nop
+ a3c:	00621021 	addu	v0,v1,v0
+ a40:	a0440000 	sb	a0,0(v0)
+ a44:	00000000 	nop
+ a48:	03c0e825 	move	sp,s8
+ a4c:	8fbe0004 	lw	s8,4(sp)
+ a50:	27bd0008 	addiu	sp,sp,8
+ a54:	03e00008 	jr	ra
+ a58:	00000000 	nop
+
+00000a5c <lcd_clear_vbuf>:
+ a5c:	27bdfff0 	addiu	sp,sp,-16
+ a60:	afbe000c 	sw	s8,12(sp)
+ a64:	03a0f025 	move	s8,sp
+ a68:	afc00000 	sw	zero,0(s8)
+ a6c:	1000001e 	b	ae8 <lcd_clear_vbuf+0x8c>
+ a70:	00000000 	nop
+ a74:	afc00004 	sw	zero,4(s8)
+ a78:	10000012 	b	ac4 <lcd_clear_vbuf+0x68>
+ a7c:	00000000 	nop
+ a80:	3c040000 	lui	a0,0x0
+ a84:	8fc30000 	lw	v1,0(s8)
+ a88:	00000000 	nop
+ a8c:	00601025 	move	v0,v1
+ a90:	00021040 	sll	v0,v0,0x1
+ a94:	00431021 	addu	v0,v0,v1
+ a98:	00021140 	sll	v0,v0,0x5
+ a9c:	248310e8 	addiu	v1,a0,4328
+ aa0:	00431821 	addu	v1,v0,v1
+ aa4:	8fc20004 	lw	v0,4(s8)
+ aa8:	00000000 	nop
+ aac:	00621021 	addu	v0,v1,v0
+ ab0:	a0400000 	sb	zero,0(v0)
+ ab4:	8fc20004 	lw	v0,4(s8)
+ ab8:	00000000 	nop
+ abc:	24420001 	addiu	v0,v0,1
+ ac0:	afc20004 	sw	v0,4(s8)
+ ac4:	8fc20004 	lw	v0,4(s8)
+ ac8:	00000000 	nop
+ acc:	28420060 	slti	v0,v0,96
+ ad0:	1440ffeb 	bnez	v0,a80 <lcd_clear_vbuf+0x24>
+ ad4:	00000000 	nop
+ ad8:	8fc20000 	lw	v0,0(s8)
+ adc:	00000000 	nop
+ ae0:	24420001 	addiu	v0,v0,1
+ ae4:	afc20000 	sw	v0,0(s8)
+ ae8:	8fc20000 	lw	v0,0(s8)
+ aec:	00000000 	nop
+ af0:	28420040 	slti	v0,v0,64
+ af4:	1440ffdf 	bnez	v0,a74 <lcd_clear_vbuf+0x18>
+ af8:	00000000 	nop
+ afc:	00000000 	nop
+ b00:	03c0e825 	move	sp,s8
+ b04:	8fbe000c 	lw	s8,12(sp)
+ b08:	27bd0010 	addiu	sp,sp,16
+ b0c:	03e00008 	jr	ra
+ b10:	00000000 	nop
+
+00000b14 <lcd_sync_vbuf>:
+ b14:	27bdffe0 	addiu	sp,sp,-32
+ b18:	afbf001c 	sw	ra,28(sp)
+ b1c:	afbe0018 	sw	s8,24(sp)
+ b20:	03a0f025 	move	s8,sp
+ b24:	afc00010 	sw	zero,16(s8)
+ b28:	10000022 	b	bb4 <lcd_sync_vbuf+0xa0>
+ b2c:	00000000 	nop
+ b30:	afc00014 	sw	zero,20(s8)
+ b34:	10000016 	b	b90 <lcd_sync_vbuf+0x7c>
+ b38:	00000000 	nop
+ b3c:	3c040000 	lui	a0,0x0
+ b40:	8fc30010 	lw	v1,16(s8)
+ b44:	00000000 	nop
+ b48:	00601025 	move	v0,v1
+ b4c:	00021040 	sll	v0,v0,0x1
+ b50:	00431021 	addu	v0,v0,v1
+ b54:	00021140 	sll	v0,v0,0x5
+ b58:	248310e8 	addiu	v1,a0,4328
+ b5c:	00431821 	addu	v1,v0,v1
+ b60:	8fc20014 	lw	v0,20(s8)
+ b64:	00000000 	nop
+ b68:	00621021 	addu	v0,v1,v0
+ b6c:	90420000 	lbu	v0,0(v0)
+ b70:	00000000 	nop
+ b74:	00402025 	move	a0,v0
+ b78:	0c000208 	jal	820 <lcd_data>
+ b7c:	00000000 	nop
+ b80:	8fc20014 	lw	v0,20(s8)
+ b84:	00000000 	nop
+ b88:	24420001 	addiu	v0,v0,1
+ b8c:	afc20014 	sw	v0,20(s8)
+ b90:	8fc20014 	lw	v0,20(s8)
+ b94:	00000000 	nop
+ b98:	28420060 	slti	v0,v0,96
+ b9c:	1440ffe7 	bnez	v0,b3c <lcd_sync_vbuf+0x28>
+ ba0:	00000000 	nop
+ ba4:	8fc20010 	lw	v0,16(s8)
+ ba8:	00000000 	nop
+ bac:	24420001 	addiu	v0,v0,1
+ bb0:	afc20010 	sw	v0,16(s8)
+ bb4:	8fc20010 	lw	v0,16(s8)
+ bb8:	00000000 	nop
+ bbc:	28420040 	slti	v0,v0,64
+ bc0:	1440ffdb 	bnez	v0,b30 <lcd_sync_vbuf+0x1c>
+ bc4:	00000000 	nop
+ bc8:	00000000 	nop
+ bcc:	03c0e825 	move	sp,s8
+ bd0:	8fbf001c 	lw	ra,28(sp)
+ bd4:	8fbe0018 	lw	s8,24(sp)
+ bd8:	27bd0020 	addiu	sp,sp,32
+ bdc:	03e00008 	jr	ra
+ be0:	00000000 	nop
+
+00000be4 <lcd_putc>:
+ be4:	27bdffd8 	addiu	sp,sp,-40
+ be8:	afbf0024 	sw	ra,36(sp)
+ bec:	afbe0020 	sw	s8,32(sp)
+ bf0:	03a0f025 	move	s8,sp
+ bf4:	afc40028 	sw	a0,40(s8)
+ bf8:	afc5002c 	sw	a1,44(s8)
+ bfc:	afc60030 	sw	a2,48(s8)
+ c00:	afc00018 	sw	zero,24(s8)
+ c04:	10000036 	b	ce0 <lcd_putc+0xfc>
+ c08:	00000000 	nop
+ c0c:	afc0001c 	sw	zero,28(s8)
+ c10:	1000002a 	b	cbc <lcd_putc+0xd8>
+ c14:	00000000 	nop
+ c18:	8fc20030 	lw	v0,48(s8)
+ c1c:	00000000 	nop
+ c20:	2442ffe0 	addiu	v0,v0,-32
+ c24:	000218c0 	sll	v1,v0,0x3
+ c28:	8fc2001c 	lw	v0,28(s8)
+ c2c:	00000000 	nop
+ c30:	00621821 	addu	v1,v1,v0
+ c34:	3c020000 	lui	v0,0x0
+ c38:	24420ddc 	addiu	v0,v0,3548
+ c3c:	00621021 	addu	v0,v1,v0
+ c40:	90420000 	lbu	v0,0(v0)
+ c44:	00000000 	nop
+ c48:	00401825 	move	v1,v0
+ c4c:	8fc20018 	lw	v0,24(s8)
+ c50:	00000000 	nop
+ c54:	00431007 	srav	v0,v1,v0
+ c58:	30420001 	andi	v0,v0,0x1
+ c5c:	10400013 	beqz	v0,cac <lcd_putc+0xc8>
+ c60:	00000000 	nop
+ c64:	8fc20028 	lw	v0,40(s8)
+ c68:	00000000 	nop
+ c6c:	000218c0 	sll	v1,v0,0x3
+ c70:	8fc20018 	lw	v0,24(s8)
+ c74:	00000000 	nop
+ c78:	00622021 	addu	a0,v1,v0
+ c7c:	8fc2002c 	lw	v0,44(s8)
+ c80:	00000000 	nop
+ c84:	000218c0 	sll	v1,v0,0x3
+ c88:	8fc2001c 	lw	v0,28(s8)
+ c8c:	00000000 	nop
+ c90:	00621021 	addu	v0,v1,v0
+ c94:	afa00010 	sw	zero,16(sp)
+ c98:	240700ff 	li	a3,255
+ c9c:	00003025 	move	a2,zero
+ ca0:	00402825 	move	a1,v0
+ ca4:	0c00025c 	jal	970 <lcd_set_vbuf_pixel>
+ ca8:	00000000 	nop
+ cac:	8fc2001c 	lw	v0,28(s8)
+ cb0:	00000000 	nop
+ cb4:	24420001 	addiu	v0,v0,1
+ cb8:	afc2001c 	sw	v0,28(s8)
+ cbc:	8fc2001c 	lw	v0,28(s8)
+ cc0:	00000000 	nop
+ cc4:	28420008 	slti	v0,v0,8
+ cc8:	1440ffd3 	bnez	v0,c18 <lcd_putc+0x34>
+ ccc:	00000000 	nop
+ cd0:	8fc20018 	lw	v0,24(s8)
+ cd4:	00000000 	nop
+ cd8:	24420001 	addiu	v0,v0,1
+ cdc:	afc20018 	sw	v0,24(s8)
+ ce0:	8fc20018 	lw	v0,24(s8)
+ ce4:	00000000 	nop
+ ce8:	28420008 	slti	v0,v0,8
+ cec:	1440ffc7 	bnez	v0,c0c <lcd_putc+0x28>
+ cf0:	00000000 	nop
+ cf4:	00000000 	nop
+ cf8:	03c0e825 	move	sp,s8
+ cfc:	8fbf0024 	lw	ra,36(sp)
+ d00:	8fbe0020 	lw	s8,32(sp)
+ d04:	27bd0028 	addiu	sp,sp,40
+ d08:	03e00008 	jr	ra
+ d0c:	00000000 	nop
+
+00000d10 <lcd_puts>:
+ d10:	27bdffe0 	addiu	sp,sp,-32
+ d14:	afbf001c 	sw	ra,28(sp)
+ d18:	afbe0018 	sw	s8,24(sp)
+ d1c:	03a0f025 	move	s8,sp
+ d20:	afc40020 	sw	a0,32(s8)
+ d24:	afc50024 	sw	a1,36(s8)
+ d28:	afc60028 	sw	a2,40(s8)
+ d2c:	8fc20024 	lw	v0,36(s8)
+ d30:	00000000 	nop
+ d34:	afc20010 	sw	v0,16(s8)
+ d38:	10000019 	b	da0 <lcd_puts+0x90>
+ d3c:	00000000 	nop
+ d40:	8fc20010 	lw	v0,16(s8)
+ d44:	8fc30028 	lw	v1,40(s8)
+ d48:	00000000 	nop
+ d4c:	00621021 	addu	v0,v1,v0
+ d50:	80420000 	lb	v0,0(v0)
+ d54:	00000000 	nop
+ d58:	28420020 	slti	v0,v0,32
+ d5c:	14400017 	bnez	v0,dbc <lcd_puts+0xac>
+ d60:	00000000 	nop
+ d64:	8fc20010 	lw	v0,16(s8)
+ d68:	8fc30028 	lw	v1,40(s8)
+ d6c:	00000000 	nop
+ d70:	00621021 	addu	v0,v1,v0
+ d74:	80420000 	lb	v0,0(v0)
+ d78:	00000000 	nop
+ d7c:	00403025 	move	a2,v0
+ d80:	8fc50010 	lw	a1,16(s8)
+ d84:	8fc40020 	lw	a0,32(s8)
+ d88:	0c0002f9 	jal	be4 <lcd_putc>
+ d8c:	00000000 	nop
+ d90:	8fc20010 	lw	v0,16(s8)
+ d94:	00000000 	nop
+ d98:	24420001 	addiu	v0,v0,1
+ d9c:	afc20010 	sw	v0,16(s8)
+ da0:	8fc20010 	lw	v0,16(s8)
+ da4:	00000000 	nop
+ da8:	2842000c 	slti	v0,v0,12
+ dac:	1440ffe4 	bnez	v0,d40 <lcd_puts+0x30>
+ db0:	00000000 	nop
+ db4:	10000002 	b	dc0 <lcd_puts+0xb0>
+ db8:	00000000 	nop
+ dbc:	00000000 	nop
+ dc0:	00000000 	nop
+ dc4:	03c0e825 	move	sp,s8
+ dc8:	8fbf001c 	lw	ra,28(sp)
+ dcc:	8fbe0018 	lw	s8,24(sp)
+ dd0:	27bd0020 	addiu	sp,sp,32
+ dd4:	03e00008 	jr	ra
+ dd8:	00000000 	nop
+
+セクション .rodata の逆アセンブル:
+
+00000ddc <font8x8>:
+     ddc:	00000000 	nop
+     de0:	00000000 	nop
+     de4:	0000005f 	0x5f
+     de8:	00000000 	nop
+     dec:	00000300 	sll	zero,zero,0xc
+     df0:	03000000 	0x3000000
+     df4:	643c2664 	0x643c2664
+     df8:	3c262400 	0x3c262400
+     dfc:	2649497f 	addiu	t1,s2,18815
+     e00:	49493200 	0x49493200
+     e04:	42251208 	c0	0x251208
+     e08:	24522100 	addiu	s2,v0,8448
+     e0c:	20504e55 	addi	s0,v0,20053
+     e10:	22582800 	addi	t8,s2,10240
+     e14:	00000003 	sra	zero,zero,0x0
+     e18:	00000000 	nop
+     e1c:	00001c22 	0x1c22
+     e20:	41000000 	bc0f	e24 <font8x8+0x48>
+     e24:	00000041 	0x41
+     e28:	221c0000 	addi	gp,s0,0
+     e2c:	0015150e 	0x15150e
+     e30:	0e151500 	jal	8545400 <lcd_vbuf+0x8544318>
+     e34:	0008083e 	0x8083e
+     e38:	08080000 	j	200000 <lcd_vbuf+0x1fef18>
+     e3c:	00000050 	0x50
+     e40:	30000000 	andi	zero,zero,0x0
+     e44:	00080808 	0x80808
+     e48:	08080000 	j	200000 <lcd_vbuf+0x1fef18>
+     e4c:	00000040 	ssnop
+     e50:	00000000 	nop
+     e54:	40201008 	0x40201008
+     e58:	04020100 	0x4020100
+     e5c:	003e4141 	0x3e4141
+     e60:	413e0000 	0x413e0000
+     e64:	0000417f 	0x417f
+     e68:	40000000 	mfc0	zero,c0_index
+     e6c:	00426151 	0x426151
+     e70:	496e0000 	0x496e0000
+     e74:	00224149 	0x224149
+     e78:	49360000 	0x49360000
+     e7c:	00181412 	0x181412
+     e80:	7f100000 	0x7f100000
+     e84:	00274949 	0x274949
+     e88:	49710000 	0x49710000
+     e8c:	003c4a49 	0x3c4a49
+     e90:	48700000 	0x48700000
+     e94:	00432111 	0x432111
+     e98:	0d030000 	jal	40c0000 <lcd_vbuf+0x40bef18>
+     e9c:	00364949 	0x364949
+     ea0:	49360000 	0x49360000
+     ea4:	00060949 	0x60949
+     ea8:	291e0000 	slti	s8,t0,0
+     eac:	00000012 	mflo	zero
+     eb0:	00000000 	nop
+     eb4:	00000052 	0x52
+     eb8:	30000000 	andi	zero,zero,0x0
+     ebc:	00000814 	0x814
+     ec0:	14220000 	bne	at,v0,ec4 <font8x8+0xe8>
+     ec4:	00141414 	0x141414
+     ec8:	14141400 	bne	zero,s4,5ecc <lcd_vbuf+0x4de4>
+     ecc:	00002214 	0x2214
+     ed0:	14080000 	bne	zero,t0,ed4 <font8x8+0xf8>
+     ed4:	00020159 	0x20159
+     ed8:	05020000 	0x5020000
+     edc:	3e415d55 	0x3e415d55
+     ee0:	4d512e00 	0x4d512e00
+     ee4:	407c4a09 	0x407c4a09
+     ee8:	4a7c4000 	c2	0x7c4000
+     eec:	417f4949 	0x417f4949
+     ef0:	49493600 	0x49493600
+     ef4:	1c224141 	0x1c224141
+     ef8:	41412200 	0x41412200
+     efc:	417f4141 	0x417f4141
+     f00:	41221c00 	0x41221c00
+     f04:	417f4949 	0x417f4949
+     f08:	5d416300 	0x5d416300
+     f0c:	417f4909 	0x417f4909
+     f10:	1d010300 	0x1d010300
+     f14:	1c224149 	0x1c224149
+     f18:	493a0800 	0x493a0800
+     f1c:	417f0808 	0x417f0808
+     f20:	087f4100 	j	1fd0400 <lcd_vbuf+0x1fcf318>
+     f24:	0041417f 	0x41417f
+     f28:	41410000 	0x41410000
+     f2c:	30404141 	andi	zero,v0,0x4141
+     f30:	3f010100 	0x3f010100
+     f34:	417f080c 	0x417f080c
+     f38:	12614100 	beq	s3,at,1133c <lcd_vbuf+0x10254>
+     f3c:	417f4140 	0x417f4140
+     f40:	40406000 	cfc0	zero,c0_sr
+     f44:	417f420c 	0x417f420c
+     f48:	427f4100 	c0	0x7f4100
+     f4c:	417f420c 	0x417f420c
+     f50:	117f0100 	beq	t3,ra,1354 <lcd_vbuf+0x26c>
+     f54:	1c224141 	0x1c224141
+     f58:	41221c00 	0x41221c00
+     f5c:	417f4909 	0x417f4909
+     f60:	09090600 	j	4241800 <lcd_vbuf+0x4240718>
+     f64:	0c122121 	jal	488484 <lcd_vbuf+0x48739c>
+     f68:	61524c00 	0x61524c00
+     f6c:	417f0909 	0x417f0909
+     f70:	19694600 	0x19694600
+     f74:	66494949 	0x66494949
+     f78:	49493300 	0x49493300
+     f7c:	0301417f 	0x301417f
+     f80:	41010300 	bc0t	1b84 <lcd_vbuf+0xa9c>
+     f84:	013f4140 	0x13f4140
+     f88:	413f0100 	0x413f0100
+     f8c:	010f3140 	0x10f3140
+     f90:	310f0100 	andi	t7,t0,0x100
+     f94:	011f6114 	0x11f6114
+     f98:	611f0100 	0x611f0100
+     f9c:	41413608 	0x41413608
+     fa0:	36414100 	ori	at,s2,0x4100
+     fa4:	01034478 	0x1034478
+     fa8:	44030100 	0x44030100
+     fac:	43615149 	c0	0x1615149
+     fb0:	45436100 	0x45436100
+     fb4:	00007f41 	0x7f41
+     fb8:	41000000 	bc0f	fbc <font8x8+0x1e0>
+     fbc:	01020408 	0x1020408
+     fc0:	10204000 	beqz	at,10fc4 <lcd_vbuf+0xfedc>
+     fc4:	00004141 	0x4141
+     fc8:	7f000000 	0x7f000000
+     fcc:	00040201 	0x40201
+     fd0:	01020400 	0x1020400
+     fd4:	00404040 	0x404040
+     fd8:	40404000 	cfc0	zero,c0_badvaddr
+     fdc:	00010200 	sll	zero,at,0x8
+     fe0:	00000000 	nop
+     fe4:	00344a4a 	0x344a4a
+     fe8:	4a3c4000 	c2	0x3c4000
+     fec:	00413f48 	0x413f48
+     ff0:	48483000 	cfc2	t0,$6
+     ff4:	003c4242 	0x3c4242
+     ff8:	42240000 	c0	0x240000
+     ffc:	00304848 	0x304848
+    1000:	493f4000 	0x493f4000
+    1004:	003c4a4a 	0x3c4a4a
+    1008:	4a2c0000 	c2	0x2c0000
+    100c:	0000487e 	0x487e
+    1010:	49090000 	0x49090000
+    1014:	00264949 	0x264949
+    1018:	493f0100 	0x493f0100
+    101c:	417f4804 	0x417f4804
+    1020:	44784000 	0x44784000
+    1024:	0000447d 	0x447d
+    1028:	40000000 	mfc0	zero,c0_index
+    102c:	00004044 	0x4044
+    1030:	3d000000 	0x3d000000
+    1034:	417f1018 	0x417f1018
+    1038:	24424200 	addiu	v0,v0,16896
+    103c:	0040417f 	0x40417f
+    1040:	40400000 	cfc0	zero,c0_index
+    1044:	427e027c 	c0	0x7e027c
+    1048:	027e4000 	0x27e4000
+    104c:	427e4402 	c0	0x7e4402
+    1050:	427c4000 	c0	0x7c4000
+    1054:	003c4242 	0x3c4242
+    1058:	423c0000 	c0	0x3c0000
+    105c:	00417f49 	0x417f49
+    1060:	09090600 	j	4241800 <lcd_vbuf+0x4240718>
+    1064:	00060909 	0x60909
+    1068:	497f4100 	0x497f4100
+    106c:	00427e44 	0x427e44
+    1070:	02020400 	0x2020400
+    1074:	00644a4a 	0x644a4a
+    1078:	4a360000 	c2	0x360000
+    107c:	00043f44 	0x43f44
+    1080:	44200000 	0x44200000
+    1084:	00023e40 	sll	a3,v0,0x19
+    1088:	40227e40 	0x40227e40
+    108c:	020e3240 	0x20e3240
+    1090:	320e0200 	andi	t6,s0,0x200
+    1094:	021e6218 	0x21e6218
+    1098:	621e0200 	0x621e0200
+    109c:	42621408 	c0	0x621408
+    10a0:	14624200 	bne	v1,v0,118a4 <lcd_vbuf+0x107bc>
+    10a4:	01434538 	0x1434538
+    10a8:	05030100 	0x5030100
+    10ac:	00466252 	0x466252
+    10b0:	4a466200 	c2	0x466200
+    10b4:	00000836 	0x836
+    10b8:	41000000 	bc0f	10bc <font8x8+0x2e0>
+    10bc:	0000007f 	0x7f
+    10c0:	00000000 	nop
+    10c4:	00000041 	0x41
+    10c8:	36080000 	ori	t0,s0,0x0
+    10cc:	00180808 	0x180808
+    10d0:	10101800 	beq	zero,s0,70d4 <lcd_vbuf+0x5fec>
+    10d4:	aa55aa55 	swl	s5,-21931(s2)
+    10d8:	aa55aa55 	swl	s5,-21931(s2)
+
+セクション .bss の逆アセンブル:
+
+000010dc <state>:
+    10dc:	00000000 	nop
+
+000010e0 <pos>:
+    10e0:	00000000 	nop
+
+000010e4 <cnt.1435>:
+    10e4:	00000000 	nop
+
+000010e8 <lcd_vbuf>:
+    10e8:	00000000 	nop
+    10ec:	00000000 	nop
+    10f0:	00000000 	nop
+    10f4:	00000000 	nop
+    10f8:	00000000 	nop
+    10fc:	00000000 	nop
+    1100:	00000000 	nop
+    1104:	00000000 	nop
+    1108:	00000000 	nop
+    110c:	00000000 	nop
+    1110:	00000000 	nop
+    1114:	00000000 	nop
+    1118:	00000000 	nop
+    111c:	00000000 	nop
+    1120:	00000000 	nop
+    1124:	00000000 	nop
+    1128:	00000000 	nop
+    112c:	00000000 	nop
+    1130:	00000000 	nop
+    1134:	00000000 	nop
+    1138:	00000000 	nop
+    113c:	00000000 	nop
+    1140:	00000000 	nop
+    1144:	00000000 	nop
+    1148:	00000000 	nop
+    114c:	00000000 	nop
+    1150:	00000000 	nop
+    1154:	00000000 	nop
+    1158:	00000000 	nop
+    115c:	00000000 	nop
+    1160:	00000000 	nop
+    1164:	00000000 	nop
+    1168:	00000000 	nop
+    116c:	00000000 	nop
+    1170:	00000000 	nop
+    1174:	00000000 	nop
+    1178:	00000000 	nop
+    117c:	00000000 	nop
+    1180:	00000000 	nop
+    1184:	00000000 	nop
+    1188:	00000000 	nop
+    118c:	00000000 	nop
+    1190:	00000000 	nop
+    1194:	00000000 	nop
+    1198:	00000000 	nop
+    119c:	00000000 	nop
+    11a0:	00000000 	nop
+    11a4:	00000000 	nop
+    11a8:	00000000 	nop
+    11ac:	00000000 	nop
+    11b0:	00000000 	nop
+    11b4:	00000000 	nop
+    11b8:	00000000 	nop
+    11bc:	00000000 	nop
+    11c0:	00000000 	nop
+    11c4:	00000000 	nop
+    11c8:	00000000 	nop
+    11cc:	00000000 	nop
+    11d0:	00000000 	nop
+    11d4:	00000000 	nop
+    11d8:	00000000 	nop
+    11dc:	00000000 	nop
+    11e0:	00000000 	nop
+    11e4:	00000000 	nop
+    11e8:	00000000 	nop
+    11ec:	00000000 	nop
+    11f0:	00000000 	nop
+    11f4:	00000000 	nop
+    11f8:	00000000 	nop
+    11fc:	00000000 	nop
+    1200:	00000000 	nop
+    1204:	00000000 	nop
+    1208:	00000000 	nop
+    120c:	00000000 	nop
+    1210:	00000000 	nop
+    1214:	00000000 	nop
+    1218:	00000000 	nop
+    121c:	00000000 	nop
+    1220:	00000000 	nop
+    1224:	00000000 	nop
+    1228:	00000000 	nop
+    122c:	00000000 	nop
+    1230:	00000000 	nop
+    1234:	00000000 	nop
+    1238:	00000000 	nop
+    123c:	00000000 	nop
+    1240:	00000000 	nop
+    1244:	00000000 	nop
+    1248:	00000000 	nop
+    124c:	00000000 	nop
+    1250:	00000000 	nop
+    1254:	00000000 	nop
+    1258:	00000000 	nop
+    125c:	00000000 	nop
+    1260:	00000000 	nop
+    1264:	00000000 	nop
+    1268:	00000000 	nop
+    126c:	00000000 	nop
+    1270:	00000000 	nop
+    1274:	00000000 	nop
+    1278:	00000000 	nop
+    127c:	00000000 	nop
+    1280:	00000000 	nop
+    1284:	00000000 	nop
+    1288:	00000000 	nop
+    128c:	00000000 	nop
+    1290:	00000000 	nop
+    1294:	00000000 	nop
+    1298:	00000000 	nop
+    129c:	00000000 	nop
+    12a0:	00000000 	nop
+    12a4:	00000000 	nop
+    12a8:	00000000 	nop
+    12ac:	00000000 	nop
+    12b0:	00000000 	nop
+    12b4:	00000000 	nop
+    12b8:	00000000 	nop
+    12bc:	00000000 	nop
+    12c0:	00000000 	nop
+    12c4:	00000000 	nop
+    12c8:	00000000 	nop
+    12cc:	00000000 	nop
+    12d0:	00000000 	nop
+    12d4:	00000000 	nop
+    12d8:	00000000 	nop
+    12dc:	00000000 	nop
+    12e0:	00000000 	nop
+    12e4:	00000000 	nop
+    12e8:	00000000 	nop
+    12ec:	00000000 	nop
+    12f0:	00000000 	nop
+    12f4:	00000000 	nop
+    12f8:	00000000 	nop
+    12fc:	00000000 	nop
+    1300:	00000000 	nop
+    1304:	00000000 	nop
+    1308:	00000000 	nop
+    130c:	00000000 	nop
+    1310:	00000000 	nop
+    1314:	00000000 	nop
+    1318:	00000000 	nop
+    131c:	00000000 	nop
+    1320:	00000000 	nop
+    1324:	00000000 	nop
+    1328:	00000000 	nop
+    132c:	00000000 	nop
+    1330:	00000000 	nop
+    1334:	00000000 	nop
+    1338:	00000000 	nop
+    133c:	00000000 	nop
+    1340:	00000000 	nop
+    1344:	00000000 	nop
+    1348:	00000000 	nop
+    134c:	00000000 	nop
+    1350:	00000000 	nop
+    1354:	00000000 	nop
+    1358:	00000000 	nop
+    135c:	00000000 	nop
+    1360:	00000000 	nop
+    1364:	00000000 	nop
+    1368:	00000000 	nop
+    136c:	00000000 	nop
+    1370:	00000000 	nop
+    1374:	00000000 	nop
+    1378:	00000000 	nop
+    137c:	00000000 	nop
+    1380:	00000000 	nop
+    1384:	00000000 	nop
+    1388:	00000000 	nop
+    138c:	00000000 	nop
+    1390:	00000000 	nop
+    1394:	00000000 	nop
+    1398:	00000000 	nop
+    139c:	00000000 	nop
+    13a0:	00000000 	nop
+    13a4:	00000000 	nop
+    13a8:	00000000 	nop
+    13ac:	00000000 	nop
+    13b0:	00000000 	nop
+    13b4:	00000000 	nop
+    13b8:	00000000 	nop
+    13bc:	00000000 	nop
+    13c0:	00000000 	nop
+    13c4:	00000000 	nop
+    13c8:	00000000 	nop
+    13cc:	00000000 	nop
+    13d0:	00000000 	nop
+    13d4:	00000000 	nop
+    13d8:	00000000 	nop
+    13dc:	00000000 	nop
+    13e0:	00000000 	nop
+    13e4:	00000000 	nop
+    13e8:	00000000 	nop
+    13ec:	00000000 	nop
+    13f0:	00000000 	nop
+    13f4:	00000000 	nop
+    13f8:	00000000 	nop
+    13fc:	00000000 	nop
+    1400:	00000000 	nop
+    1404:	00000000 	nop
+    1408:	00000000 	nop
+    140c:	00000000 	nop
+    1410:	00000000 	nop
+    1414:	00000000 	nop
+    1418:	00000000 	nop
+    141c:	00000000 	nop
+    1420:	00000000 	nop
+    1424:	00000000 	nop
+    1428:	00000000 	nop
+    142c:	00000000 	nop
+    1430:	00000000 	nop
+    1434:	00000000 	nop
+    1438:	00000000 	nop
+    143c:	00000000 	nop
+    1440:	00000000 	nop
+    1444:	00000000 	nop
+    1448:	00000000 	nop
+    144c:	00000000 	nop
+    1450:	00000000 	nop
+    1454:	00000000 	nop
+    1458:	00000000 	nop
+    145c:	00000000 	nop
+    1460:	00000000 	nop
+    1464:	00000000 	nop
+    1468:	00000000 	nop
+    146c:	00000000 	nop
+    1470:	00000000 	nop
+    1474:	00000000 	nop
+    1478:	00000000 	nop
+    147c:	00000000 	nop
+    1480:	00000000 	nop
+    1484:	00000000 	nop
+    1488:	00000000 	nop
+    148c:	00000000 	nop
+    1490:	00000000 	nop
+    1494:	00000000 	nop
+    1498:	00000000 	nop
+    149c:	00000000 	nop
+    14a0:	00000000 	nop
+    14a4:	00000000 	nop
+    14a8:	00000000 	nop
+    14ac:	00000000 	nop
+    14b0:	00000000 	nop
+    14b4:	00000000 	nop
+    14b8:	00000000 	nop
+    14bc:	00000000 	nop
+    14c0:	00000000 	nop
+    14c4:	00000000 	nop
+    14c8:	00000000 	nop
+    14cc:	00000000 	nop
+    14d0:	00000000 	nop
+    14d4:	00000000 	nop
+    14d8:	00000000 	nop
+    14dc:	00000000 	nop
+    14e0:	00000000 	nop
+    14e4:	00000000 	nop
+    14e8:	00000000 	nop
+    14ec:	00000000 	nop
+    14f0:	00000000 	nop
+    14f4:	00000000 	nop
+    14f8:	00000000 	nop
+    14fc:	00000000 	nop
+    1500:	00000000 	nop
+    1504:	00000000 	nop
+    1508:	00000000 	nop
+    150c:	00000000 	nop
+    1510:	00000000 	nop
+    1514:	00000000 	nop
+    1518:	00000000 	nop
+    151c:	00000000 	nop
+    1520:	00000000 	nop
+    1524:	00000000 	nop
+    1528:	00000000 	nop
+    152c:	00000000 	nop
+    1530:	00000000 	nop
+    1534:	00000000 	nop
+    1538:	00000000 	nop
+    153c:	00000000 	nop
+    1540:	00000000 	nop
+    1544:	00000000 	nop
+    1548:	00000000 	nop
+    154c:	00000000 	nop
+    1550:	00000000 	nop
+    1554:	00000000 	nop
+    1558:	00000000 	nop
+    155c:	00000000 	nop
+    1560:	00000000 	nop
+    1564:	00000000 	nop
+    1568:	00000000 	nop
+    156c:	00000000 	nop
+    1570:	00000000 	nop
+    1574:	00000000 	nop
+    1578:	00000000 	nop
+    157c:	00000000 	nop
+    1580:	00000000 	nop
+    1584:	00000000 	nop
+    1588:	00000000 	nop
+    158c:	00000000 	nop
+    1590:	00000000 	nop
+    1594:	00000000 	nop
+    1598:	00000000 	nop
+    159c:	00000000 	nop
+    15a0:	00000000 	nop
+    15a4:	00000000 	nop
+    15a8:	00000000 	nop
+    15ac:	00000000 	nop
+    15b0:	00000000 	nop
+    15b4:	00000000 	nop
+    15b8:	00000000 	nop
+    15bc:	00000000 	nop
+    15c0:	00000000 	nop
+    15c4:	00000000 	nop
+    15c8:	00000000 	nop
+    15cc:	00000000 	nop
+    15d0:	00000000 	nop
+    15d4:	00000000 	nop
+    15d8:	00000000 	nop
+    15dc:	00000000 	nop
+    15e0:	00000000 	nop
+    15e4:	00000000 	nop
+    15e8:	00000000 	nop
+    15ec:	00000000 	nop
+    15f0:	00000000 	nop
+    15f4:	00000000 	nop
+    15f8:	00000000 	nop
+    15fc:	00000000 	nop
+    1600:	00000000 	nop
+    1604:	00000000 	nop
+    1608:	00000000 	nop
+    160c:	00000000 	nop
+    1610:	00000000 	nop
+    1614:	00000000 	nop
+    1618:	00000000 	nop
+    161c:	00000000 	nop
+    1620:	00000000 	nop
+    1624:	00000000 	nop
+    1628:	00000000 	nop
+    162c:	00000000 	nop
+    1630:	00000000 	nop
+    1634:	00000000 	nop
+    1638:	00000000 	nop
+    163c:	00000000 	nop
+    1640:	00000000 	nop
+    1644:	00000000 	nop
+    1648:	00000000 	nop
+    164c:	00000000 	nop
+    1650:	00000000 	nop
+    1654:	00000000 	nop
+    1658:	00000000 	nop
+    165c:	00000000 	nop
+    1660:	00000000 	nop
+    1664:	00000000 	nop
+    1668:	00000000 	nop
+    166c:	00000000 	nop
+    1670:	00000000 	nop
+    1674:	00000000 	nop
+    1678:	00000000 	nop
+    167c:	00000000 	nop
+    1680:	00000000 	nop
+    1684:	00000000 	nop
+    1688:	00000000 	nop
+    168c:	00000000 	nop
+    1690:	00000000 	nop
+    1694:	00000000 	nop
+    1698:	00000000 	nop
+    169c:	00000000 	nop
+    16a0:	00000000 	nop
+    16a4:	00000000 	nop
+    16a8:	00000000 	nop
+    16ac:	00000000 	nop
+    16b0:	00000000 	nop
+    16b4:	00000000 	nop
+    16b8:	00000000 	nop
+    16bc:	00000000 	nop
+    16c0:	00000000 	nop
+    16c4:	00000000 	nop
+    16c8:	00000000 	nop
+    16cc:	00000000 	nop
+    16d0:	00000000 	nop
+    16d4:	00000000 	nop
+    16d8:	00000000 	nop
+    16dc:	00000000 	nop
+    16e0:	00000000 	nop
+    16e4:	00000000 	nop
+    16e8:	00000000 	nop
+    16ec:	00000000 	nop
+    16f0:	00000000 	nop
+    16f4:	00000000 	nop
+    16f8:	00000000 	nop
+    16fc:	00000000 	nop
+    1700:	00000000 	nop
+    1704:	00000000 	nop
+    1708:	00000000 	nop
+    170c:	00000000 	nop
+    1710:	00000000 	nop
+    1714:	00000000 	nop
+    1718:	00000000 	nop
+    171c:	00000000 	nop
+    1720:	00000000 	nop
+    1724:	00000000 	nop
+    1728:	00000000 	nop
+    172c:	00000000 	nop
+    1730:	00000000 	nop
+    1734:	00000000 	nop
+    1738:	00000000 	nop
+    173c:	00000000 	nop
+    1740:	00000000 	nop
+    1744:	00000000 	nop
+    1748:	00000000 	nop
+    174c:	00000000 	nop
+    1750:	00000000 	nop
+    1754:	00000000 	nop
+    1758:	00000000 	nop
+    175c:	00000000 	nop
+    1760:	00000000 	nop
+    1764:	00000000 	nop
+    1768:	00000000 	nop
+    176c:	00000000 	nop
+    1770:	00000000 	nop
+    1774:	00000000 	nop
+    1778:	00000000 	nop
+    177c:	00000000 	nop
+    1780:	00000000 	nop
+    1784:	00000000 	nop
+    1788:	00000000 	nop
+    178c:	00000000 	nop
+    1790:	00000000 	nop
+    1794:	00000000 	nop
+    1798:	00000000 	nop
+    179c:	00000000 	nop
+    17a0:	00000000 	nop
+    17a4:	00000000 	nop
+    17a8:	00000000 	nop
+    17ac:	00000000 	nop
+    17b0:	00000000 	nop
+    17b4:	00000000 	nop
+    17b8:	00000000 	nop
+    17bc:	00000000 	nop
+    17c0:	00000000 	nop
+    17c4:	00000000 	nop
+    17c8:	00000000 	nop
+    17cc:	00000000 	nop
+    17d0:	00000000 	nop
+    17d4:	00000000 	nop
+    17d8:	00000000 	nop
+    17dc:	00000000 	nop
+    17e0:	00000000 	nop
+    17e4:	00000000 	nop
+    17e8:	00000000 	nop
+    17ec:	00000000 	nop
+    17f0:	00000000 	nop
+    17f4:	00000000 	nop
+    17f8:	00000000 	nop
+    17fc:	00000000 	nop
+    1800:	00000000 	nop
+    1804:	00000000 	nop
+    1808:	00000000 	nop
+    180c:	00000000 	nop
+    1810:	00000000 	nop
+    1814:	00000000 	nop
+    1818:	00000000 	nop
+    181c:	00000000 	nop
+    1820:	00000000 	nop
+    1824:	00000000 	nop
+    1828:	00000000 	nop
+    182c:	00000000 	nop
+    1830:	00000000 	nop
+    1834:	00000000 	nop
+    1838:	00000000 	nop
+    183c:	00000000 	nop
+    1840:	00000000 	nop
+    1844:	00000000 	nop
+    1848:	00000000 	nop
+    184c:	00000000 	nop
+    1850:	00000000 	nop
+    1854:	00000000 	nop
+    1858:	00000000 	nop
+    185c:	00000000 	nop
+    1860:	00000000 	nop
+    1864:	00000000 	nop
+    1868:	00000000 	nop
+    186c:	00000000 	nop
+    1870:	00000000 	nop
+    1874:	00000000 	nop
+    1878:	00000000 	nop
+    187c:	00000000 	nop
+    1880:	00000000 	nop
+    1884:	00000000 	nop
+    1888:	00000000 	nop
+    188c:	00000000 	nop
+    1890:	00000000 	nop
+    1894:	00000000 	nop
+    1898:	00000000 	nop
+    189c:	00000000 	nop
+    18a0:	00000000 	nop
+    18a4:	00000000 	nop
+    18a8:	00000000 	nop
+    18ac:	00000000 	nop
+    18b0:	00000000 	nop
+    18b4:	00000000 	nop
+    18b8:	00000000 	nop
+    18bc:	00000000 	nop
+    18c0:	00000000 	nop
+    18c4:	00000000 	nop
+    18c8:	00000000 	nop
+    18cc:	00000000 	nop
+    18d0:	00000000 	nop
+    18d4:	00000000 	nop
+    18d8:	00000000 	nop
+    18dc:	00000000 	nop
+    18e0:	00000000 	nop
+    18e4:	00000000 	nop
+    18e8:	00000000 	nop
+    18ec:	00000000 	nop
+    18f0:	00000000 	nop
+    18f4:	00000000 	nop
+    18f8:	00000000 	nop
+    18fc:	00000000 	nop
+    1900:	00000000 	nop
+    1904:	00000000 	nop
+    1908:	00000000 	nop
+    190c:	00000000 	nop
+    1910:	00000000 	nop
+    1914:	00000000 	nop
+    1918:	00000000 	nop
+    191c:	00000000 	nop
+    1920:	00000000 	nop
+    1924:	00000000 	nop
+    1928:	00000000 	nop
+    192c:	00000000 	nop
+    1930:	00000000 	nop
+    1934:	00000000 	nop
+    1938:	00000000 	nop
+    193c:	00000000 	nop
+    1940:	00000000 	nop
+    1944:	00000000 	nop
+    1948:	00000000 	nop
+    194c:	00000000 	nop
+    1950:	00000000 	nop
+    1954:	00000000 	nop
+    1958:	00000000 	nop
+    195c:	00000000 	nop
+    1960:	00000000 	nop
+    1964:	00000000 	nop
+    1968:	00000000 	nop
+    196c:	00000000 	nop
+    1970:	00000000 	nop
+    1974:	00000000 	nop
+    1978:	00000000 	nop
+    197c:	00000000 	nop
+    1980:	00000000 	nop
+    1984:	00000000 	nop
+    1988:	00000000 	nop
+    198c:	00000000 	nop
+    1990:	00000000 	nop
+    1994:	00000000 	nop
+    1998:	00000000 	nop
+    199c:	00000000 	nop
+    19a0:	00000000 	nop
+    19a4:	00000000 	nop
+    19a8:	00000000 	nop
+    19ac:	00000000 	nop
+    19b0:	00000000 	nop
+    19b4:	00000000 	nop
+    19b8:	00000000 	nop
+    19bc:	00000000 	nop
+    19c0:	00000000 	nop
+    19c4:	00000000 	nop
+    19c8:	00000000 	nop
+    19cc:	00000000 	nop
+    19d0:	00000000 	nop
+    19d4:	00000000 	nop
+    19d8:	00000000 	nop
+    19dc:	00000000 	nop
+    19e0:	00000000 	nop
+    19e4:	00000000 	nop
+    19e8:	00000000 	nop
+    19ec:	00000000 	nop
+    19f0:	00000000 	nop
+    19f4:	00000000 	nop
+    19f8:	00000000 	nop
+    19fc:	00000000 	nop
+    1a00:	00000000 	nop
+    1a04:	00000000 	nop
+    1a08:	00000000 	nop
+    1a0c:	00000000 	nop
+    1a10:	00000000 	nop
+    1a14:	00000000 	nop
+    1a18:	00000000 	nop
+    1a1c:	00000000 	nop
+    1a20:	00000000 	nop
+    1a24:	00000000 	nop
+    1a28:	00000000 	nop
+    1a2c:	00000000 	nop
+    1a30:	00000000 	nop
+    1a34:	00000000 	nop
+    1a38:	00000000 	nop
+    1a3c:	00000000 	nop
+    1a40:	00000000 	nop
+    1a44:	00000000 	nop
+    1a48:	00000000 	nop
+    1a4c:	00000000 	nop
+    1a50:	00000000 	nop
+    1a54:	00000000 	nop
+    1a58:	00000000 	nop
+    1a5c:	00000000 	nop
+    1a60:	00000000 	nop
+    1a64:	00000000 	nop
+    1a68:	00000000 	nop
+    1a6c:	00000000 	nop
+    1a70:	00000000 	nop
+    1a74:	00000000 	nop
+    1a78:	00000000 	nop
+    1a7c:	00000000 	nop
+    1a80:	00000000 	nop
+    1a84:	00000000 	nop
+    1a88:	00000000 	nop
+    1a8c:	00000000 	nop
+    1a90:	00000000 	nop
+    1a94:	00000000 	nop
+    1a98:	00000000 	nop
+    1a9c:	00000000 	nop
+    1aa0:	00000000 	nop
+    1aa4:	00000000 	nop
+    1aa8:	00000000 	nop
+    1aac:	00000000 	nop
+    1ab0:	00000000 	nop
+    1ab4:	00000000 	nop
+    1ab8:	00000000 	nop
+    1abc:	00000000 	nop
+    1ac0:	00000000 	nop
+    1ac4:	00000000 	nop
+    1ac8:	00000000 	nop
+    1acc:	00000000 	nop
+    1ad0:	00000000 	nop
+    1ad4:	00000000 	nop
+    1ad8:	00000000 	nop
+    1adc:	00000000 	nop
+    1ae0:	00000000 	nop
+    1ae4:	00000000 	nop
+    1ae8:	00000000 	nop
+    1aec:	00000000 	nop
+    1af0:	00000000 	nop
+    1af4:	00000000 	nop
+    1af8:	00000000 	nop
+    1afc:	00000000 	nop
+    1b00:	00000000 	nop
+    1b04:	00000000 	nop
+    1b08:	00000000 	nop
+    1b0c:	00000000 	nop
+    1b10:	00000000 	nop
+    1b14:	00000000 	nop
+    1b18:	00000000 	nop
+    1b1c:	00000000 	nop
+    1b20:	00000000 	nop
+    1b24:	00000000 	nop
+    1b28:	00000000 	nop
+    1b2c:	00000000 	nop
+    1b30:	00000000 	nop
+    1b34:	00000000 	nop
+    1b38:	00000000 	nop
+    1b3c:	00000000 	nop
+    1b40:	00000000 	nop
+    1b44:	00000000 	nop
+    1b48:	00000000 	nop
+    1b4c:	00000000 	nop
+    1b50:	00000000 	nop
+    1b54:	00000000 	nop
+    1b58:	00000000 	nop
+    1b5c:	00000000 	nop
+    1b60:	00000000 	nop
+    1b64:	00000000 	nop
+    1b68:	00000000 	nop
+    1b6c:	00000000 	nop
+    1b70:	00000000 	nop
+    1b74:	00000000 	nop
+    1b78:	00000000 	nop
+    1b7c:	00000000 	nop
+    1b80:	00000000 	nop
+    1b84:	00000000 	nop
+    1b88:	00000000 	nop
+    1b8c:	00000000 	nop
+    1b90:	00000000 	nop
+    1b94:	00000000 	nop
+    1b98:	00000000 	nop
+    1b9c:	00000000 	nop
+    1ba0:	00000000 	nop
+    1ba4:	00000000 	nop
+    1ba8:	00000000 	nop
+    1bac:	00000000 	nop
+    1bb0:	00000000 	nop
+    1bb4:	00000000 	nop
+    1bb8:	00000000 	nop
+    1bbc:	00000000 	nop
+    1bc0:	00000000 	nop
+    1bc4:	00000000 	nop
+    1bc8:	00000000 	nop
+    1bcc:	00000000 	nop
+    1bd0:	00000000 	nop
+    1bd4:	00000000 	nop
+    1bd8:	00000000 	nop
+    1bdc:	00000000 	nop
+    1be0:	00000000 	nop
+    1be4:	00000000 	nop
+    1be8:	00000000 	nop
+    1bec:	00000000 	nop
+    1bf0:	00000000 	nop
+    1bf4:	00000000 	nop
+    1bf8:	00000000 	nop
+    1bfc:	00000000 	nop
+    1c00:	00000000 	nop
+    1c04:	00000000 	nop
+    1c08:	00000000 	nop
+    1c0c:	00000000 	nop
+    1c10:	00000000 	nop
+    1c14:	00000000 	nop
+    1c18:	00000000 	nop
+    1c1c:	00000000 	nop
+    1c20:	00000000 	nop
+    1c24:	00000000 	nop
+    1c28:	00000000 	nop
+    1c2c:	00000000 	nop
+    1c30:	00000000 	nop
+    1c34:	00000000 	nop
+    1c38:	00000000 	nop
+    1c3c:	00000000 	nop
+    1c40:	00000000 	nop
+    1c44:	00000000 	nop
+    1c48:	00000000 	nop
+    1c4c:	00000000 	nop
+    1c50:	00000000 	nop
+    1c54:	00000000 	nop
+    1c58:	00000000 	nop
+    1c5c:	00000000 	nop
+    1c60:	00000000 	nop
+    1c64:	00000000 	nop
+    1c68:	00000000 	nop
+    1c6c:	00000000 	nop
+    1c70:	00000000 	nop
+    1c74:	00000000 	nop
+    1c78:	00000000 	nop
+    1c7c:	00000000 	nop
+    1c80:	00000000 	nop
+    1c84:	00000000 	nop
+    1c88:	00000000 	nop
+    1c8c:	00000000 	nop
+    1c90:	00000000 	nop
+    1c94:	00000000 	nop
+    1c98:	00000000 	nop
+    1c9c:	00000000 	nop
+    1ca0:	00000000 	nop
+    1ca4:	00000000 	nop
+    1ca8:	00000000 	nop
+    1cac:	00000000 	nop
+    1cb0:	00000000 	nop
+    1cb4:	00000000 	nop
+    1cb8:	00000000 	nop
+    1cbc:	00000000 	nop
+    1cc0:	00000000 	nop
+    1cc4:	00000000 	nop
+    1cc8:	00000000 	nop
+    1ccc:	00000000 	nop
+    1cd0:	00000000 	nop
+    1cd4:	00000000 	nop
+    1cd8:	00000000 	nop
+    1cdc:	00000000 	nop
+    1ce0:	00000000 	nop
+    1ce4:	00000000 	nop
+    1ce8:	00000000 	nop
+    1cec:	00000000 	nop
+    1cf0:	00000000 	nop
+    1cf4:	00000000 	nop
+    1cf8:	00000000 	nop
+    1cfc:	00000000 	nop
+    1d00:	00000000 	nop
+    1d04:	00000000 	nop
+    1d08:	00000000 	nop
+    1d0c:	00000000 	nop
+    1d10:	00000000 	nop
+    1d14:	00000000 	nop
+    1d18:	00000000 	nop
+    1d1c:	00000000 	nop
+    1d20:	00000000 	nop
+    1d24:	00000000 	nop
+    1d28:	00000000 	nop
+    1d2c:	00000000 	nop
+    1d30:	00000000 	nop
+    1d34:	00000000 	nop
+    1d38:	00000000 	nop
+    1d3c:	00000000 	nop
+    1d40:	00000000 	nop
+    1d44:	00000000 	nop
+    1d48:	00000000 	nop
+    1d4c:	00000000 	nop
+    1d50:	00000000 	nop
+    1d54:	00000000 	nop
+    1d58:	00000000 	nop
+    1d5c:	00000000 	nop
+    1d60:	00000000 	nop
+    1d64:	00000000 	nop
+    1d68:	00000000 	nop
+    1d6c:	00000000 	nop
+    1d70:	00000000 	nop
+    1d74:	00000000 	nop
+    1d78:	00000000 	nop
+    1d7c:	00000000 	nop
+    1d80:	00000000 	nop
+    1d84:	00000000 	nop
+    1d88:	00000000 	nop
+    1d8c:	00000000 	nop
+    1d90:	00000000 	nop
+    1d94:	00000000 	nop
+    1d98:	00000000 	nop
+    1d9c:	00000000 	nop
+    1da0:	00000000 	nop
+    1da4:	00000000 	nop
+    1da8:	00000000 	nop
+    1dac:	00000000 	nop
+    1db0:	00000000 	nop
+    1db4:	00000000 	nop
+    1db8:	00000000 	nop
+    1dbc:	00000000 	nop
+    1dc0:	00000000 	nop
+    1dc4:	00000000 	nop
+    1dc8:	00000000 	nop
+    1dcc:	00000000 	nop
+    1dd0:	00000000 	nop
+    1dd4:	00000000 	nop
+    1dd8:	00000000 	nop
+    1ddc:	00000000 	nop
+    1de0:	00000000 	nop
+    1de4:	00000000 	nop
+    1de8:	00000000 	nop
+    1dec:	00000000 	nop
+    1df0:	00000000 	nop
+    1df4:	00000000 	nop
+    1df8:	00000000 	nop
+    1dfc:	00000000 	nop
+    1e00:	00000000 	nop
+    1e04:	00000000 	nop
+    1e08:	00000000 	nop
+    1e0c:	00000000 	nop
+    1e10:	00000000 	nop
+    1e14:	00000000 	nop
+    1e18:	00000000 	nop
+    1e1c:	00000000 	nop
+    1e20:	00000000 	nop
+    1e24:	00000000 	nop
+    1e28:	00000000 	nop
+    1e2c:	00000000 	nop
+    1e30:	00000000 	nop
+    1e34:	00000000 	nop
+    1e38:	00000000 	nop
+    1e3c:	00000000 	nop
+    1e40:	00000000 	nop
+    1e44:	00000000 	nop
+    1e48:	00000000 	nop
+    1e4c:	00000000 	nop
+    1e50:	00000000 	nop
+    1e54:	00000000 	nop
+    1e58:	00000000 	nop
+    1e5c:	00000000 	nop
+    1e60:	00000000 	nop
+    1e64:	00000000 	nop
+    1e68:	00000000 	nop
+    1e6c:	00000000 	nop
+    1e70:	00000000 	nop
+    1e74:	00000000 	nop
+    1e78:	00000000 	nop
+    1e7c:	00000000 	nop
+    1e80:	00000000 	nop
+    1e84:	00000000 	nop
+    1e88:	00000000 	nop
+    1e8c:	00000000 	nop
+    1e90:	00000000 	nop
+    1e94:	00000000 	nop
+    1e98:	00000000 	nop
+    1e9c:	00000000 	nop
+    1ea0:	00000000 	nop
+    1ea4:	00000000 	nop
+    1ea8:	00000000 	nop
+    1eac:	00000000 	nop
+    1eb0:	00000000 	nop
+    1eb4:	00000000 	nop
+    1eb8:	00000000 	nop
+    1ebc:	00000000 	nop
+    1ec0:	00000000 	nop
+    1ec4:	00000000 	nop
+    1ec8:	00000000 	nop
+    1ecc:	00000000 	nop
+    1ed0:	00000000 	nop
+    1ed4:	00000000 	nop
+    1ed8:	00000000 	nop
+    1edc:	00000000 	nop
+    1ee0:	00000000 	nop
+    1ee4:	00000000 	nop
+    1ee8:	00000000 	nop
+    1eec:	00000000 	nop
+    1ef0:	00000000 	nop
+    1ef4:	00000000 	nop
+    1ef8:	00000000 	nop
+    1efc:	00000000 	nop
+    1f00:	00000000 	nop
+    1f04:	00000000 	nop
+    1f08:	00000000 	nop
+    1f0c:	00000000 	nop
+    1f10:	00000000 	nop
+    1f14:	00000000 	nop
+    1f18:	00000000 	nop
+    1f1c:	00000000 	nop
+    1f20:	00000000 	nop
+    1f24:	00000000 	nop
+    1f28:	00000000 	nop
+    1f2c:	00000000 	nop
+    1f30:	00000000 	nop
+    1f34:	00000000 	nop
+    1f38:	00000000 	nop
+    1f3c:	00000000 	nop
+    1f40:	00000000 	nop
+    1f44:	00000000 	nop
+    1f48:	00000000 	nop
+    1f4c:	00000000 	nop
+    1f50:	00000000 	nop
+    1f54:	00000000 	nop
+    1f58:	00000000 	nop
+    1f5c:	00000000 	nop
+    1f60:	00000000 	nop
+    1f64:	00000000 	nop
+    1f68:	00000000 	nop
+    1f6c:	00000000 	nop
+    1f70:	00000000 	nop
+    1f74:	00000000 	nop
+    1f78:	00000000 	nop
+    1f7c:	00000000 	nop
+    1f80:	00000000 	nop
+    1f84:	00000000 	nop
+    1f88:	00000000 	nop
+    1f8c:	00000000 	nop
+    1f90:	00000000 	nop
+    1f94:	00000000 	nop
+    1f98:	00000000 	nop
+    1f9c:	00000000 	nop
+    1fa0:	00000000 	nop
+    1fa4:	00000000 	nop
+    1fa8:	00000000 	nop
+    1fac:	00000000 	nop
+    1fb0:	00000000 	nop
+    1fb4:	00000000 	nop
+    1fb8:	00000000 	nop
+    1fbc:	00000000 	nop
+    1fc0:	00000000 	nop
+    1fc4:	00000000 	nop
+    1fc8:	00000000 	nop
+    1fcc:	00000000 	nop
+    1fd0:	00000000 	nop
+    1fd4:	00000000 	nop
+    1fd8:	00000000 	nop
+    1fdc:	00000000 	nop
+    1fe0:	00000000 	nop
+    1fe4:	00000000 	nop
+    1fe8:	00000000 	nop
+    1fec:	00000000 	nop
+    1ff0:	00000000 	nop
+    1ff4:	00000000 	nop
+    1ff8:	00000000 	nop
+    1ffc:	00000000 	nop
+    2000:	00000000 	nop
+    2004:	00000000 	nop
+    2008:	00000000 	nop
+    200c:	00000000 	nop
+    2010:	00000000 	nop
+    2014:	00000000 	nop
+    2018:	00000000 	nop
+    201c:	00000000 	nop
+    2020:	00000000 	nop
+    2024:	00000000 	nop
+    2028:	00000000 	nop
+    202c:	00000000 	nop
+    2030:	00000000 	nop
+    2034:	00000000 	nop
+    2038:	00000000 	nop
+    203c:	00000000 	nop
+    2040:	00000000 	nop
+    2044:	00000000 	nop
+    2048:	00000000 	nop
+    204c:	00000000 	nop
+    2050:	00000000 	nop
+    2054:	00000000 	nop
+    2058:	00000000 	nop
+    205c:	00000000 	nop
+    2060:	00000000 	nop
+    2064:	00000000 	nop
+    2068:	00000000 	nop
+    206c:	00000000 	nop
+    2070:	00000000 	nop
+    2074:	00000000 	nop
+    2078:	00000000 	nop
+    207c:	00000000 	nop
+    2080:	00000000 	nop
+    2084:	00000000 	nop
+    2088:	00000000 	nop
+    208c:	00000000 	nop
+    2090:	00000000 	nop
+    2094:	00000000 	nop
+    2098:	00000000 	nop
+    209c:	00000000 	nop
+    20a0:	00000000 	nop
+    20a4:	00000000 	nop
+    20a8:	00000000 	nop
+    20ac:	00000000 	nop
+    20b0:	00000000 	nop
+    20b4:	00000000 	nop
+    20b8:	00000000 	nop
+    20bc:	00000000 	nop
+    20c0:	00000000 	nop
+    20c4:	00000000 	nop
+    20c8:	00000000 	nop
+    20cc:	00000000 	nop
+    20d0:	00000000 	nop
+    20d4:	00000000 	nop
+    20d8:	00000000 	nop
+    20dc:	00000000 	nop
+    20e0:	00000000 	nop
+    20e4:	00000000 	nop
+    20e8:	00000000 	nop
+    20ec:	00000000 	nop
+    20f0:	00000000 	nop
+    20f4:	00000000 	nop
+    20f8:	00000000 	nop
+    20fc:	00000000 	nop
+    2100:	00000000 	nop
+    2104:	00000000 	nop
+    2108:	00000000 	nop
+    210c:	00000000 	nop
+    2110:	00000000 	nop
+    2114:	00000000 	nop
+    2118:	00000000 	nop
+    211c:	00000000 	nop
+    2120:	00000000 	nop
+    2124:	00000000 	nop
+    2128:	00000000 	nop
+    212c:	00000000 	nop
+    2130:	00000000 	nop
+    2134:	00000000 	nop
+    2138:	00000000 	nop
+    213c:	00000000 	nop
+    2140:	00000000 	nop
+    2144:	00000000 	nop
+    2148:	00000000 	nop
+    214c:	00000000 	nop
+    2150:	00000000 	nop
+    2154:	00000000 	nop
+    2158:	00000000 	nop
+    215c:	00000000 	nop
+    2160:	00000000 	nop
+    2164:	00000000 	nop
+    2168:	00000000 	nop
+    216c:	00000000 	nop
+    2170:	00000000 	nop
+    2174:	00000000 	nop
+    2178:	00000000 	nop
+    217c:	00000000 	nop
+    2180:	00000000 	nop
+    2184:	00000000 	nop
+    2188:	00000000 	nop
+    218c:	00000000 	nop
+    2190:	00000000 	nop
+    2194:	00000000 	nop
+    2198:	00000000 	nop
+    219c:	00000000 	nop
+    21a0:	00000000 	nop
+    21a4:	00000000 	nop
+    21a8:	00000000 	nop
+    21ac:	00000000 	nop
+    21b0:	00000000 	nop
+    21b4:	00000000 	nop
+    21b8:	00000000 	nop
+    21bc:	00000000 	nop
+    21c0:	00000000 	nop
+    21c4:	00000000 	nop
+    21c8:	00000000 	nop
+    21cc:	00000000 	nop
+    21d0:	00000000 	nop
+    21d4:	00000000 	nop
+    21d8:	00000000 	nop
+    21dc:	00000000 	nop
+    21e0:	00000000 	nop
+    21e4:	00000000 	nop
+    21e8:	00000000 	nop
+    21ec:	00000000 	nop
+    21f0:	00000000 	nop
+    21f4:	00000000 	nop
+    21f8:	00000000 	nop
+    21fc:	00000000 	nop
+    2200:	00000000 	nop
+    2204:	00000000 	nop
+    2208:	00000000 	nop
+    220c:	00000000 	nop
+    2210:	00000000 	nop
+    2214:	00000000 	nop
+    2218:	00000000 	nop
+    221c:	00000000 	nop
+    2220:	00000000 	nop
+    2224:	00000000 	nop
+    2228:	00000000 	nop
+    222c:	00000000 	nop
+    2230:	00000000 	nop
+    2234:	00000000 	nop
+    2238:	00000000 	nop
+    223c:	00000000 	nop
+    2240:	00000000 	nop
+    2244:	00000000 	nop
+    2248:	00000000 	nop
+    224c:	00000000 	nop
+    2250:	00000000 	nop
+    2254:	00000000 	nop
+    2258:	00000000 	nop
+    225c:	00000000 	nop
+    2260:	00000000 	nop
+    2264:	00000000 	nop
+    2268:	00000000 	nop
+    226c:	00000000 	nop
+    2270:	00000000 	nop
+    2274:	00000000 	nop
+    2278:	00000000 	nop
+    227c:	00000000 	nop
+    2280:	00000000 	nop
+    2284:	00000000 	nop
+    2288:	00000000 	nop
+    228c:	00000000 	nop
+    2290:	00000000 	nop
+    2294:	00000000 	nop
+    2298:	00000000 	nop
+    229c:	00000000 	nop
+    22a0:	00000000 	nop
+    22a4:	00000000 	nop
+    22a8:	00000000 	nop
+    22ac:	00000000 	nop
+    22b0:	00000000 	nop
+    22b4:	00000000 	nop
+    22b8:	00000000 	nop
+    22bc:	00000000 	nop
+    22c0:	00000000 	nop
+    22c4:	00000000 	nop
+    22c8:	00000000 	nop
+    22cc:	00000000 	nop
+    22d0:	00000000 	nop
+    22d4:	00000000 	nop
+    22d8:	00000000 	nop
+    22dc:	00000000 	nop
+    22e0:	00000000 	nop
+    22e4:	00000000 	nop
+    22e8:	00000000 	nop
+    22ec:	00000000 	nop
+    22f0:	00000000 	nop
+    22f4:	00000000 	nop
+    22f8:	00000000 	nop
+    22fc:	00000000 	nop
+    2300:	00000000 	nop
+    2304:	00000000 	nop
+    2308:	00000000 	nop
+    230c:	00000000 	nop
+    2310:	00000000 	nop
+    2314:	00000000 	nop
+    2318:	00000000 	nop
+    231c:	00000000 	nop
+    2320:	00000000 	nop
+    2324:	00000000 	nop
+    2328:	00000000 	nop
+    232c:	00000000 	nop
+    2330:	00000000 	nop
+    2334:	00000000 	nop
+    2338:	00000000 	nop
+    233c:	00000000 	nop
+    2340:	00000000 	nop
+    2344:	00000000 	nop
+    2348:	00000000 	nop
+    234c:	00000000 	nop
+    2350:	00000000 	nop
+    2354:	00000000 	nop
+    2358:	00000000 	nop
+    235c:	00000000 	nop
+    2360:	00000000 	nop
+    2364:	00000000 	nop
+    2368:	00000000 	nop
+    236c:	00000000 	nop
+    2370:	00000000 	nop
+    2374:	00000000 	nop
+    2378:	00000000 	nop
+    237c:	00000000 	nop
+    2380:	00000000 	nop
+    2384:	00000000 	nop
+    2388:	00000000 	nop
+    238c:	00000000 	nop
+    2390:	00000000 	nop
+    2394:	00000000 	nop
+    2398:	00000000 	nop
+    239c:	00000000 	nop
+    23a0:	00000000 	nop
+    23a4:	00000000 	nop
+    23a8:	00000000 	nop
+    23ac:	00000000 	nop
+    23b0:	00000000 	nop
+    23b4:	00000000 	nop
+    23b8:	00000000 	nop
+    23bc:	00000000 	nop
+    23c0:	00000000 	nop
+    23c4:	00000000 	nop
+    23c8:	00000000 	nop
+    23cc:	00000000 	nop
+    23d0:	00000000 	nop
+    23d4:	00000000 	nop
+    23d8:	00000000 	nop
+    23dc:	00000000 	nop
+    23e0:	00000000 	nop
+    23e4:	00000000 	nop
+    23e8:	00000000 	nop
+    23ec:	00000000 	nop
+    23f0:	00000000 	nop
+    23f4:	00000000 	nop
+    23f8:	00000000 	nop
+    23fc:	00000000 	nop
+    2400:	00000000 	nop
+    2404:	00000000 	nop
+    2408:	00000000 	nop
+    240c:	00000000 	nop
+    2410:	00000000 	nop
+    2414:	00000000 	nop
+    2418:	00000000 	nop
+    241c:	00000000 	nop
+    2420:	00000000 	nop
+    2424:	00000000 	nop
+    2428:	00000000 	nop
+    242c:	00000000 	nop
+    2430:	00000000 	nop
+    2434:	00000000 	nop
+    2438:	00000000 	nop
+    243c:	00000000 	nop
+    2440:	00000000 	nop
+    2444:	00000000 	nop
+    2448:	00000000 	nop
+    244c:	00000000 	nop
+    2450:	00000000 	nop
+    2454:	00000000 	nop
+    2458:	00000000 	nop
+    245c:	00000000 	nop
+    2460:	00000000 	nop
+    2464:	00000000 	nop
+    2468:	00000000 	nop
+    246c:	00000000 	nop
+    2470:	00000000 	nop
+    2474:	00000000 	nop
+    2478:	00000000 	nop
+    247c:	00000000 	nop
+    2480:	00000000 	nop
+    2484:	00000000 	nop
+    2488:	00000000 	nop
+    248c:	00000000 	nop
+    2490:	00000000 	nop
+    2494:	00000000 	nop
+    2498:	00000000 	nop
+    249c:	00000000 	nop
+    24a0:	00000000 	nop
+    24a4:	00000000 	nop
+    24a8:	00000000 	nop
+    24ac:	00000000 	nop
+    24b0:	00000000 	nop
+    24b4:	00000000 	nop
+    24b8:	00000000 	nop
+    24bc:	00000000 	nop
+    24c0:	00000000 	nop
+    24c4:	00000000 	nop
+    24c8:	00000000 	nop
+    24cc:	00000000 	nop
+    24d0:	00000000 	nop
+    24d4:	00000000 	nop
+    24d8:	00000000 	nop
+    24dc:	00000000 	nop
+    24e0:	00000000 	nop
+    24e4:	00000000 	nop
+    24e8:	00000000 	nop
+    24ec:	00000000 	nop
+    24f0:	00000000 	nop
+    24f4:	00000000 	nop
+    24f8:	00000000 	nop
+    24fc:	00000000 	nop
+    2500:	00000000 	nop
+    2504:	00000000 	nop
+    2508:	00000000 	nop
+    250c:	00000000 	nop
+    2510:	00000000 	nop
+    2514:	00000000 	nop
+    2518:	00000000 	nop
+    251c:	00000000 	nop
+    2520:	00000000 	nop
+    2524:	00000000 	nop
+    2528:	00000000 	nop
+    252c:	00000000 	nop
+    2530:	00000000 	nop
+    2534:	00000000 	nop
+    2538:	00000000 	nop
+    253c:	00000000 	nop
+    2540:	00000000 	nop
+    2544:	00000000 	nop
+    2548:	00000000 	nop
+    254c:	00000000 	nop
+    2550:	00000000 	nop
+    2554:	00000000 	nop
+    2558:	00000000 	nop
+    255c:	00000000 	nop
+    2560:	00000000 	nop
+    2564:	00000000 	nop
+    2568:	00000000 	nop
+    256c:	00000000 	nop
+    2570:	00000000 	nop
+    2574:	00000000 	nop
+    2578:	00000000 	nop
+    257c:	00000000 	nop
+    2580:	00000000 	nop
+    2584:	00000000 	nop
+    2588:	00000000 	nop
+    258c:	00000000 	nop
+    2590:	00000000 	nop
+    2594:	00000000 	nop
+    2598:	00000000 	nop
+    259c:	00000000 	nop
+    25a0:	00000000 	nop
+    25a4:	00000000 	nop
+    25a8:	00000000 	nop
+    25ac:	00000000 	nop
+    25b0:	00000000 	nop
+    25b4:	00000000 	nop
+    25b8:	00000000 	nop
+    25bc:	00000000 	nop
+    25c0:	00000000 	nop
+    25c4:	00000000 	nop
+    25c8:	00000000 	nop
+    25cc:	00000000 	nop
+    25d0:	00000000 	nop
+    25d4:	00000000 	nop
+    25d8:	00000000 	nop
+    25dc:	00000000 	nop
+    25e0:	00000000 	nop
+    25e4:	00000000 	nop
+    25e8:	00000000 	nop
+    25ec:	00000000 	nop
+    25f0:	00000000 	nop
+    25f4:	00000000 	nop
+    25f8:	00000000 	nop
+    25fc:	00000000 	nop
+    2600:	00000000 	nop
+    2604:	00000000 	nop
+    2608:	00000000 	nop
+    260c:	00000000 	nop
+    2610:	00000000 	nop
+    2614:	00000000 	nop
+    2618:	00000000 	nop
+    261c:	00000000 	nop
+    2620:	00000000 	nop
+    2624:	00000000 	nop
+    2628:	00000000 	nop
+    262c:	00000000 	nop
+    2630:	00000000 	nop
+    2634:	00000000 	nop
+    2638:	00000000 	nop
+    263c:	00000000 	nop
+    2640:	00000000 	nop
+    2644:	00000000 	nop
+    2648:	00000000 	nop
+    264c:	00000000 	nop
+    2650:	00000000 	nop
+    2654:	00000000 	nop
+    2658:	00000000 	nop
+    265c:	00000000 	nop
+    2660:	00000000 	nop
+    2664:	00000000 	nop
+    2668:	00000000 	nop
+    266c:	00000000 	nop
+    2670:	00000000 	nop
+    2674:	00000000 	nop
+    2678:	00000000 	nop
+    267c:	00000000 	nop
+    2680:	00000000 	nop
+    2684:	00000000 	nop
+    2688:	00000000 	nop
+    268c:	00000000 	nop
+    2690:	00000000 	nop
+    2694:	00000000 	nop
+    2698:	00000000 	nop
+    269c:	00000000 	nop
+    26a0:	00000000 	nop
+    26a4:	00000000 	nop
+    26a8:	00000000 	nop
+    26ac:	00000000 	nop
+    26b0:	00000000 	nop
+    26b4:	00000000 	nop
+    26b8:	00000000 	nop
+    26bc:	00000000 	nop
+    26c0:	00000000 	nop
+    26c4:	00000000 	nop
+    26c8:	00000000 	nop
+    26cc:	00000000 	nop
+    26d0:	00000000 	nop
+    26d4:	00000000 	nop
+    26d8:	00000000 	nop
+    26dc:	00000000 	nop
+    26e0:	00000000 	nop
+    26e4:	00000000 	nop
+    26e8:	00000000 	nop
+    26ec:	00000000 	nop
+    26f0:	00000000 	nop
+    26f4:	00000000 	nop
+    26f8:	00000000 	nop
+    26fc:	00000000 	nop
+    2700:	00000000 	nop
+    2704:	00000000 	nop
+    2708:	00000000 	nop
+    270c:	00000000 	nop
+    2710:	00000000 	nop
+    2714:	00000000 	nop
+    2718:	00000000 	nop
+    271c:	00000000 	nop
+    2720:	00000000 	nop
+    2724:	00000000 	nop
+    2728:	00000000 	nop
+    272c:	00000000 	nop
+    2730:	00000000 	nop
+    2734:	00000000 	nop
+    2738:	00000000 	nop
+    273c:	00000000 	nop
+    2740:	00000000 	nop
+    2744:	00000000 	nop
+    2748:	00000000 	nop
+    274c:	00000000 	nop
+    2750:	00000000 	nop
+    2754:	00000000 	nop
+    2758:	00000000 	nop
+    275c:	00000000 	nop
+    2760:	00000000 	nop
+    2764:	00000000 	nop
+    2768:	00000000 	nop
+    276c:	00000000 	nop
+    2770:	00000000 	nop
+    2774:	00000000 	nop
+    2778:	00000000 	nop
+    277c:	00000000 	nop
+    2780:	00000000 	nop
+    2784:	00000000 	nop
+    2788:	00000000 	nop
+    278c:	00000000 	nop
+    2790:	00000000 	nop
+    2794:	00000000 	nop
+    2798:	00000000 	nop
+    279c:	00000000 	nop
+    27a0:	00000000 	nop
+    27a4:	00000000 	nop
+    27a8:	00000000 	nop
+    27ac:	00000000 	nop
+    27b0:	00000000 	nop
+    27b4:	00000000 	nop
+    27b8:	00000000 	nop
+    27bc:	00000000 	nop
+    27c0:	00000000 	nop
+    27c4:	00000000 	nop
+    27c8:	00000000 	nop
+    27cc:	00000000 	nop
+    27d0:	00000000 	nop
+    27d4:	00000000 	nop
+    27d8:	00000000 	nop
+    27dc:	00000000 	nop
+    27e0:	00000000 	nop
+    27e4:	00000000 	nop
+    27e8:	00000000 	nop
+    27ec:	00000000 	nop
+    27f0:	00000000 	nop
+    27f4:	00000000 	nop
+    27f8:	00000000 	nop
+    27fc:	00000000 	nop
+    2800:	00000000 	nop
+    2804:	00000000 	nop
+    2808:	00000000 	nop
+    280c:	00000000 	nop
+    2810:	00000000 	nop
+    2814:	00000000 	nop
+    2818:	00000000 	nop
+    281c:	00000000 	nop
+    2820:	00000000 	nop
+    2824:	00000000 	nop
+    2828:	00000000 	nop
+    282c:	00000000 	nop
+    2830:	00000000 	nop
+    2834:	00000000 	nop
+    2838:	00000000 	nop
+    283c:	00000000 	nop
+    2840:	00000000 	nop
+    2844:	00000000 	nop
+    2848:	00000000 	nop
+    284c:	00000000 	nop
+    2850:	00000000 	nop
+    2854:	00000000 	nop
+    2858:	00000000 	nop
+    285c:	00000000 	nop
+    2860:	00000000 	nop
+    2864:	00000000 	nop
+    2868:	00000000 	nop
+    286c:	00000000 	nop
+    2870:	00000000 	nop
+    2874:	00000000 	nop
+    2878:	00000000 	nop
+    287c:	00000000 	nop
+    2880:	00000000 	nop
+    2884:	00000000 	nop
+    2888:	00000000 	nop
+    288c:	00000000 	nop
+    2890:	00000000 	nop
+    2894:	00000000 	nop
+    2898:	00000000 	nop
+    289c:	00000000 	nop
+    28a0:	00000000 	nop
+    28a4:	00000000 	nop
+    28a8:	00000000 	nop
+    28ac:	00000000 	nop
+    28b0:	00000000 	nop
+    28b4:	00000000 	nop
+    28b8:	00000000 	nop
+    28bc:	00000000 	nop
+    28c0:	00000000 	nop
+    28c4:	00000000 	nop
+    28c8:	00000000 	nop
+    28cc:	00000000 	nop
+    28d0:	00000000 	nop
+    28d4:	00000000 	nop
+    28d8:	00000000 	nop
+    28dc:	00000000 	nop
+    28e0:	00000000 	nop
+    28e4:	00000000 	nop

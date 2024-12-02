@@ -1,0 +1,1566 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Dec  2 13:49:27 2024
+# Process ID: 17453
+# Current directory: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard
+# Command line: vivado -mode batch -source script/bitgen.tcl
+# Log file: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/vivado.log
+# Journal file: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/vivado.jou
+# Running On: y14c038.educ.cc.keio.ac.jp, OS: Linux, CPU Frequency: 2100.000 MHz, CPU Physical cores: 16, Host memory: 33126 MB
+#-----------------------------------------------------------
+source script/bitgen.tcl
+# set project	"test1"
+# set program	"../soft/program.dat"
+# create_project	-force ${project} -part "xc7z010clg400-1"
+# import_files	-flat "top.v mips.v multdiv.v parts.v fpga.xdc" ${program}
+# synth_design	-top "fpga_top"
+Command: synth_design -top fpga_top
+Starting synth_design
+Using part: xc7z010clg400-1
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17512
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2379.586 ; gain = 396.609 ; free physical = 21427 ; free virtual = 34335
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'readdata4', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:68]
+INFO: [Synth 8-11241] undeclared symbol 'jumpD', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:67]
+INFO: [Synth 8-11241] undeclared symbol 'cop0writeW', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:69]
+INFO: [Synth 8-11241] undeclared symbol 'halfwordE', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:71]
+INFO: [Synth 8-11241] undeclared symbol 'rfeE', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:71]
+INFO: [Synth 8-11241] undeclared symbol 'interrupt', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:91]
+INFO: [Synth 8-11241] undeclared symbol 'hiloselE', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:235]
+INFO: [Synth 8-11241] undeclared symbol 'iec', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:796]
+INFO: [Synth 8-11241] undeclared symbol 'cin', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:85]
+INFO: [Synth 8-11241] undeclared symbol 'cout', assumed default net type 'wire' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:97]
+INFO: [Synth 8-6157] synthesizing module 'fpga_top' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:12]
+INFO: [Synth 8-6157] synthesizing module 'mips' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:21]
+INFO: [Synth 8-6157] synthesizing module 'controller' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:130]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:247]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:247]
+INFO: [Synth 8-6157] synthesizing module 'alushdec' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:300]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 13 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'alushdec' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:300]
+INFO: [Synth 8-6157] synthesizing module 'hilocontrol' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:402]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'hilocontrol' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:402]
+INFO: [Synth 8-6157] synthesizing module 'branchdec' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:364]
+INFO: [Synth 8-6155] done synthesizing module 'branchdec' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:364]
+INFO: [Synth 8-6157] synthesizing module 'branchcontroller' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1103]
+INFO: [Synth 8-6155] done synthesizing module 'branchcontroller' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1103]
+INFO: [Synth 8-6157] synthesizing module 'cop0dec' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:410]
+INFO: [Synth 8-6155] done synthesizing module 'cop0dec' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:410]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+	Parameter WIDTH bound to: 31 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+	Parameter WIDTH bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 3 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:130]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:421]
+INFO: [Synth 8-6157] synthesizing module 'fivebitdp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1060]
+INFO: [Synth 8-6157] synthesizing module 'neqzerocmp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:43]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'neqzerocmp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:43]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:31]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:31]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6155] done synthesizing module 'fivebitdp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1060]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:944]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:101]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:101]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:944]
+INFO: [Synth 8-6157] synthesizing module 'fetchstage' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:570]
+INFO: [Synth 8-6157] synthesizing module 'mux4' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux4' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'adder' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:17]
+INFO: [Synth 8-6155] done synthesizing module 'fetchstage' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:570]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized3' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized3' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:71]
+INFO: [Synth 8-6157] synthesizing module 'decodestage' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:605]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1213]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1213]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6157] synthesizing module 'signext' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:62]
+	Parameter INPUT bound to: 16 - type: integer 
+	Parameter OUTPUT bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'signext' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:62]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:31]
+INFO: [Synth 8-6157] synthesizing module 'eqzerocmp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'eqzerocmp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:37]
+INFO: [Synth 8-6157] synthesizing module 'gtzerocmp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'gtzerocmp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:49]
+INFO: [Synth 8-6157] synthesizing module 'ltzerocmp' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:55]
+INFO: [Synth 8-6155] done synthesizing module 'ltzerocmp' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:55]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+INFO: [Synth 8-6155] done synthesizing module 'decodestage' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:605]
+INFO: [Synth 8-6157] synthesizing module 'executestage' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:657]
+INFO: [Synth 8-6157] synthesizing module 'alu' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1136]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1136]
+INFO: [Synth 8-6157] synthesizing module 'shifter' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1167]
+INFO: [Synth 8-6157] synthesizing module 'mux3__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+INFO: [Synth 8-6155] done synthesizing module 'shifter' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1167]
+INFO: [Synth 8-6157] synthesizing module 'mdunit' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1191]
+INFO: [Synth 8-6157] synthesizing module 'multdiv' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:56]
+INFO: [Synth 8-6157] synthesizing module 'mdcontroller' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:120]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized3' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized3' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'flopen' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopen' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+INFO: [Synth 8-6157] synthesizing module 'inc' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:151]
+	Parameter WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'inc' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:151]
+INFO: [Synth 8-6155] done synthesizing module 'mdcontroller' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:120]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized4' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized4' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'boothsel' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:308]
+INFO: [Synth 8-6157] synthesizing module 'mux4__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux4__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+INFO: [Synth 8-6157] synthesizing module 'and2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:139]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'and2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:139]
+INFO: [Synth 8-6155] done synthesizing module 'boothsel' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:308]
+INFO: [Synth 8-6157] synthesizing module 'zerodetect' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:158]
+INFO: [Synth 8-6155] done synthesizing module 'zerodetect' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:158]
+INFO: [Synth 8-6157] synthesizing module 'shl1r2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:284]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized3' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized3' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6155] done synthesizing module 'shl1r2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:284]
+INFO: [Synth 8-6157] synthesizing module 'mux3__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+INFO: [Synth 8-6157] synthesizing module 'xor2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:145]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xor2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:145]
+INFO: [Synth 8-6157] synthesizing module 'adderc' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:23]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adderc' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized5' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 34 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized5' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'shl1r2__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:284]
+INFO: [Synth 8-6155] done synthesizing module 'shl1r2__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:284]
+INFO: [Synth 8-6157] synthesizing module 'mux4__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+INFO: [Synth 8-6155] done synthesizing module 'mux4__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+INFO: [Synth 8-6155] done synthesizing module 'multdiv' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/multdiv.v:56]
+INFO: [Synth 8-6155] done synthesizing module 'mdunit' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:1191]
+INFO: [Synth 8-6155] done synthesizing module 'executestage' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:657]
+INFO: [Synth 8-6157] synthesizing module 'memorystage' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:719]
+INFO: [Synth 8-6157] synthesizing module 'dec2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:133]
+INFO: [Synth 8-6155] done synthesizing module 'dec2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:133]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized4' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized4' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6157] synthesizing module 'mux3__parameterized2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+	Parameter WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3__parameterized2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:117]
+INFO: [Synth 8-6157] synthesizing module 'mux4__parameterized2' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux4__parameterized2' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:124]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized5' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+	Parameter WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized5' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:110]
+INFO: [Synth 8-6157] synthesizing module 'signext__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:62]
+	Parameter INPUT bound to: 8 - type: integer 
+	Parameter OUTPUT bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'signext__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'memorystage' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:719]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:421]
+INFO: [Synth 8-6157] synthesizing module 'coprocessor0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:769]
+INFO: [Synth 8-6157] synthesizing module 'exceptionunit' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:818]
+INFO: [Synth 8-6157] synthesizing module 'prienc_8' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:164]
+INFO: [Synth 8-6155] done synthesizing module 'prienc_8' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:164]
+INFO: [Synth 8-6155] done synthesizing module 'exceptionunit' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:818]
+INFO: [Synth 8-6157] synthesizing module 'epcunit' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:929]
+INFO: [Synth 8-6157] synthesizing module 'flopen__parameterized0' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopen__parameterized0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+INFO: [Synth 8-6155] done synthesizing module 'epcunit' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:929]
+INFO: [Synth 8-6157] synthesizing module 'statusregunit' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:869]
+INFO: [Synth 8-6157] synthesizing module 'flopenr__parameterized6' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+	Parameter WIDTH bound to: 31 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr__parameterized6' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:82]
+INFO: [Synth 8-6157] synthesizing module 'flopen__parameterized1' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopen__parameterized1' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/parts.v:92]
+INFO: [Synth 8-6155] done synthesizing module 'statusregunit' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:869]
+INFO: [Synth 8-6157] synthesizing module 'causeregunit' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:916]
+INFO: [Synth 8-6155] done synthesizing module 'causeregunit' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:916]
+INFO: [Synth 8-6155] done synthesizing module 'coprocessor0' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:769]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/mips.v:21]
+INFO: [Synth 8-6157] synthesizing module 'spi' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:147]
+INFO: [Synth 8-6155] done synthesizing module 'spi' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:147]
+INFO: [Synth 8-6157] synthesizing module 'mem' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:105]
+INFO: [Synth 8-3876] $readmem data file 'program.dat' is read successfully [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:129]
+INFO: [Synth 8-6155] done synthesizing module 'mem' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:105]
+INFO: [Synth 8-6157] synthesizing module 'timer' [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'timer' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:84]
+INFO: [Synth 8-6155] done synthesizing module 'fpga_top' (0#1) [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:12]
+WARNING: [Synth 8-3848] Net ioa in module/entity fpga_top does not have driver. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:18]
+WARNING: [Synth 8-3848] Net cs5 in module/entity fpga_top does not have driver. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:26]
+WARNING: [Synth 8-3848] Net cs4 in module/entity fpga_top does not have driver. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/top.v:26]
+WARNING: [Synth 8-7129] Port reset in module mem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[31] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[30] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[29] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[27] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[26] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[24] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[23] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[20] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[19] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[18] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[7] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[6] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[5] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[4] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[3] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[2] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[1] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port writedata[0] in module statusregunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module exceptionunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module exceptionunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[31] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[30] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[29] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[28] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[27] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[26] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[25] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[24] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[23] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[22] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[21] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[20] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[19] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[18] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[17] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[16] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[15] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[14] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[13] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[12] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[11] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[10] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[9] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[8] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[7] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[6] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[5] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[4] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[3] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aluoutM[2] in module memorystage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port yzero in module mdcontroller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port alushcontrol[2] in module mdunit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[29] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[28] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[27] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[26] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[25] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[24] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[23] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[22] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[21] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[20] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[19] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[18] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[17] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[16] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[15] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[14] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[13] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[12] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[11] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[10] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[9] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[8] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[7] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[6] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[5] in module shifter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[29] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[28] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[27] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[26] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[25] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[24] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[23] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[22] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[21] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[20] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[19] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[18] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[17] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[16] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[15] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[14] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[13] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[12] in module ltzerocmp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[11] in module ltzerocmp is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2477.555 ; gain = 494.578 ; free physical = 21319 ; free virtual = 34231
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2489.430 ; gain = 506.453 ; free physical = 21312 ; free virtual = 34224
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2489.430 ; gain = 506.453 ; free physical = 21312 ; free virtual = 34224
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2489.430 ; gain = 0.000 ; free physical = 21311 ; free virtual = 34223
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc]
+WARNING: [Vivado 12-584] No ports matched 'ioc[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:120]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:121]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:122]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:123]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:123]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:124]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:124]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:125]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:125]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2635.176 ; gain = 0.000 ; free physical = 21204 ; free virtual = 34132
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2635.211 ; gain = 0.000 ; free physical = 21204 ; free virtual = 34132
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21204 ; free virtual = 34132
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21204 ; free virtual = 34132
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21203 ; free virtual = 34132
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'spi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE0 |                               00 |                               00
+                 iSTATE1 |                               01 |                               01
+                 iSTATE2 |                               10 |                               10
+                  iSTATE |                               11 |                               11
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'spi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21203 ; free virtual = 34133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   35 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     34 Bit         XORs := 1     
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      2 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               34 Bit    Registers := 1     
+	               32 Bit    Registers := 21    
+	               31 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 15    
++---RAMs : 
+	             512K Bit	(16384 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   34 Bit        Muxes := 8     
+	   2 Input   32 Bit        Muxes := 44    
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   31 Bit        Muxes := 1     
+	  27 Input   21 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1     
+	   2 Input   13 Bit        Muxes := 1     
+	  27 Input   13 Bit        Muxes := 1     
+	  49 Input   11 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 8     
+	   2 Input    7 Bit        Muxes := 4     
+	   8 Input    7 Bit        Muxes := 2     
+	   5 Input    7 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 10    
+	   3 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	   8 Input    4 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   9 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 4     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 24    
+	   5 Input    1 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design fpga_top has port lcd[2] driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21183 ; free virtual = 34126
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|fpga_top    | mem/RAM_reg | 16 K x 32(READ_FIRST)  | W | R | 16 K x 32(WRITE_FIRST) |   | R | Port A and B     | 0      | 16     | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-------------------------------+-----------+----------------------+--------------+
+|Module Name | RTL Object                    | Inference | Size (Depth x Width) | Primitives   | 
++------------+-------------------------------+-----------+----------------------+--------------+
+|fpga_top    | mips/dp/decodestage/rf/rf_reg | Implied   | 32 x 32              | RAM32M x 12  | 
++------------+-------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21174 ; free virtual = 34125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 2635.211 ; gain = 652.234 ; free physical = 21146 ; free virtual = 34097
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|fpga_top    | mem/RAM_reg | 16 K x 32(READ_FIRST)  | W | R | 16 K x 32(WRITE_FIRST) |   | R | Port A and B     | 0      | 16     | 
++------------+-------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++------------+-------------------------------+-----------+----------------------+--------------+
+|Module Name | RTL Object                    | Inference | Size (Depth x Width) | Primitives   | 
++------------+-------------------------------+-----------+----------------------+--------------+
+|fpga_top    | mips/dp/decodestage/rf/rf_reg | Implied   | 32 x 32              | RAM32M x 12  | 
++------------+-------------------------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_8 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_9 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_10 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_11 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_12 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_13 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_14 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance mem/RAM_reg_15 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |    61|
+|3     |LUT1     |     4|
+|4     |LUT2     |   161|
+|5     |LUT3     |   266|
+|6     |LUT4     |   200|
+|7     |LUT5     |   400|
+|8     |LUT6     |   601|
+|9     |MUXF7    |     1|
+|10    |RAM32M   |    10|
+|11    |RAM32X1D |     4|
+|12    |RAMB36E1 |    16|
+|28    |FDCE     |   686|
+|29    |FDPE     |     1|
+|30    |FDRE     |    42|
+|31    |IBUF     |     9|
+|32    |OBUF     |    16|
+|33    |OBUFT    |     8|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.746 ; gain = 658.770 ; free physical = 21136 ; free virtual = 34088
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 41 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2641.746 ; gain = 512.988 ; free physical = 21136 ; free virtual = 34088
+Synthesis Optimization Complete : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2641.754 ; gain = 658.770 ; free physical = 21135 ; free virtual = 34088
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2641.754 ; gain = 0.000 ; free physical = 21422 ; free virtual = 34377
+INFO: [Netlist 29-17] Analyzing 92 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc]
+WARNING: [Vivado 12-584] No ports matched 'ioc[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'ioc[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[0]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[1]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[2]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[3]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[4]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:120]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[5]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:121]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:122]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[6]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:123]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:123]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:124]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:124]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'iod[7]'. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:125]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc:125]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/test1.srcs/sources_1/imports/fpga.xdc]
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 14 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2737.793 ; gain = 0.000 ; free physical = 21420 ; free virtual = 34375
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 14 instances were transformed.
+  RAM32M => RAM32M (inverted pins: WCLK) (RAMD32(x6), RAMS32(x2)): 10 instances
+  RAM32X1D => RAM32X1D (inverted pins: WCLK) (RAMD32(x2)): 4 instances
+
+Synth Design complete | Checksum: a3ddec8c
+INFO: [Common 17-83] Releasing license: Synthesis
+223 Infos, 169 Warnings, 64 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:29 . Memory (MB): peak = 2737.828 ; gain = 1108.355 ; free physical = 21420 ; free virtual = 34375
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2178.808; main = 1877.341; forked = 440.241
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4268.250; main = 2737.797; forked = 1626.500
+# opt_design
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.5 ; elapsed = 00:00:00.45 . Memory (MB): peak = 2801.824 ; gain = 63.996 ; free physical = 21424 ; free virtual = 34380
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00.71 ; elapsed = 00:00:00.88 . Memory (MB): peak = 2846.645 ; gain = 44.820 ; free physical = 21376 ; free virtual = 34346
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Phase 1 Initialization | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1383ee176
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+
+Phase 3 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 139853c64
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Retarget | Checksum: 139853c64
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 11847dfea
+
+Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Constant propagation | Checksum: 11847dfea
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 1782d506f
+
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3090.645 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Sweep | Checksum: 1782d506f
+INFO: [Opt 31-389] Phase Sweep created 1 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 1782d506f
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+BUFG optimization | Checksum: 1782d506f
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 1782d506f
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+Shift Register Optimization | Checksum: 1782d506f
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: c1a938e8
+
+Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+Post Processing Netlist | Checksum: c1a938e8
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3122.660 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+Phase 9 Finalization | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               1  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.1 . Memory (MB): peak = 3122.660 ; gain = 32.016 ; free physical = 21115 ; free virtual = 34086
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3122.660 ; gain = 0.000 ; free physical = 21115 ; free virtual = 34086
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 16 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 0 Total Ports: 32
+Ending PowerOpt Patch Enables Task | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21090 ; free virtual = 34065
+Ending Power Optimization Task | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.54 . Memory (MB): peak = 3306.723 ; gain = 184.062 ; free physical = 21089 ; free virtual = 34064
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34064
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34064
+Ending Netlist Obfuscation Task | Checksum: 10394d6a0
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34064
+INFO: [Common 17-83] Releasing license: Implementation
+23 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+# place_design 
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34065
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: af101478
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34065
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21089 ; free virtual = 34065
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1d841ff65
+
+Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21086 ; free virtual = 34066
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 2cf47d3d3
+
+Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21083 ; free virtual = 34065
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 2cf47d3d3
+
+Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21083 ; free virtual = 34065
+Phase 1 Placer Initialization | Checksum: 2cf47d3d3
+
+Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21084 ; free virtual = 34065
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 22d10272c
+
+Time (s): cpu = 00:00:00.81 ; elapsed = 00:00:00.29 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34043
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 227a00c5f
+
+Time (s): cpu = 00:00:00.86 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21064 ; free virtual = 34045
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 227a00c5f
+
+Time (s): cpu = 00:00:00.88 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34052
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 2e423c484
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.71 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34053
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 94 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 40 nets or LUTs. Breaked 0 LUT, combined 40 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21070 ; free virtual = 34054
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |             40  |                    40  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |             40  |                    40  |           0  |           4  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 2873e8a1a
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.95 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21070 ; free virtual = 34054
+Phase 2.4 Global Placement Core | Checksum: 1896fafea
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.99 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Phase 2 Global Placement | Checksum: 1896fafea
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34054
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1b5be8af3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21070 ; free virtual = 34054
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1a0a06b6d
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21070 ; free virtual = 34054
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1fcf37979
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21070 ; free virtual = 34054
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1fca50d0e
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34054
+
+Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: 1cab83f8c
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34056
+
+Phase 3.6 Re-assign LUT pins
+Phase 3.6 Re-assign LUT pins | Checksum: 26d844705
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34056
+
+Phase 3.7 Pipeline Register Optimization
+Phase 3.7 Pipeline Register Optimization | Checksum: 26af6aaa0
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34056
+Phase 3 Detail Placement | Checksum: 26af6aaa0
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34056
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 19a55980a
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=1.812 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1889a8659
+
+Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1889a8659
+
+Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Phase 4.1.1.1 BUFG Insertion | Checksum: 19a55980a
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=1.812. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1d4d3f6ab
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Phase 4.1 Post Commit Optimization | Checksum: 1d4d3f6ab
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1d4d3f6ab
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                1x1|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1d4d3f6ab
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Phase 4.3 Placer Reporting | Checksum: 1d4d3f6ab
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 187d6dabd
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+Ending Placer Task | Checksum: e718a843
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21071 ; free virtual = 34055
+29 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+# route_design 
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: d951a244 ConstDB: 0 ShapeSum: dc705ff RouteDB: 0
+Post Restoration Checksum: NetGraph: aafcacbd | NumContArr: dde0de22 | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 30e2f8019
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21062 ; free virtual = 34048
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 30e2f8019
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21062 ; free virtual = 34048
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 30e2f8019
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34047
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 1e8d25900
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.681  | TNS=0.000  | WHS=0.012  | THS=0.000  |
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.00197072 %
+  Global Horizontal Routing Utilization  = 0.000229779 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 2078
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 2077
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 1e33bacee
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 1e33bacee
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 3.2 Initial Net Routing
+Phase 3.2 Initial Net Routing | Checksum: 26d7b41d4
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21062 ; free virtual = 34048
+Phase 3 Initial Routing | Checksum: 26d7b41d4
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21062 ; free virtual = 34048
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 199
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.658  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 16cb3be73
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+Phase 4 Rip-up And Reroute | Checksum: 16cb3be73
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 16cb3be73
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 16cb3be73
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+Phase 5 Delay and Skew Optimization | Checksum: 16cb3be73
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 22c7c7453
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=1.808  | TNS=0.000  | WHS=0.825  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 22c7c7453
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+Phase 6 Post Hold Fix | Checksum: 22c7c7453
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 1.23874 %
+  Global Horizontal Routing Utilization  = 1.69807 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 22c7c7453
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 22c7c7453
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21059 ; free virtual = 34046
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 233ba16da
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21059 ; free virtual = 34046
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=1.808  | TNS=0.000  | WHS=0.825  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 233ba16da
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21059 ; free virtual = 34046
+INFO: [Route 35-16] Router Completed Successfully
+
+Phase 11 Post-Route Event Processing
+Phase 11 Post-Route Event Processing | Checksum: 16d307047
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+Ending Routing Task | Checksum: 16d307047
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 3306.723 ; gain = 0.000 ; free physical = 21061 ; free virtual = 34048
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+12 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+# write_bitstream	-verbose -force "fpga_top.bit"
+Command: write_bitstream -verbose -force fpga_top.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z010'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[10] (net: mem/dataadr[9]) which is driven by a register (mips/dp/r2M/q_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[11] (net: mem/dataadr[10]) which is driven by a register (mips/dp/r2M/q_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[12] (net: mem/dataadr[11]) which is driven by a register (mips/dp/r2M/q_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[13] (net: mem/dataadr[12]) which is driven by a register (mips/dp/r2M/q_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[14] (net: mem/dataadr[13]) which is driven by a register (mips/dp/r2M/q_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[1] (net: mem/dataadr[0]) which is driven by a register (mips/dp/r2M/q_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[2] (net: mem/dataadr[1]) which is driven by a register (mips/dp/r2M/q_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[3] (net: mem/dataadr[2]) which is driven by a register (mips/dp/r2M/q_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[4] (net: mem/dataadr[3]) which is driven by a register (mips/dp/r2M/q_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[5] (net: mem/dataadr[4]) which is driven by a register (mips/dp/r2M/q_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[6] (net: mem/dataadr[5]) which is driven by a register (mips/dp/r2M/q_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[7] (net: mem/dataadr[6]) which is driven by a register (mips/dp/r2M/q_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[8] (net: mem/dataadr[7]) which is driven by a register (mips/dp/r2M/q_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRARDADDR[9] (net: mem/dataadr[8]) which is driven by a register (mips/dp/r2M/q_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[10] (net: mem/Q[9]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[11] (net: mem/Q[10]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[12] (net: mem/Q[11]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[13] (net: mem/Q[12]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[14] (net: mem/Q[13]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 mem/RAM_reg_0 has an input control pin mem/RAM_reg_0/ADDRBWRADDR[9] (net: mem/Q[8]) which is driven by a register (mips/dp/fetchstage/pcreg/q_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC ZPS7-1] PS7 block required: The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 22 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Summary of write_bitstream Options:
++-------------------------+-------------------------+
+| Option Name             | Current Setting         |
++-------------------------+-------------------------+
+| COMPRESS                | FALSE*                  |
++-------------------------+-------------------------+
+| DCIUPDATEMODE           | ASREQUIRED*             |
++-------------------------+-------------------------+
+| TDOPIN                  | PULLUP*                 |
++-------------------------+-------------------------+
+| INITSIGNALSERROR        | ENABLE*                 |
++-------------------------+-------------------------+
+| DISABLE_JTAG            | NO*                     |
++-------------------------+-------------------------+
+| XADCENHANCEDLINEARITY   | OFF*                    |
++-------------------------+-------------------------+
+| OVERTEMPPOWERDOWN       | DISABLE*                |
++-------------------------+-------------------------+
+| GWE_CYCLE               | 6*                      |
++-------------------------+-------------------------+
+| GTS_CYCLE               | 5*                      |
++-------------------------+-------------------------+
+| LCK_CYCLE               | NOWAIT*                 |
++-------------------------+-------------------------+
+| ACTIVERECONFIG          | NO*                     |
++-------------------------+-------------------------+
+| TDIPIN                  | PULLUP*                 |
++-------------------------+-------------------------+
+| TMSPIN                  | PULLUP*                 |
++-------------------------+-------------------------+
+| UNUSEDPIN               | PULLDOWN*               |
++-------------------------+-------------------------+
+| USR_ACCESS              | (Not Enabled)*          |
++-------------------------+-------------------------+
+| PERFRAMECRC             | NO*                     |
++-------------------------+-------------------------+
+| USERID                  | 0XFFFFFFFF*             |
++-------------------------+-------------------------+
+| STARTUPCLK              | CCLK*                   |
++-------------------------+-------------------------+
+| XADCPOWERDOWN           | DISABLE*                |
++-------------------------+-------------------------+
+| TCKPIN                  | PULLUP*                 |
++-------------------------+-------------------------+
+| ICAP_SELECT             | AUTO*                   |
++-------------------------+-------------------------+
+| DONEPIN                 | PULLUP*                 |
++-------------------------+-------------------------+
+| CRC                     | ENABLE*                 |
++-------------------------+-------------------------+
+| JTAG_XADC               | ENABLE*                 |
++-------------------------+-------------------------+
+| XADCPARTIALRECONFIG     | DISABLE*                |
++-------------------------+-------------------------+
+| INITPIN                 | PULLUP*                 |
++-------------------------+-------------------------+
+| PROGPIN                 | PULLUP*                 |
++-------------------------+-------------------------+
+| DONE_CYCLE              | 4*                      |
++-------------------------+-------------------------+
+| MATCH_CYCLE             | NoWait                  |
++-------------------------+-------------------------+
+| DONEPIPE                | YES*                    |
++-------------------------+-------------------------+
+| SECURITY                | NONE*                   |
++-------------------------+-------------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./fpga_top.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+10 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 3367.172 ; gain = 60.449 ; free physical = 20839 ; free virtual = 33838
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  2 13:51:05 2024...

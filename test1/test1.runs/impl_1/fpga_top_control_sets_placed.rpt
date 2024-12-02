@@ -1,0 +1,94 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Mon Nov 18 11:37:07 2024
+| Host         : y14c038.educ.cc.keio.ac.jp running 64-bit Rocky Linux release 8.10 (Green Obsidian)
+| Command      : report_control_sets -verbose -file fpga_top_control_sets_placed.rpt
+| Design       : fpga_top
+| Device       : xc7z010
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    16 |
+|    Minimum number of control sets                        |    16 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    47 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    16 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    11 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               4 |            4 |
+| No           | No                    | Yes                    |             347 |          144 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              38 |           14 |
+| Yes          | No                    | Yes                    |             316 |          132 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------+---------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|      Clock Signal     |                         Enable Signal                         |                Set/Reset Signal                | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------+---------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+|  clk_125mhz_IBUF_BUFG |                                                               |                                                |                1 |              1 |         1.00 |
+|  clk_62p5mhz_BUFG     |                                                               | mips/c/regE/q_reg[7]_2[0]                      |                1 |              1 |         1.00 |
+|  clk_62p5mhz_BUFG     |                                                               |                                                |                3 |              3 |         1.00 |
+|  clk_62p5mhz_BUFG     | mips/dp/r2M/q_reg[5]_2[0]                                     | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |                1 |              4 |         4.00 |
+|  clk_62p5mhz_BUFG     | mips/dp/fivebitdp/r3W/q_reg[0]_0[0]                           | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |                7 |             14 |         2.00 |
+|  clk_62p5mhz_BUFG     | mips/dp/executestage/md/multdiv/mdcont/countreg/E[0]          | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |               21 |             32 |         1.52 |
+|  clk_62p5mhz_BUFG     | mips/dp/executestage/md/multdiv/mdcont/countreg/q_reg[3]_0[0] | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |                8 |             32 |         4.00 |
+|  clk_62p5mhz_BUFG     | mips/dp/executestage/md/multdiv/mdcont/countreg/q_reg[4]_1[0] | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |               15 |             32 |         2.13 |
+|  clk_62p5mhz_BUFG     | mips/cop0/sr/srlo/E[0]                                        | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |               19 |             32 |         1.68 |
+|  clk_62p5mhz_BUFG     | mips/dp/r2D/q_reg[0]_4[0]                                     | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |                7 |             33 |         4.71 |
+|  clk_62p5mhz_BUFG     | mips/c/regE/q_reg[7]_0                                        | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |               11 |             33 |         3.00 |
+|  clk_62p5mhz_BUFG     | mips/c/regE/q_reg[0]_0                                        |                                                |               14 |             38 |         2.71 |
+|  clk_62p5mhz_BUFG     | mips/dp/executestage/md/multdiv/mdcont/countreg/E[0]          | mips/c/regE/q_reg[7]_2[0]                      |               23 |             40 |         1.74 |
+|  clk_62p5mhz_BUFG     | mips/dp/r2D/q_reg[30]_0[0]                                    | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |               20 |             64 |         3.20 |
+| ~clk_62p5mhz_BUFG     | mips/c/regW/regwriteW                                         |                                                |               11 |             88 |         8.00 |
+|  clk_62p5mhz_BUFG     |                                                               | mips/dp/executestage/md/multdiv/prodlreg/AR[0] |              143 |            346 |         2.42 |
++-----------------------+---------------------------------------------------------------+------------------------------------------------+------------------+----------------+--------------+
+
+

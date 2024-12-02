@@ -1,0 +1,437 @@
+/*
+
+AMD Vivado v2023.2 (64-bit) [Major: 2023, Minor: 2]
+SW Build: 4029153 on Fri Oct 13 20:13:54 MDT 2023
+IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
+IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
+
+Process ID (PID): 8671
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Nov 18 11:25:16 JST 2024
+Time zone: 	Japan Standard Time (Asia/Tokyo)
+
+OS: Rocky Linux release 8.10 (Green Obsidian)
+OS Version: 4.18.0-553.16.1.el8_10.x86_64
+OS Architecture: amd64
+Available processors (cores): 24
+LSB Release Description: Rocky Linux release 8.10 (Green Obsidian)
+
+Display: 0
+Screen size: 1920x1200
+Local screen bounds: x = 0, y = 0, width = 1920, height = 1200
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+OS font scaling: 100%
+Anti-Alias Enabled: true
+
+Java version: 	17.0.7 64-bit
+JavaFX version: 17.0.1
+Java home: 	/educ/usr.keio/keio/Xilinx_Vivado-2023.2_1013_2256/usr/local/Xilinx/Vivado/2023.2/tps/lnx64/jre17.0.7_7
+Java executable: 	/educ/usr.keio/keio/Xilinx_Vivado-2023.2_1013_2256/usr/local/Xilinx/Vivado/2023.2/tps/lnx64/jre17.0.7_7/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m, -Xrs]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	ub518475
+User home directory: /home/md301/ub518475
+User working directory: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /educ/usr.keio/local/Xilinx/Vivado
+HDI_APPROOT: /usr/local/Xilinx/Vivado/2023.2
+RDI_DATADIR: /educ/usr.keio/local/Xilinx/SharedData/2023.2/data:/usr/local/Xilinx/Vivado/2023.2/data
+RDI_BINDIR: /educ/usr.keio/local/Xilinx/Vivado/2023.2/bin
+
+Vivado preferences file: /home/md301/ub518475/.Xilinx/Vivado/2023.2/vivado.xml
+Vivado preferences directory: /home/md301/ub518475/.Xilinx/Vivado/2023.2/
+Vivado layouts directory: /home/md301/ub518475/.Xilinx/Vivado/2023.2/data/layouts
+PlanAhead jar file: 	/educ/usr.keio/keio/Xilinx_Vivado-2023.2_1013_2256/usr/local/Xilinx/Vivado/2023.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/vivado.log
+Vivado journal file: 	/home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-8671-y14c038.educ.cc.keio.ac.jp
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+RDI_APPROOT: /usr/local/Xilinx/Vivado/2023.2
+RDI_BASEROOT: /usr/local/Xilinx/Vivado
+RDI_BINROOT: /usr/local/Xilinx/Vivado/2023.2/bin
+RDI_BUILD: yes
+RDI_DATADIR: /usr/local/Xilinx/SharedData/2023.2/data:/usr/local/Xilinx/Vivado/2023.2/data
+RDI_INSTALLROOT: /usr/local/Xilinx
+RDI_INSTALLVER: 2023.2
+RDI_JAVA_PLATFORM: 
+RDI_JAVA_VERSION: 17.0.7_7
+RDI_LIBDIR: /usr/local/Xilinx/Vivado/2023.2/lib/lnx64.o/Default:/usr/local/Xilinx/Vivado/2023.2/lib/lnx64.o
+RDI_OPT_EXT: .o
+RDI_PATCHROOT: 
+RDI_PLATFORM: lnx64
+RDI_PREPEND_PATH: /usr/local/Xilinx/Vivado/2023.2/ids_lite/ISE/bin/lin64
+RDI_PROG: /usr/local/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/vivado
+RDI_SESSION_INFO: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft:y14c038.educ.cc.keio.ac.jp_1731896632_8573
+RDI_SHARED_DATA: /usr/local/Xilinx/SharedData/2023.2/data
+RDI_TPS_ROOT: /usr/local/Xilinx/Vivado/2023.2/tps/lnx64
+RDI_USE_JDK17: True
+SHELL: /bin/bash
+XILINX: /usr/local/Xilinx/Vivado/2023.2/ids_lite/ISE
+XILINXD_LICENSE_FILE: 2100@lic-xilinx.wsr.st.keio.ac.jp
+XILINX_DSP: /usr/local/Xilinx/Vivado/2023.2/ids_lite/ISE
+XILINX_HLS: /usr/local/Xilinx/Vitis_HLS/2023.2
+XILINX_PLANAHEAD: /usr/local/Xilinx/Vivado/2023.2
+XILINX_VIVADO: /usr/local/Xilinx/Vivado/2023.2
+XILINX_VIVADO_HLS: /usr/local/Xilinx/Vivado/2023.2
+XTERM_SHELL: /bin/bash
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 1,520 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // u (PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT)
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+// HMemoryUtils.trashcanNow. Engine heap size: 1,607 MB. GUI used memory: 70 MB. Current time: 11/18/24, 11:25:17 AM JST
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// Elapsed time: 21 seconds
+setText(PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION, "/home/md301/ub518475/third-year/jikken/mp/mips-20240724"); // ai (PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION)
+// Elapsed time: 20 seconds
+setText(PAResourceOtoP.ProjectNameChooser_PROJECT_NAME, "test1", true); // Q (PAResourceOtoP.ProjectNameChooser_PROJECT_NAME)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// Elapsed time: 20 seconds
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+// Elapsed time: 116 seconds
+String[] filenames31467 = {"/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/mips.v", "/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/multdiv.v", "/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/parts.v", "/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/top.v"};
+setFileChooser(filenames31467);
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,647 MB. GUI used memory: 71 MB. Current time: 11/18/24, 11:28:42 AM JST
+// Elapsed time: 35 seconds
+setFileChooser("/home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/program.dat");
+// Elapsed time: 15 seconds
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES, "Add Files"); // a (PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES)
+// Elapsed time: 29 seconds
+setFileChooser("/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/fpga.xdc");
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// [GUI Memory]: 141 MB (+145563kb) [00:05:55]
+// [Engine Memory]: 1,650 MB (+1578244kb) [00:05:55]
+// Elapsed time: 13 seconds
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectComboBox(PAResourceEtoH.FPGAChooser_CATEGORY, "General Purpose", 2); // a.a (PAResourceEtoH.FPGAChooser_CATEGORY)
+selectComboBox(PAResourceEtoH.FPGAChooser_FAMILY, "Zynq-7000", 20); // a.a (PAResourceEtoH.FPGAChooser_FAMILY)
+selectComboBox(PAResourceEtoH.FPGAChooser_PACKAGE, "clg400", 2); // a.a (PAResourceEtoH.FPGAChooser_PACKAGE)
+selectComboBox(PAResourceEtoH.FPGAChooser_SPEED, "-1", 1); // a.a (PAResourceEtoH.FPGAChooser_SPEED)
+// Elapsed time: 11 seconds
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xc7z010clg400-1 ; 400 ; 100 ; 17600 ; 35200 ; 60 ; 0 ; 80 ; 32 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 2 ;  ;  ;  ;  ; 0 ;  ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 1, "xc7z010clg400-1", 0); // c (PAResourceEtoH.FPGAChooser_FPGA_TABLE)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project test1 /home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1 -part xc7z010clg400-1 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 1,744 MB (+12713kb) [00:06:47]
+// WARNING: HEventQueue.dispatchEvent() is taking  1053 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/usr/local/Xilinx/Vivado/2023.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 8217.934 ; gain = 191.703 ; free physical = 23166 ; free virtual = 35241 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse /home/md301/ub518475/third-year/jikken/mp/mips-20240724/soft/program.dat 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/parts.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/top.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/mips.v /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/multdiv.v} 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset constrs_1 -norecurse /home/md301/ub518475/third-year/jikken/mp/mips-20240724/hard/fpga.xdc 
+// Elapsed time: 13 seconds
+selectButton("FINISH", "Finish"); // JButton (FINISH)
+// 'g' command handler elapsed time: 351 seconds
+dismissDialog("Create Project"); // bq (Create Project Progress)
+dismissDialog("New Project"); // f (dialog0)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,834 MB. GUI used memory: 72 MB. Current time: 11/18/24, 11:31:07 AM JST
+// [Engine Memory]: 1,843 MB (+12003kb) [00:06:53]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 183 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v)]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// [GUI Memory]: 150 MB (+2169kb) [00:09:54]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), c : controller (mips.v)]", 3); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), c : controller (mips.v)]", 3); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), dp : datapath (mips.v)]", 4); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), dp : datapath (mips.v)]", 4); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), cop0 : coprocessor0 (mips.v)]", 5); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v), cop0 : coprocessor0 (mips.v)]", 5); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fpga_top (top.v), mips : mips (mips.v)]", 2); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 21, false); // f (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a (RDIResource.BaseDialog_YES)
+dismissDialog("No Implementation Results Available"); // u (dialog4)
+// Elapsed time: 14 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (RDIResource.BaseDialog_OK)
+// 'cu' command handler elapsed time: 23 seconds
+dismissDialog("Launch Runs"); // cx (dialog5)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 12 
+// Tcl Message: [Mon Nov 18 11:35:17 2024] Launched synth_1... Run output will be captured here: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/synth_1/runme.log [Mon Nov 18 11:35:17 2024] Launched impl_1... Run output will be captured here: /home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bq (Generate Bitstream Progress)
+// TclEventType: RUN_STATUS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,902 MB. GUI used memory: 73 MB. Current time: 11/18/24, 11:35:27 AM JST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// Elapsed time: 136 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, "Open Hardware Manager"); // a (PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (RDIResource.BaseDialog_OK)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER
+// Tcl (Dont Echo) Command: 'rdi::info_commands get_hw_probes'
+// Tcl (Dont Echo) Command: 'load_features labtools'
+// TclEventType: LOAD_FEATURE
+// TclEventType: HW_SESSION_OPEN
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // t (PAResourceOtoP.PAViews_PROJECT_SUMMARY, PlanAheadTabProject Summary)
+// Tcl Message: open_hw_manager 
+dismissDialog("Open Hardware Manager"); // bq (Open Hardware Manager Progress)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,936 MB. GUI used memory: 79 MB. Current time: 11/18/24, 11:37:42 AM JST
+// Elapsed time: 34 seconds
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // g (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ao (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-2222] Launching hw_server... INFO: [Labtools 27-2221] Launch Output:  ****** Xilinx hw_server v2023.2   **** Build date : Oct 13 2023 at 20:26:23     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2023.2.0   ****** Build date   : Oct 10 2023-13:01:56     **** Build number : 2023.2.1696910516       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.    
+dismissDialog("Auto Connect"); // bq (Auto Connect Progress)
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// Elapsed time: 24 seconds
+selectButton(PAResourceOtoP.ProgramDebugTab_OPEN_TARGET, "Open target"); // g (PAResourceOtoP.ProgramDebugTab_OPEN_TARGET)
+selectMenuItem(PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, "Auto Connect"); // ao (PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET, auto_connect_target_menu)
+// Run Command: PAResourceCommand.PACommandNames_AUTO_CONNECT_TARGET
+// TclEventType: HW_OBJECT_DELETE
+// TclEventType: HW_SERVER_CLOSE
+// Tcl Message: disconnect_hw_server localhost:3121 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: connect_hw_server -allow_non_jtag 
+// Tcl Message: INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121 INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0 INFO: [Labtools 27-3417] Launching cs_server... 
+// TclEventType: HW_SERVER_UPDATE
+// Tcl Message: INFO: [Labtools 27-2221] Launch Output:   ******** Xilinx cs_server v2023.2.0   ****** Build date   : Oct 10 2023-13:01:56     **** Build number : 2023.2.1696910516       ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.       ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.    
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// Tcl Message: open_hw_target 
+// Tcl Message: INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210279777714A 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/impl_1/fpga_top.bit} [get_hw_devices xc7z010_1] 
+// Tcl Message: current_hw_device [get_hw_devices xc7z010_1] 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z010_1] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it. 
+dismissDialog("Auto Connect"); // bq (Auto Connect Progress)
+// [Engine Memory]: 1,961 MB (+27260kb) [00:14:36]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,972 MB. GUI used memory: 79 MB. Current time: 11/18/24, 11:38:57 AM JST
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // g (PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectButton(PAResourceOtoP.ProgramFpgaDialog_PROGRAM, "Program"); // a (PAResourceOtoP.ProgramFpgaDialog_PROGRAM, RDIResource.BaseDialog_OK)
+dismissDialog("Program Device"); // aP (dialog7)
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROBES.FILE {} [get_hw_devices xc7z010_1] 
+// Tcl Message: set_property FULL_PROBES.FILE {} [get_hw_devices xc7z010_1] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: set_property PROGRAM.FILE {/home/md301/ub518475/third-year/jikken/mp/mips-20240724/test1/test1.runs/impl_1/fpga_top.bit} [get_hw_devices xc7z010_1] 
+// Tcl Message: program_hw_devices [get_hw_devices xc7z010_1] 
+// TclEventType: HW_DEVICE_CHANGE
+// Tcl Message: INFO: [Labtools 27-3164] End of startup status: HIGH 
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Tcl Message: refresh_hw_device [lindex [get_hw_devices xc7z010_1] 0] 
+// Tcl Message: INFO: [Labtools 27-1434] Device xc7z010 (JTAG device index = 1) is programmed with a design that has no supported debug core(s) in it. 
+// 'D' command handler elapsed time: 11 seconds
+dismissDialog("Program Device"); // bq (Program Device Progress)
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,975 MB. GUI used memory: 80 MB. Current time: 11/18/24, 12:08:57 PM JST
+// [GUI Memory]: 159 MB (+704kb) [01:06:47]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,975 MB. GUI used memory: 64 MB. Current time: 11/18/24, 12:38:57 PM JST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,975 MB. GUI used memory: 61 MB. Current time: 11/18/24, 1:08:57 PM JST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,976 MB. GUI used memory: 60 MB. Current time: 11/18/24, 1:38:57 PM JST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:11m:10s
+// Elapsed Time for: 'L.f': 02h:11m:12s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:18m:02s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,011 MB. GUI used memory: 61 MB. Current time: 11/18/24, 1:49:07 PM JST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:18m:04s
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed Time for: 'L.f': 02h:18m:06s
+// Elapsed Time for: 'L.f': 02h:18m:08s
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed Time for: 'L.f': 02h:18m:10s
+// Elapsed Time for: 'L.f': 02h:18m:12s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:22m:20s
+// Elapsed Time for: 'L.f': 02h:22m:22s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:22m:48s
+// [Engine Memory]: 2,063 MB (+4157kb) [02:29:36]
+// Elapsed Time for: 'L.f': 02h:22m:50s
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed Time for: 'L.f': 02h:22m:52s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,099 MB. GUI used memory: 60 MB. Current time: 11/18/24, 1:53:57 PM JST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:22m:54s
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed Time for: 'L.f': 02h:22m:56s
+// Elapsed Time for: 'L.f': 02h:22m:58s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:26m:52s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,127 MB. GUI used memory: 61 MB. Current time: 11/18/24, 1:57:57 PM JST
+// Elapsed Time for: 'L.f': 02h:26m:54s
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02h:41m:06s
+// Elapsed Time for: 'L.f': 02h:41m:08s
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 3400 ms. Increasing delay to 3000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4982 ms. Increasing delay to 14946 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 5001 ms. Increasing delay to 4000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4 ms. Decreasing delay to 2004 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3838 ms. Increasing delay to 11514 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4 ms. Decreasing delay to 2004 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 2155 ms. Increasing delay to 6465 ms.
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,156 MB. GUI used memory: 62 MB. Current time: 11/18/24, 2:21:12 PM JST
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 6233 ms. Increasing delay to 5000 ms.
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_SYSMON_DELETE
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: DEBUG_PROBE_DELETE
+// Tcl Message: ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210279777714A 
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_NEEDS_CLOSE
+// TclEventType: HW_SERVER_UPDATE
+// TclEventType: HW_TARGET_CHANGE
+// TclEventType: HW_TARGET_CLOSE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_ADD
+// TclEventType: HW_TARGET_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_SYSMON_CHANGE
+// TclEventType: HW_DEVICE_UPDATE
+// TclEventType: HW_DEVICE_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: HW_DEVICE_PROBES_CHANGE
+// Elapsed time: 9930 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Close Hardware Target"); // j.a (dialog8)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // g (PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (RDIResource.BaseDialog_CANCEL)
+// 'D' command handler elapsed time: 3 seconds
+dismissDialog("Program Device"); // aP (dialog9)
+selectButton(PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, "Program device"); // g (PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE)
+// Run Command: PAResourceCommand.PACommandNames_PROGRAM_FPGA
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (RDIResource.BaseDialog_CANCEL)
+// 'D' command handler elapsed time: 6 seconds
+dismissDialog("Program Device"); // aP (dialog10)
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 4953 ms. Increasing delay to 6000 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3301 ms. Increasing delay to 9903 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,156 MB. GUI used memory: 62 MB. Current time: 11/18/24, 2:51:12 PM JST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,156 MB. GUI used memory: 61 MB. Current time: 11/18/24, 3:21:12 PM JST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,156 MB. GUI used memory: 61 MB. Current time: 11/18/24, 3:51:12 PM JST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:29m:01s
+// Elapsed Time for: 'L.f': 04h:29m:03s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,182 MB (+16571kb) [04:35:58]
+// Elapsed Time for: 'L.f': 04h:29m:11s
+// Elapsed Time for: 'L.f': 04h:29m:13s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,182 MB. GUI used memory: 60 MB. Current time: 11/18/24, 4:00:17 PM JST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:29m:31s
+// Elapsed Time for: 'L.f': 04h:29m:33s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:31m:19s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,218 MB. GUI used memory: 61 MB. Current time: 11/18/24, 4:02:22 PM JST
+// Elapsed Time for: 'L.f': 04h:31m:21s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:31m:39s
+// Elapsed Time for: 'L.f': 04h:31m:41s
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 04h:31m:49s
+// HMemoryUtils.trashcanNow. Engine heap size: 2,254 MB. GUI used memory: 60 MB. Current time: 11/18/24, 4:02:52 PM JST
+// Elapsed Time for: 'L.f': 04h:31m:51s
+// TclEventType: FILE_SET_CHANGE
