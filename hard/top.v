@@ -15,17 +15,23 @@ module fpga_top (
 	input		[3:0]	btn,
 	output 	reg	[3:0]	led,
 	output		[7:0]	lcd,
-	output  reg     [7:0]   ioa,
-	// output reg    [7:0]   iob,
-	output  reg     [3:0]   iob_lo,
-	input           [3:0]   iob_hi
+	//output	reg	[7:0]	ioa,
+	//input       [7:0] ioa,
+	output	reg	[3:0]	ioa_lo,
+	input		[3:0]	ioa_hi,
+	//output	reg	[7:0]	iob,
+	output		[7:0]	iob,
+	output		[7:0]	ioc,
+	output 	reg [3:0]	iod_lo,
+	input		[3:0]	iod_hi
 );
-wire	[31:0]	pc, instr, readdata, readdata0, readdata1, writedata, dataadr, readdata5;
+wire	[31:0]	pc, instr, readdata, readdata0, readdata1, writedata, dataadr, readdata4, readdata6, readdata7;
 wire	[3:0]	byteen;
 wire		reset;
 wire		memwrite, memtoregM, swc, cs0, cs1, cs2, cs3, cs4, cs5, irq;
 reg		clk_62p5mhz;
-
+reg		[6:0]	num;
+seg7led seg7led (clk_62p5mhz, reset, num, iob, ioc);
 /* Reset when two buttons are pushed */
 assign	reset	= btn[0] & btn[1];
 
@@ -42,11 +48,12 @@ mips mips (clk_62p5mhz, reset, pc, instr, {7'b0000000, irq}, memwrite,
 assign	cs0	= dataadr <  32'hff00;
 assign	cs1	= dataadr == 32'hff04;
 assign	cs2	= dataadr == 32'hff08;
-assign	cs3 = dataadr == 32'hff0c;
-assign	cs5 = dataadr == 32'hff14;
-spi spi (clk_62p5mhz, reset, cs3 && memwrite, writedata[9:0], lcd);
+assign cs3 = dataadr == 32'hff0c;
+assign cs5 = dataadr == 32'hff14;
+assign cs6 = dataadr == 32'hff16;
+assign cs7 = dataadr == 32'hff18;
 
-assign  readdata        = cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 : cs5 ? readdata5 : 0;
+assign	readdata	= cs0 ? readdata0 : cs1 ? readdata1 : cs4 ? readdata4 : cs6cs7 ? readdata7 : 0;
 
 /* Memory module (@125MHz) */
 mem mem (clk_125mhz, reset, cs0 & memwrite, pc[15:2], dataadr[15:2], instr, 
@@ -62,20 +69,27 @@ always @ (posedge clk_62p5mhz or posedge reset)
 	if (reset)			led	<= 0;
 	else if (cs2 && memwrite)	led	<= writedata[3:0];
 
+
+spi spi (clk_62p5mhz, reset, cs3 && memwrite, writedata[9:0], lcd);
+
 /* cs4 */
-//always @ (posedge clk_62p5mhz or posedge reset)
-//      if (reset)                      ioa     <= 0;
-//      else if (cs4 && memwrite)       ioa     <= writedata[7:0];
-assign  readdata4       = {24'h0, ioa};
+assign readdata4 = {24'h0, ioa_hi, ioa_lo};
+always  @ (posedge clk_62p5mhz or posedge reset)
+		if (reset)					ioa_lo <= 0;
+		else if (cs4 && memwrite)	ioa_lo <= writedata[3:0];
 
 /* cs5 */
-assign  readdata5       = {24'h0, iob_hi, iob_lo};
 always @ (posedge clk_62p5mhz or posedge reset)
-        if (reset)                      iob_lo  <= 0;
-        else if (cs5 && memwrite)       iob_lo  <= writedata[3:0];
+        if (reset)                      num     <= 0;
+        else if (cs5 && memwrite)       num     <= writedata[6:0];
 
+/*cs7*/
+assign readdata7 = {24'h0, iod_hi, iod_lo};
+always  @ (posedge clk_62p5mhz or posedge reset)
+		if (reset)					iod_lo <= 0;
+		else if (cs7 && memwrite)	iod_lo <= writedata[3:0];
+ 
 endmodule
-
 
 //***********************************************************************
 // 100msec timer for 62.5MHz clock
@@ -213,4 +227,83 @@ always @(posedge clk or posedge reset)
 			cnt2	<= 0;
 		end else
 			cnt2	<= cnt2 + 1;
+endmodule
+
+
+
+module seg7led (
+        input clk_62p5mhz,
+        input reset,
+        input [6:0] num,        /* 0 ... 99 */
+        output [3:0] dout1,
+        output [3:0] dout2
+);
+reg             digit;
+reg     [19:0]  counter;
+assign  dout1 = seg7out1(digit ? digit1(num) : digit10(num));
+assign  dout2 = {digit, seg7out2(digit ? digit1(num) : digit10(num))};
+always @ (posedge clk_62p5mhz or posedge reset)
+        if (reset) begin
+                counter <= 0;
+                digit   <= 0;
+        end else if (counter < 20'd625000)
+                counter <= counter + 1;
+        else begin
+                counter <= 0;
+                digit   <= ~digit;
+        end
+function [3:0] digit1 (input [6:0] num);
+        if (num < 10)           digit1  = num;
+        else if (num < 20)      digit1  = num - 10;
+        else if (num < 30)      digit1  = num - 20;
+        else if (num < 40)      digit1  = num - 30;
+        else if (num < 50)      digit1  = num - 40;
+        else if (num < 60)      digit1  = num - 50;
+        else if (num < 70)      digit1  = num - 60;
+        else if (num < 80)      digit1  = num - 70;
+        else if (num < 90)      digit1  = num - 80;
+        else                    digit1  = num - 90;
+endfunction
+function [3:0] digit10 (input [6:0] num);
+        if (num < 10)           digit10 = 0;
+        else if (num < 20)      digit10 = 1;
+        else if (num < 30)      digit10 = 2;
+        else if (num < 40)      digit10 = 3;
+        else if (num < 50)      digit10 = 4;
+        else if (num < 60)      digit10 = 5;
+        else if (num < 70)      digit10 = 6;
+        else if (num < 80)      digit10 = 7;
+        else if (num < 90)      digit10 = 8;
+        else                    digit10 = 9;
+endfunction
+function [3:0] seg7out1 (input [3:0] din);
+        case (din)
+        4'd0: seg7out1 = 4'b1111;
+        4'd1: seg7out1 = 4'b0000;
+        4'd2: seg7out1 = 4'b1011;
+        4'd3: seg7out1 = 4'b1001;
+        4'd4: seg7out1 = 4'b0100;
+        4'd5: seg7out1 = 4'b1101;
+        4'd6: seg7out1 = 4'b1111;
+        4'd7: seg7out1 = 4'b1100;
+        4'd8: seg7out1 = 4'b1111;
+        4'd9: seg7out1 = 4'b1100;
+        default: seg7out1 = 4'b0000;
+        endcase
+endfunction
+function [2:0] seg7out2 (input [3:0] din);
+        case (din)
+        4'd0: seg7out2 = 3'b011;
+        4'd1: seg7out2 = 3'b011;
+        4'd2: seg7out2 = 3'b101;
+        4'd3: seg7out2 = 3'b111;
+        4'd4: seg7out2 = 3'b111;
+        4'd5: seg7out2 = 3'b110;
+        4'd6: seg7out2 = 3'b110;
+        4'd7: seg7out2 = 3'b011;
+        4'd8: seg7out2 = 3'b111;
+        4'd9: seg7out2 = 3'b111;
+        default: seg7out2 = 3'b000;
+        endcase
+endfunction
 endmodule
