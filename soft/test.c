@@ -33,6 +33,8 @@ void lcd_data(unsigned char data);
 void lcd_pwr_on();
 void lcd_set_vbuf_pixel(int row, int col, int r, int g, int b);
 void lcd_puts(int y, int x, char *str);
+void lcd_putc_r(int y, int x, int c);
+void lcd_putc_b(int y, int x, int c);
 
 
 #define INIT    0
@@ -46,7 +48,7 @@ int score1;
 int score2;
 int playerCoordinate1;
 int playerCoordinate2;
-char field[8][10];
+char field[4][10];
 int shotCount1;
 int shotCount2;
 
@@ -75,6 +77,7 @@ void interrupt_handler() {
 
                 *seg7_ptr = score1 * 10 + score2; //７セグ
 
+                // キーパッドの入力受付
                 if (kypd_scand() == 0) {
                         player2_move();
                 } else if (kypd_scand() == 0x1) {
@@ -144,12 +147,19 @@ void interrupt_handler() {
                         shot_set(playerCoordinate1, 15);
                 }
 
+                // 弾の移動
                 if(++cnt % 1 == 0) {
                         show_ball(field, playerCoordinate1, playerCoordinate2);
-                        for(int y = 0; y < 8; y++) {
+                        for(int y = 0; y < 4; y++) {
                                 shot_move1(y);
                                 shot_move2(y);
                         }
+                }
+
+                // フィールド外の壁の描画
+                for(int x = 0; x < 12; x++) {
+                        lcd_putc_b(1, x, '=');
+                        lcd_putc_b(6, x, '=');
                 }
         } else if (state == ENDING) {
                 *seg7_ptr = score1 * 10 + score2; //７セグ
@@ -167,7 +177,7 @@ void init() {
         shotCount1 = 0;
         shotCount2 = 0;
 
-        for(int y = 0; y < 8; y++) {
+        for(int y = 0; y < 4; y++) {
                 for(int x = 0; x < 10; x++) {
                         field[y][x] = '0';
                 }
@@ -314,20 +324,20 @@ void shot_move2(int y) {
 
 void player1_move() {
         playerCoordinate1++;
-        playerCoordinate1 %= 8;
+        playerCoordinate1 %= 4;
         return;
 }
 
 void player2_move() {
         playerCoordinate2++;
-        playerCoordinate2 %= 8;
+        playerCoordinate2 %= 4;
         return;
 }
 
 void score1_add(int shotNumber) {
         score1 += shotNumber % 3;
         shotCount1--;
-        if(score1 >= 5) {
+        if(score1 >= 7) {
                 state = ENDING;
         }
         return;
@@ -336,7 +346,7 @@ void score1_add(int shotNumber) {
 void score2_add(int shotNumber) {
         score2 += (shotNumber - 16) % 3;
         shotCount2--;
-        if(score2 >= 5) {
+        if(score2 >= 7) {
                 state = ENDING;
         }
         return;
@@ -485,11 +495,11 @@ void play() {
         while (1) {
         }
 }
-void show_ball(char field[8][10], int playerCoordinate1, int playerCoordinate2){
+void show_ball(char field[][10], int playerCoordinate1, int playerCoordinate2){
     lcd_clear_vbuf(); // 画面バッファをクリア
     char hex_char;
 
-    for (int y = 0; y < 8; y++) {
+    for (int y = 0; y < 4; y++) {
         for (int x = 0; x < 10; x++) {
                 // mod 16 を適用
                 char mod_value = field[y][x] % 16;
@@ -504,11 +514,11 @@ void show_ball(char field[8][10], int playerCoordinate1, int playerCoordinate2){
                 }
 
                 // 描画
-                lcd_putc(y, x + 1, hex_char);
+                lcd_putc(y + 2, x + 1, hex_char);
         }
     }
-    lcd_putc(playerCoordinate1, 0, '*');
-    lcd_putc(playerCoordinate2, 11, '*');
+    lcd_putc_r(playerCoordinate1 + 2, 0, '*');
+    lcd_putc_r(playerCoordinate2 + 2, 11, '*');
 }
 /*
  * Switch functions
@@ -601,4 +611,16 @@ void lcd_puts(int y, int x, char *str) {
                         break;
                 else
                         lcd_putc(y, i, str[i]);
+}
+void lcd_putc_r(int y, int x, int c) {
+        for (int v = 0; v < 8; v++)
+                for (int h = 0; h < 8; h++)
+                        if ((font8x8[(c - 0x20) * 8 + h] >> v) & 0x01)
+                                lcd_set_vbuf_pixel(y * 8 + v, x * 8 + h, 255, 0, 0);
+}
+void lcd_putc_b(int y, int x, int c) {
+        for (int v = 0; v < 8; v++)
+                for (int h = 0; h < 8; h++)
+                        if ((font8x8[(c - 0x20) * 8 + h] >> v) & 0x01)
+                                lcd_set_vbuf_pixel(y * 8 + v, x * 8 + h, 0, 0, 255);
 }
