@@ -61,6 +61,19 @@ void interrupt_handler() {
         if (state == INIT) {
         } else if (state == OPENING) {
                 cnt = 0;
+                lcd_clear_vbuf();
+                lcd_putc(4, 0, 'P');
+                lcd_putc(4, 1, 'u');
+                lcd_putc(4, 2, 's');
+                lcd_putc(4, 3, 'h');
+                lcd_putc(4, 4, ' ');
+                lcd_putc(4, 5, '3');
+                lcd_putc(4, 6, 'b');
+                lcd_putc(4, 7, 'u');
+                lcd_putc(4, 8, 't');
+                lcd_putc(4, 9, 't');
+                lcd_putc(4, 10, 'o');
+                lcd_putc(4, 11, 'n');
         } else if (state == PLAY) {
                 // /* Display a ball */
                 // pos = (cnt < 12) ? cnt : 23 - cnt;
@@ -146,6 +159,8 @@ void interrupt_handler() {
                                 shot_move1(y);
                                 shot_move2(y);
                         }
+                        // shot_move1(0);
+                        // shot_move2(0);
 
                 }
         } else if (state == ENDING) {
@@ -207,12 +222,12 @@ void game_over() {
 
 void shot_set(int y, char inputNumber) {
         if (inputNumber < 16) {
-                if(shotCount1 < 10) {
+                if(shotCount1 < 6) {
                         field[y][0] = inputNumber;
                         shotCount1++;
                 }
         } else if (inputNumber > 16) {
-                if(shotCount2 < 10) {
+                if(shotCount2 < 6) {
                         field[y][9] = inputNumber; // kypd_scand()内であらかじめ１６足しておく。
                         shotCount2++;
                 }
@@ -221,12 +236,13 @@ void shot_set(int y, char inputNumber) {
 
 
 int get_shot_position1(int y) {
-        for(int i = 0; i < 10; i++) {
+        for(int i = 9; i >= 0; i--) {
                 if(field[y][i] > 0 && field[y][i] < 16) {
                         return i;
                 }
         }
         
+        led_set(0x8);
         return -1;
         
 }
@@ -238,37 +254,11 @@ int get_shot_position2(int y) {
                 }
         }
 
+        led_set(0x4);
         return -1;
         
 }
 
-// void shot_move1(int y) {
-//         int position1 = get_shot_position1(y);
-//         if(get_shot_position1(y) == 9) {
-//                 score1_add(field[y][get_shot_position1(y)]);
-//                 field[y][get_shot_position1(y)] = '0';
-//         } else if(field[y][get_shot_position1(y) + 1] == '0') {
-//                 field[y][get_shot_position1(y) + 1] = field[y][get_shot_position1(y)];
-//                 field[y][get_shot_position1(y)] = '0';
-//         } else if (get_shot_position1(y) < 4 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-//                 int tmp1 = field[y][get_shot_position1(y)] - '0';
-//                 int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
-//                 field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + '0';
-//                 field[y][get_shot_position1(y)] = '0';
-//                 shotCount2--;
-//         } else if (get_shot_position1(y) > 4 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-//                 int tmp1 = field[y][get_shot_position1(y)] - '0';
-//                 int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
-//                 // 16を足すことで右プレイヤーの弾にする
-//                 field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + 16 + '0';
-//                 field[y][get_shot_position1(y)] = '0';
-//                 shotCount1--;
-//         } else {
-//                 char tmp = field[y][get_shot_position1(y)];
-//                 field[y][get_shot_position1(y)] = field[y][get_shot_position1(y) + 1];
-//                 field[y][get_shot_position1(y)] = tmp;
-//         }
-// }
 
 void shot_move1(int y) {
         int position1 = get_shot_position1(y);
@@ -281,53 +271,30 @@ void shot_move1(int y) {
                 field[y][position1 + 1] = field[y][position1];
                 field[y][position1] = '0';
         } else if (position1 < 4 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-                int tmp1 = field[y][position1] - '0';
-                int tmp2 = field[y][position1 + 1] - '0';
-                field[y][position1 + 1] = (tmp1 + tmp2) % 16 + '0';
+                char tmp1 = field[y][position1];
+                char tmp2 = field[y][position1 + 1];
+                field[y][position1 + 1] = (tmp1 + tmp2) % 16;
                 field[y][position1] = '0';
                 shotCount2--;
+                // led_blink();
         } else if (position1 > 4 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-                int tmp1 = field[y][position1] - '0';
-                int tmp2 = field[y][position1 + 1] - '0';
+                char tmp1 = field[y][position1];
+                char tmp2 = field[y][position1 + 1];
                 // 16を足すことで右プレイヤーの弾にする
-                field[y][position1 + 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+                field[y][position1 + 1] = (tmp1 + tmp2) % 16 + 16;
                 field[y][position1] = '0';
                 shotCount1--;
+                // led_blink();
         } else {
+                // それ以外（＝ど真ん中衝突は２つの弾がすりぬける）
                 char tmp = field[y][position1];
                 field[y][position1] = field[y][position1 + 1];
-                field[y][position1] = tmp;
+                field[y][position1 + 1] = tmp;
         }
 }
 
 
-// void shot_move2(int y) {
-//         int position2 = get_shot_position2(y);
-//         if(get_shot_position2(y) == 0 /* 弾が左端に到達していたら右プレイヤーの得点 */) {
-//                 score2_add(field[y][get_shot_position2(y)]);
-//                 field[y][get_shot_position2(y)] = '0';
-//         } else if(field[y][get_shot_position2(y) - 1] == '0') {
-//                 field[y][get_shot_position2(y) - 1] = field[y][get_shot_position2(y)];
-//                 field[y][get_shot_position2(y)] = '0';
-//         } else if (get_shot_position2(y) < 5 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-//                 int tmp1 = field[y][get_shot_position2(y)] - '0';
-//                 int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
-//                 field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + '0';
-//                 field[y][get_shot_position2(y)] = '0';
-//                 shotCount2--;
-//         } else if (get_shot_position2(y) > 5 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-//                 int tmp1 = field[y][get_shot_position2(y)] - '0';
-//                 int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
-//                 // 16を足すことで右プレイヤーの弾にする
-//                 field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + 16 + '0';
-//                 field[y][get_shot_position2(y)] = '0';
-//                 shotCount1--;
-//         } else {
-//                 char tmp = field[y][get_shot_position2(y)];
-//                 field[y][get_shot_position2(y)] = field[y][get_shot_position2(y) - 1];
-//                 field[y][get_shot_position2(y)] = tmp;
-//         }
-// }
+
 void shot_move2(int y) {
         int position2 = get_shot_position2(y);
         if(position2 == -1) {
@@ -339,22 +306,23 @@ void shot_move2(int y) {
                 field[y][position2 - 1] = field[y][position2];
                 field[y][position2] = '0';
         } else if (position2 < 5 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-                int tmp1 = field[y][position2] - '0';
-                int tmp2 = field[y][position2 - 1] - '0';
-                field[y][position2 - 1] = (tmp1 + tmp2) % 16 + '0';
+                char tmp1 = field[y][position2];
+                char tmp2 = field[y][position2 - 1];
+                field[y][position2 - 1] = (tmp1 + tmp2) % 16;
                 field[y][position2] = '0';
                 shotCount2--;
         } else if (position2 > 5 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-                int tmp1 = field[y][position2] - '0';
-                int tmp2 = field[y][position2 - 1] - '0';
+                char tmp1 = field[y][position2];
+                char tmp2 = field[y][position2 - 1];
                 // 16を足すことで右プレイヤーの弾にする
-                field[y][position2 - 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+                field[y][position2 - 1] = (tmp1 + tmp2) % 16 + 16;
                 field[y][position2] = '0';
                 shotCount1--;
         } else {
+                // それ以外（＝ど真ん中衝突は２つの弾がすりぬける）
                 char tmp = field[y][position2];
                 field[y][position2] = field[y][position2 - 1];
-                field[y][position2] = tmp;
+                field[y][position2 - 1] = tmp;
         }
 }
 
@@ -532,7 +500,9 @@ void main() {
                         init();
                         state = OPENING;
                 } else if (state == OPENING) {
-                        state = PLAY;
+                        if(btn_check_3()) {
+                                state = PLAY;
+                        }
                 } else if (state == PLAY) {
                         play();
                         state = ENDING;
@@ -646,10 +616,10 @@ void show_ball(char field[8][10], int playerCoordinate1, int playerCoordinate2){
                 // 描画する文字を16進数表記に変換
                 if(field[y][x] == '0') {
                         hex_char = ' ';
-                        led_set(0x8);
+                        // led_set(0x8);
                 } else {
                         hex_char = (mod_value < 10) ? ('0' + mod_value) : ('A' + (mod_value - 10));
-                        led_set(0x4);
+                        // led_set(0x4);
                 }
 
                 // 描画
