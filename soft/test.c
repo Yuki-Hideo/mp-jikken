@@ -13,7 +13,7 @@ void lcd_init();
 void lcd_putc(int y, int x, int c);
 void lcd_sync_vbuf();
 void lcd_clear_vbuf();
-void shot_set(int y, int inputNumber);
+void shot_set(int y, char inputNumber);
 int get_shot_position1(int y);
 int get_shot_position2(int y);
 void shot_move1(int y);
@@ -24,6 +24,7 @@ void score1_add(int shotNumber);
 void score2_add(int shotNumber);
 int kypd_scand();
 int kypd_scana();
+void game_over();
 
 /* LCD related function prototypes */
 void lcd_wait(int n);
@@ -56,6 +57,7 @@ int shotCount2;
 /* interrupt_handler() is called every 100msec */
 void interrupt_handler() {
         static int cnt;
+        volatile int *seg7_ptr = (int *)0xff14; // 7セグLEDの番地
         if (state == INIT) {
         } else if (state == OPENING) {
                 cnt = 0;
@@ -66,12 +68,89 @@ void interrupt_handler() {
                 // if (++cnt >= 24) {
                 //         cnt = 0;
                 // }
-                show_ball(field, playerCoordinate1, playerCoordinate2);
-                get_shot_position1(1);
-                shot_move1(1);
-                get_shot_position2(2);
-                shot_move2(2);
+
+                *seg7_ptr = score1 * 10 + score2; //７セグ
+
+                if (kypd_scand() == 0) {
+                player2_move();
+                } else if (kypd_scand() == 0x1) {
+                shot_set(playerCoordinate2, 17);
+                } else if (kypd_scand() == 0x2) {
+                shot_set(playerCoordinate2, 18);
+                } else if (kypd_scand() == 0x3) {
+                shot_set(playerCoordinate2, 19);
+                } else if (kypd_scand() == 0x4) {
+                shot_set(playerCoordinate2, 20);
+                } else if (kypd_scand() == 0x5) {
+                shot_set(playerCoordinate2, 21);
+                } else if (kypd_scand() == 0x6) {
+                shot_set(playerCoordinate2, 22);
+                } else if (kypd_scand() == 0x7) {
+                shot_set(playerCoordinate2, 23);
+                } else if (kypd_scand() == 0x8) {
+                shot_set(playerCoordinate2, 24);
+                } else if (kypd_scand() == 0x9) {
+                shot_set(playerCoordinate2, 25);
+                } else if (kypd_scand() == 0xa) {
+                shot_set(playerCoordinate2, 26);
+                } else if (kypd_scand() == 0xb) {
+                shot_set(playerCoordinate2, 27);
+                } else if (kypd_scand() == 0xc) {
+                shot_set(playerCoordinate2, 28);
+                } else if (kypd_scand() == 0xd) {
+                shot_set(playerCoordinate2, 29);
+                } else if (kypd_scand() == 0xe) {
+                shot_set(playerCoordinate2, 30);
+                } else if (kypd_scand() == 0xf) {
+                shot_set(playerCoordinate2, 31);
+                }
+
+                if(kypd_scana() == 0) {
+                        player1_move();
+                } else if(kypd_scana() == 0x1) {
+                        shot_set(playerCoordinate1, 1);
+                        led_set(0xff08);
+                } else if(kypd_scana() == 0x2) {
+                        shot_set(playerCoordinate1, 2);
+                } else if(kypd_scana() == 0x3) {
+                        shot_set(playerCoordinate1, 3);
+                } else if(kypd_scana() == 0x4) {
+                        shot_set(playerCoordinate1, 4);
+                } else if(kypd_scana() == 0x5) {
+                        shot_set(playerCoordinate1, 5);
+                } else if(kypd_scana() == 0x6) {
+                        shot_set(playerCoordinate1, 6);
+                } else if(kypd_scana() == 0x7) {
+                        shot_set(playerCoordinate1, 7);
+                } else if(kypd_scana() == 0x8) {
+                        shot_set(playerCoordinate1, 8);
+                } else if(kypd_scana() == 0x9) {
+                        shot_set(playerCoordinate1, 9);
+                } else if(kypd_scana() == 0xa) {
+                        shot_set(playerCoordinate1, 10);
+                } else if(kypd_scana() == 0xb) {
+                        shot_set(playerCoordinate1, 11);
+                } else if(kypd_scana() == 0xc) {
+                        shot_set(playerCoordinate1, 12);
+                } else if(kypd_scana() == 0xd) {
+                        shot_set(playerCoordinate1, 13);
+                } else if(kypd_scana() == 0xe) {
+                        shot_set(playerCoordinate1, 14);
+                } else if(kypd_scana() == 0xf) {
+                        shot_set(playerCoordinate1, 15);
+                }
+
+                if(++cnt % 1 == 0) {
+                        show_ball(field, playerCoordinate1, playerCoordinate2);
+                        for(int y = 0; y < 8; y++) {
+                                shot_move1(y);
+                                shot_move2(y);
+                        }
+
+                }
         } else if (state == ENDING) {
+                *seg7_ptr = score1 * 10 + score2; //７セグ
+                game_over();
         }
         lcd_sync_vbuf();
 }
@@ -94,14 +173,46 @@ void init() {
         }
 }
 
-void shot_set(int y, int inputNumber) {
-        if (inputNumber <= 15) {
-                if(shotCount1 < 3) {
+void game_over() {
+    if (score1 > 4 && score1 > score2) {
+        lcd_clear_vbuf();
+        lcd_putc(4, 0, 'P');
+        lcd_putc(4, 1, 'l');
+        lcd_putc(4, 2, 'a');
+        lcd_putc(4, 3, 'y');
+        lcd_putc(4, 4, 'e');
+        lcd_putc(4, 5, 'r');
+        lcd_putc(4, 6, '1');
+        lcd_putc(4, 7, ' ');
+        lcd_putc(4, 8, 'W');
+        lcd_putc(4, 9, 'I');
+        lcd_putc(4, 10, 'N');
+        lcd_putc(4, 11, '!');
+    } else if (score2 > 4 && score1 < score2) {
+        lcd_clear_vbuf();
+        lcd_putc(4, 0, 'P');
+        lcd_putc(4, 1, 'l');
+        lcd_putc(4, 2, 'a');
+        lcd_putc(4, 3, 'y');
+        lcd_putc(4, 4, 'e');
+        lcd_putc(4, 5, 'r');
+        lcd_putc(4, 6, '2');
+        lcd_putc(4, 7, ' ');
+        lcd_putc(4, 8, 'W');
+        lcd_putc(4, 9, 'I');
+        lcd_putc(4, 10, 'N');
+        lcd_putc(4, 11, '!');
+    }
+}
+
+void shot_set(int y, char inputNumber) {
+        if (inputNumber < 16) {
+                if(shotCount1 < 10) {
                         field[y][0] = inputNumber;
                         shotCount1++;
                 }
-        } else if (inputNumber >= 17) {
-                if(shotCount2 < 3) {
+        } else if (inputNumber > 16) {
+                if(shotCount2 < 10) {
                         field[y][9] = inputNumber; // kypd_scand()内であらかじめ１６足しておく。
                         shotCount2++;
                 }
@@ -110,79 +221,147 @@ void shot_set(int y, int inputNumber) {
 
 
 int get_shot_position1(int y) {
-        for(int i = 0; i < 7; i++) {
-                if(field[y][i] >= 1 && field[y][i] <= 15) {
+        for(int i = 0; i < 10; i++) {
+                if(field[y][i] > 0 && field[y][i] < 16) {
                         return i;
                 }
         }
         
-        return 0;
+        return -1;
+        
 }
 
 int get_shot_position2(int y) {
-        for(int i = 0; i < 9; i++) {
-                if(field[y][i] >= 17) {
+        for(int i = 0; i < 10; i++) {
+                if(field[y][i] > 16 && field[y][i] < 32) {
                         return i;
                 }
         }
+
+        return -1;
         
-        return 9;
 }
 
+// void shot_move1(int y) {
+//         int position1 = get_shot_position1(y);
+//         if(get_shot_position1(y) == 9) {
+//                 score1_add(field[y][get_shot_position1(y)]);
+//                 field[y][get_shot_position1(y)] = '0';
+//         } else if(field[y][get_shot_position1(y) + 1] == '0') {
+//                 field[y][get_shot_position1(y) + 1] = field[y][get_shot_position1(y)];
+//                 field[y][get_shot_position1(y)] = '0';
+//         } else if (get_shot_position1(y) < 4 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
+//                 int tmp1 = field[y][get_shot_position1(y)] - '0';
+//                 int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
+//                 field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + '0';
+//                 field[y][get_shot_position1(y)] = '0';
+//                 shotCount2--;
+//         } else if (get_shot_position1(y) > 4 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
+//                 int tmp1 = field[y][get_shot_position1(y)] - '0';
+//                 int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
+//                 // 16を足すことで右プレイヤーの弾にする
+//                 field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+//                 field[y][get_shot_position1(y)] = '0';
+//                 shotCount1--;
+//         } else {
+//                 char tmp = field[y][get_shot_position1(y)];
+//                 field[y][get_shot_position1(y)] = field[y][get_shot_position1(y) + 1];
+//                 field[y][get_shot_position1(y)] = tmp;
+//         }
+// }
+
 void shot_move1(int y) {
-        if(get_shot_position1(y) == sizeof(field[y])/sizeof(field[y][0]) /* 弾が右端に到達していたら左プレイヤーの得点 */) {
-                score1_add(field[y][get_shot_position1(y)]);
-                field[y][get_shot_position1(y)] = '0';
-        } else if(field[y][get_shot_position1(y) + 1] == '0') {
-                field[y][get_shot_position1(y) + 1] = field[y][get_shot_position1(y)];
-                field[y][get_shot_position1(y)] = 0;
-        } else if (get_shot_position1(y) < 4 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-                int tmp1 = field[y][get_shot_position1(y)] - '0';
-                int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
-                field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + '0';
-                field[y][get_shot_position1(y)] = '0';
-        } else if (get_shot_position1(y) > 4 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-                int tmp1 = field[y][get_shot_position1(y)] - '0';
-                int tmp2 = field[y][get_shot_position1(y) + 1] - '0';
+        int position1 = get_shot_position1(y);
+        if(position1 == -1) {
+                return;
+        } else if(position1 == 9) {
+                score1_add(field[y][position1]);
+                field[y][position1] = '0';
+        } else if(field[y][position1 + 1] == '0') {
+                field[y][position1 + 1] = field[y][position1];
+                field[y][position1] = '0';
+        } else if (position1 < 4 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
+                int tmp1 = field[y][position1] - '0';
+                int tmp2 = field[y][position1 + 1] - '0';
+                field[y][position1 + 1] = (tmp1 + tmp2) % 16 + '0';
+                field[y][position1] = '0';
+                shotCount2--;
+        } else if (position1 > 4 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
+                int tmp1 = field[y][position1] - '0';
+                int tmp2 = field[y][position1 + 1] - '0';
                 // 16を足すことで右プレイヤーの弾にする
-                field[y][get_shot_position1(y) + 1] = (tmp1 + tmp2) % 16 + 16 + '0';
-                field[y][get_shot_position1(y)] = '0';
+                field[y][position1 + 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+                field[y][position1] = '0';
+                shotCount1--;
         } else {
-                unsigned char tmp = field[y][get_shot_position1(y)];
-                field[y][get_shot_position1(y)] = field[y][get_shot_position1(y) + 1];
-                field[y][get_shot_position1(y)] = tmp;
+                char tmp = field[y][position1];
+                field[y][position1] = field[y][position1 + 1];
+                field[y][position1] = tmp;
         }
 }
 
+
+// void shot_move2(int y) {
+//         int position2 = get_shot_position2(y);
+//         if(get_shot_position2(y) == 0 /* 弾が左端に到達していたら右プレイヤーの得点 */) {
+//                 score2_add(field[y][get_shot_position2(y)]);
+//                 field[y][get_shot_position2(y)] = '0';
+//         } else if(field[y][get_shot_position2(y) - 1] == '0') {
+//                 field[y][get_shot_position2(y) - 1] = field[y][get_shot_position2(y)];
+//                 field[y][get_shot_position2(y)] = '0';
+//         } else if (get_shot_position2(y) < 5 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
+//                 int tmp1 = field[y][get_shot_position2(y)] - '0';
+//                 int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
+//                 field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + '0';
+//                 field[y][get_shot_position2(y)] = '0';
+//                 shotCount2--;
+//         } else if (get_shot_position2(y) > 5 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
+//                 int tmp1 = field[y][get_shot_position2(y)] - '0';
+//                 int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
+//                 // 16を足すことで右プレイヤーの弾にする
+//                 field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+//                 field[y][get_shot_position2(y)] = '0';
+//                 shotCount1--;
+//         } else {
+//                 char tmp = field[y][get_shot_position2(y)];
+//                 field[y][get_shot_position2(y)] = field[y][get_shot_position2(y) - 1];
+//                 field[y][get_shot_position2(y)] = tmp;
+//         }
+// }
 void shot_move2(int y) {
-        if(get_shot_position2(y) == 0 /* 弾が左端に到達していたら右プレイヤーの得点 */) {
-                score2_add(field[y][get_shot_position2(y)]);
-                field[y][get_shot_position2(y)] = '0';
-        } else if(field[y][get_shot_position2(y) - 1] == '0') {
-                field[y][get_shot_position2(y) - 1] = field[y][get_shot_position2(y)];
-                field[y][get_shot_position2(y)] = 0;
-        } else if (get_shot_position2(y) < 5 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
-                int tmp1 = field[y][get_shot_position2(y)] - '0';
-                int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
-                field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + '0';
-                field[y][get_shot_position2(y)] = '0';
-        } else if (get_shot_position2(y) > 5 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
-                int tmp1 = field[y][get_shot_position2(y)] - '0';
-                int tmp2 = field[y][get_shot_position2(y) - 1] - '0';
+        int position2 = get_shot_position2(y);
+        if(position2 == -1) {
+                return;
+        } else if(position2 == 0 /* 弾が左端に到達していたら右プレイヤーの得点 */) {
+                score2_add(field[y][position2]);
+                field[y][position2] = '0';
+        } else if(field[y][position2 - 1] == '0') {
+                field[y][position2 - 1] = field[y][position2];
+                field[y][position2] = '0';
+        } else if (position2 < 5 /* 左半分でぶつかったとき, 左プレイヤーの弾にする */) {
+                int tmp1 = field[y][position2] - '0';
+                int tmp2 = field[y][position2 - 1] - '0';
+                field[y][position2 - 1] = (tmp1 + tmp2) % 16 + '0';
+                field[y][position2] = '0';
+                shotCount2--;
+        } else if (position2 > 5 /* 右半分でぶつかったとき, 右プレイヤーの弾にする */ ) {
+                int tmp1 = field[y][position2] - '0';
+                int tmp2 = field[y][position2 - 1] - '0';
                 // 16を足すことで右プレイヤーの弾にする
-                field[y][get_shot_position2(y) - 1] = (tmp1 + tmp2) % 16 + 16 + '0';
-                field[y][get_shot_position2(y)] = '0';
+                field[y][position2 - 1] = (tmp1 + tmp2) % 16 + 16 + '0';
+                field[y][position2] = '0';
+                shotCount1--;
         } else {
-                unsigned char tmp = field[y][get_shot_position2(y)];
-                field[y][get_shot_position2(y)] = field[y][get_shot_position2(y) - 1];
-                field[y][get_shot_position2(y)] = tmp;
+                char tmp = field[y][position2];
+                field[y][position2] = field[y][position2 - 1];
+                field[y][position2] = tmp;
         }
 }
 
 void player1_move() {
         player1Field[playerCoordinate1] = '0';
         playerCoordinate1++;
-        playerCoordinate1 %= 10;
+        playerCoordinate1 %= 8;
         player1Field[playerCoordinate1] = '*';
         return;
 }
@@ -190,7 +369,7 @@ void player1_move() {
 void player2_move() {
         player2Field[playerCoordinate2] = '0';
         playerCoordinate2++;
-        playerCoordinate2 %= 10;
+        playerCoordinate2 %= 8;
         player2Field[playerCoordinate2] = '*';
         return;
 }
@@ -198,6 +377,7 @@ void player2_move() {
 
 void score1_add(int shotNumber) {
         score1 += shotNumber % 3;
+        shotCount1--;
         if(score1 >= 5) {
                 state = ENDING;
         }
@@ -205,7 +385,8 @@ void score1_add(int shotNumber) {
 }
 
 void score2_add(int shotNumber) {
-        score2 += shotNumber % 3;
+        score2 += (shotNumber - 16) % 3;
+        shotCount2--;
         if(score2 >= 5) {
                 state = ENDING;
         }
@@ -270,7 +451,6 @@ int kypd_scand() {
         if ((*iob_ptr & 0x10) == 0) {
                 return 0xd;
         }
-        return 0;
 }
 int kypd_scana() {
         volatile int *iob_ptr = (int *)0xff10;
@@ -330,7 +510,6 @@ int kypd_scana() {
         if ((*iob_ptr & 0x10) == 0) {
                 return 0xd;
         }
-        return 0;
 }
 
 // void main() {
@@ -342,14 +521,15 @@ int kypd_scana() {
 // }
 void main() {
         init();
-        playerCoordinate1 = 3;
-        playerCoordinate2 = 5;
-        field[1][0] = 1;
-        field[2][9] = 19;
+        // playerCoordinate1 = 3;
+        // playerCoordinate2 = 5;
+        // field[1][0] = 1;
+        // field[2][9] = 19;
 
         while (1) {
                 if (state == INIT) {
                         lcd_init();
+                        init();
                         state = OPENING;
                 } else if (state == OPENING) {
                         state = PLAY;
@@ -372,59 +552,77 @@ void play() {
                 // } else if (btn_check_1()) {
                 //         break;          /* Stop the game */
                 // }
+                // if (kypd_scand() == 0) {
+                // player2_move();
+                // } else if (kypd_scand() == 0x1) {
+                // shot_set(playerCoordinate2, 17);
+                // } else if (kypd_scand() == 0x2) {
+                // shot_set(playerCoordinate2, 18);
+                // } else if (kypd_scand() == 0x3) {
+                // shot_set(playerCoordinate2, 19);
+                // } else if (kypd_scand() == 0x4) {
+                // shot_set(playerCoordinate2, 20);
+                // } else if (kypd_scand() == 0x5) {
+                // shot_set(playerCoordinate2, 21);
+                // } else if (kypd_scand() == 0x6) {
+                // shot_set(playerCoordinate2, 22);
+                // } else if (kypd_scand() == 0x7) {
+                // shot_set(playerCoordinate2, 23);
+                // } else if (kypd_scand() == 0x8) {
+                // shot_set(playerCoordinate2, 24);
+                // } else if (kypd_scand() == 0x9) {
+                // shot_set(playerCoordinate2, 25);
+                // } else if (kypd_scand() == 0xa) {
+                // shot_set(playerCoordinate2, 26);
+                // } else if (kypd_scand() == 0xb) {
+                // shot_set(playerCoordinate2, 27);
+                // } else if (kypd_scand() == 0xc) {
+                // shot_set(playerCoordinate2, 28);
+                // } else if (kypd_scand() == 0xd) {
+                // shot_set(playerCoordinate2, 29);
+                // } else if (kypd_scand() == 0xe) {
+                // shot_set(playerCoordinate2, 30);
+                // } else if (kypd_scand() == 0xf) {
+                // shot_set(playerCoordinate2, 31);
+                // }
 
-                if(kypd_scana() == 0) {
-                        player1_move();
-                } else if(kypd_scana() == 0x1) {
-                        shot_set(playerCoordinate1, 1);
-                        led_set(0xff08);
-                } else if(kypd_scana() == 0x2) {
-                        shot_set(playerCoordinate1, 2);
-                } else if(kypd_scana() == 0x3) {
-                        shot_set(playerCoordinate1, 3);
-                } else if(kypd_scana() == 0x4) {
-                        shot_set(playerCoordinate1, 4);
-                } else if(kypd_scana() == 0x5) {
-                        shot_set(playerCoordinate1, 5);
-                } else if(kypd_scana() == 0x6) {
-                        shot_set(playerCoordinate1, 6);
-                } else if(kypd_scana() == 0x7) {
-                        shot_set(playerCoordinate1, 7);
-                } else if(kypd_scana() == 0x8) {
-                        shot_set(playerCoordinate1, 8);
-                } else if(kypd_scana() == 0x9) {
-                        shot_set(playerCoordinate1, 9);
-                } else if(kypd_scana() == 0xa) {
-                        shot_set(playerCoordinate1, 10);
-                } else if(kypd_scana() == 0xb) {
-                        shot_set(playerCoordinate1, 11);
-                } else if(kypd_scana() == 0xc) {
-                        shot_set(playerCoordinate1, 12);
-                } else if(kypd_scana() == 0xd) {
-                        shot_set(playerCoordinate1, 13);
-                } else if(kypd_scana() == 0xe) {
-                        shot_set(playerCoordinate1, 14);
-                } else if(kypd_scana() == 0xf) {
-                        shot_set(playerCoordinate1, 15);
-                }
+                // if(kypd_scana() == 0) {
+                //         player1_move();
+                // } else if(kypd_scana() == 0x1) {
+                //         shot_set(playerCoordinate1, 1);
+                //         led_set(0xff08);
+                // } else if(kypd_scana() == 0x2) {
+                //         shot_set(playerCoordinate1, 2);
+                // } else if(kypd_scana() == 0x3) {
+                //         shot_set(playerCoordinate1, 3);
+                // } else if(kypd_scana() == 0x4) {
+                //         shot_set(playerCoordinate1, 4);
+                // } else if(kypd_scana() == 0x5) {
+                //         shot_set(playerCoordinate1, 5);
+                // } else if(kypd_scana() == 0x6) {
+                //         shot_set(playerCoordinate1, 6);
+                // } else if(kypd_scana() == 0x7) {
+                //         shot_set(playerCoordinate1, 7);
+                // } else if(kypd_scana() == 0x8) {
+                //         shot_set(playerCoordinate1, 8);
+                // } else if(kypd_scana() == 0x9) {
+                //         shot_set(playerCoordinate1, 9);
+                // } else if(kypd_scana() == 0xa) {
+                //         shot_set(playerCoordinate1, 10);
+                // } else if(kypd_scana() == 0xb) {
+                //         shot_set(playerCoordinate1, 11);
+                // } else if(kypd_scana() == 0xc) {
+                //         shot_set(playerCoordinate1, 12);
+                // } else if(kypd_scana() == 0xd) {
+                //         shot_set(playerCoordinate1, 13);
+                // } else if(kypd_scana() == 0xe) {
+                //         shot_set(playerCoordinate1, 14);
+                // } else if(kypd_scana() == 0xf) {
+                //         shot_set(playerCoordinate1, 15);
+                // }
 
 
-               if(kypd_scand() == 0) { player2_move(); } 
-                else if(kypd_scand() == 0x1) { shot_set(playerCoordinate2, 17); } 
-                else if(kypd_scand() == 0x2) { shot_set(playerCoordinate2, 18); } 
-                else if(kypd_scand() == 0x3) { shot_set(playerCoordinate2, 19); } 
-                else if(kypd_scand() == 0x4) { shot_set(playerCoordinate2, 20); } 
-                else if(kypd_scand() == 0x5) { shot_set(playerCoordinate2, 21); } 
-                else if(kypd_scand() == 0x6) { shot_set(playerCoordinate2, 22); } 
-                else if(kypd_scand() == 0x7) { shot_set(playerCoordinate2, 23); } 
-                else if(kypd_scand() == 0x8) { shot_set(playerCoordinate2, 24); } 
-                else if(kypd_scand() == 0x9) { shot_set(playerCoordinate2, 25); } 
-                else if(kypd_scand() == 0xa) { shot_set(playerCoordinate2, 26); } 
-                else if(kypd_scand() == 0xb) { shot_set(playerCoordinate2, 27); } 
-                else if(kypd_scand() == 0xc) { shot_set(playerCoordinate2, 28); } 
-                else if(kypd_scand() == 0xd) { shot_set(playerCoordinate2, 29); } 
-                else if(kypd_scand() == 0xe) { shot_set(playerCoordinate2, 30); } 
-                else if(kypd_scand() == 0xf) { shot_set(playerCoordinate2, 31); } 
+
         }
 }
 void show_ball(char field[8][10], int playerCoordinate1, int playerCoordinate2){
@@ -458,8 +656,8 @@ void show_ball(char field[8][10], int playerCoordinate1, int playerCoordinate2){
                 lcd_putc(y, x + 1, hex_char);
         }
     }
-    lcd_putc(playerCoordinate1, 0, ' ');
-    lcd_putc(playerCoordinate2, 11, ' ');
+    lcd_putc(playerCoordinate1, 0, '*');
+    lcd_putc(playerCoordinate2, 11, '*');
 }
 /*
  * Switch functions
