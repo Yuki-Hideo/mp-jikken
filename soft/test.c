@@ -161,6 +161,14 @@ void interrupt_handler() {
                         lcd_putc_b(1, x, '=');
                         lcd_putc_b(6, x, '=');
                 }
+
+                // 残弾数の表示
+                for(int x = 0; x < 5 - shotCount1; x++) {
+                        lcd_putc(0, x, '#');
+                }
+                for(int x = 11; x > 6 + shotCount2; x--) {
+                        lcd_putc(0, x, '#');
+                }
         } else if (state == ENDING) {
                 *seg7_ptr = score1 * 10 + score2; //７セグ
                 game_over();
